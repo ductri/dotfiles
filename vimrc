@@ -24,6 +24,8 @@ else
 endif
 let g:deoplete#enable_at_startup = 1
 
+Plug 'preservim/nerdtree'
+
 " Initialize plugin system
 call plug#end()
 
