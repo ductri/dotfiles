@@ -35,17 +35,17 @@ call deoplete#custom#var('omni', 'input_patterns', {
       \})
 
 " My configuration
-:set number
-:set encoding=utf-8
-:set tabstop=4 shiftwidth=4 expandtab
+set number
+set encoding=utf-8
+set tabstop=4 shiftwidth=4 expandtab
+let g:tex_flavor = "latex"
 
 
-:let mapleader = "-"
+let mapleader = "-"
 
 
-:nnoremap <leader>ev :vsplit ~/.vimrc<cr>
-:nnoremap <leader>sv :source ~/.vimrc<cr>
-
-:nnoremap <leader>ne G3o<esc>i#New entry: <esc>"=strftime('%c')<C-M>p2o<esc>i
+nnoremap <leader>ev :vsplit ~/.vimrc<cr>
+nnoremap <leader>sv :source ~/.vimrc<cr>
+nnoremap <leader>ne G3o<esc>i#New entry: <esc>"=strftime('%c')<C-M>p2o<esc>i
 
 

@@ -17,3 +17,6 @@ echo "Save latexmkrc"
 cp ~/.latexmkrc latexmkrc
 echo 
 
+echo "Save zathurarc"
+cp ~/.config/zathura/zathurarc zathurarc
+echo 

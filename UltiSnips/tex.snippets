@@ -50,11 +50,11 @@ endsnippet
 
 # My creation
 snippet '(tb)(\w+)' "textbf" ir
-\textbf{`!p snip.rv = match.group(2)`} 
+\textbf{`!p snip.rv = match.group(2)`}
 endsnippet
 
 snippet '(ti)(\w+)' "textit" ir
-\textbf{`!p snip.rv = match.group(2)`} 
+\textbf{`!p snip.rv = match.group(2)`}
 endsnippet
 
 snippet mr "\mathbb{R}" iA
@@ -67,5 +67,51 @@ endsnippet
 
 snippet '(<>)' "\Rightarrow" rA
 \Leftrightarrow
+endsnippet
+
+snippet '(\')' "\Rightarrow" r
+^T
+endsnippet
+
+snippet init "Basic skeleton for an article" b
+\documentclass[11pt,a4paper]{article}
+%\usepackage{color}
+%\usepackage{float}
+%\usepackage{caption}
+%\usepackage{subcaption}
+%\usepackage[utf8x]{inputenc}
+%\usepackage{algorithm2e}
+
+\usepackage[english]{babel}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[colorlinks=false]{hyperref} % the option is there to remove the square around links which is what I don't like.
+\usepackage{perpage} 
+\MakePerPage{footnote} % Reset the footnote counter perpage. may require to run latex twice.
+\usepackage[margin=2cm]{geometry} % This is here to fit more text into the page.
+\setcounter{secnumdepth}{1}  % This removes the numbering from the subsections.
+						% If you want the numbering of the subsection level just remove this line
+
+\title{${1:type-the-title}}
+\author{	Tri Nguyen \\\\
+		\texttt{nguyetr9@oregonstate.edu} \\\\
+		}
+
+\setlength{\parindent}{0pt} % No indentation for paragraphs. Because that is just old.
+%\setlength{\parskip}{\baselineskip} % Instead use vertical paragraph spacing.
+
+\fontencoding{T1} % the better font encoding.
+
+\newcommand{\trace}{\text{trace}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+
+\begin{document}
+\maketitle
+$0
+
+
+
+\end{document}
 endsnippet
 
