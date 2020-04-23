@@ -38,14 +38,12 @@ call deoplete#custom#var('omni', 'input_patterns', {
 set number
 set encoding=utf-8
 set tabstop=4 shiftwidth=4 expandtab
-let g:tex_flavor = "latex"
-
-
-let mapleader = "-"
-
+let g:tex_flavor = "latex" 
+let mapleader = "-" 
 
 nnoremap <leader>ev :vsplit ~/.vimrc<cr>
 nnoremap <leader>sv :source ~/.vimrc<cr>
+nnoremap <leader>ed :split /home/tringuyen/research/notes/diary.md<cr>
 nnoremap <leader>ne G3o<esc>i#New entry: <esc>"=strftime('%c')<C-M>p2o<esc>i
 
-
+let DIARY='/home/tringuyen/research/notes/diary.md'
