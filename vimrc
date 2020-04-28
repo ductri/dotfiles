@@ -45,5 +45,7 @@ nnoremap <leader>ev :vsplit ~/.vimrc<cr>
 nnoremap <leader>sv :source ~/.vimrc<cr>
 nnoremap <leader>ed :split /home/tringuyen/research/notes/diary.md<cr>
 nnoremap <leader>ne G3o<esc>i#New entry: <esc>"=strftime('%c')<C-M>p2o<esc>i
+vnoremap <leader>" c""<esc>bp
+nnoremap <leader>c 0i%<esc>j
 
 let DIARY='/home/tringuyen/research/notes/diary.md'
