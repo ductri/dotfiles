@@ -20,3 +20,12 @@ echo
 echo "Save zathurarc"
 cp ~/.config/zathura/zathurarc zathurarc
 echo 
+
+echo "Save bashrc"
+cp ~/.bashrc bashrc
+echo 
+
+echo "Save bash_aliases"
+cp ~/.bash_aliases bash_aliases
+echo 
+

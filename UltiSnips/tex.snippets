@@ -42,15 +42,20 @@ snippet // "Fraction" iA
 \\frac{$1}{$2}$0
 endsnippet
 
-snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "Fraction" wrA
+snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "Fraction" wr
 \\frac{`!p snip.rv = match.group(1)`}{$1}$0
 endsnippet
 
 
-
+# --------------------------------------
 # My creation
+# --------------------------------------
 snippet '(tb)(\w+)' "textbf" ir
 \textbf{`!p snip.rv = match.group(2)`}
+endsnippet
+
+snippet '(bb)(\w+)' "mathbf" ir
+\mathbf{`!p snip.rv = match.group(2)`}
 endsnippet
 
 snippet '(tb)\\(\w+)' "textbf for greek letters (amsmath is required)" ir
@@ -61,8 +66,20 @@ snippet '(ti)(\w+)' "textit" ir
 \textit{`!p snip.rv = match.group(2)`}
 endsnippet
 
-snippet mr "\mathbb{R}" iA
+snippet '(tm)(\w+)' "mathcal" ir
+\mathcal{`!p snip.rv = match.group(2)`}
+endsnippet
+
+snippet mr "\mathbb{R}" i
 \mathbb{R}
+endsnippet
+
+snippet mc "\mathbb{C}" i
+\mathbb{C}
+endsnippet
+
+snippet me "\mathbb{E}" i 
+\mathbb{E}
 endsnippet
 
 snippet '(->)' "\Rightarrow" rA
@@ -77,7 +94,7 @@ snippet '(\')' "\Rightarrow" r
 ^T
 endsnippet
 
-snippet init-latex "Basic skeleton for an article" b
+snippet init-article "Basic skeleton for an article" b
 \documentclass[11pt,a4paper]{article}
 
 % --------------------------------------------------------- 
@@ -91,10 +108,11 @@ snippet init-latex "Basic skeleton for an article" b
 %\usepackage[utf8x]{inputenc}
 %\usepackage{algorithm2e}
 \usepackage{enumitem}
-\usepackage[english]{babel}
+%\usepackage[english]{babel}
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{amsthm}
+\usepackage{graphicx} % Allows including images
 \usepackage[colorlinks=false]{hyperref} % the option is there to remove the square around links which is what I don't like.
 \usepackage{perpage} 
 \MakePerPage{footnote} % Reset the footnote counter perpage. may require to run latex twice.
@@ -102,16 +120,23 @@ snippet init-latex "Basic skeleton for an article" b
 \setlength{\parindent}{0pt} % No indentation for paragraphs. Because that is just old.
 %\setlength{\parskip}{\baselineskip} % Instead use vertical paragraph spacing.
 \fontencoding{T1} % the better font encoding.
-
+\usepackage{chngcntr} % https://tex.stackexchange.com/questions/28333/continuous-v-per-chapter-section-numbering-of-figures-tables-and-other-docume
+% --------------------------------------------------------- 
+% SETTINGS
+% --------------------------------------------------------- 
+\counterwithin{figure}{section}
 
 % --------------------------------------------------------- 
 % CUSTOM COMMANDS
 % --------------------------------------------------------- 
 
+\newcommand{\rank}{\text{rank}}
 \newcommand{\trace}{\text{trace}}
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 \newcommand{\abs}[1]{\lvert#1\rvert}
-
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}} % https://tex.stackexchange.com/questions/42726/align-but-show-one-equation-number-at-the-end 
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
 
 % --------------------------------------------------------- 
 % CUSTOM ENVIRONMENTS
@@ -139,11 +164,238 @@ $0
 endsnippet
 
 snippet { "Open curly bracket" i
-{$1} $0
+{$1}$0
 endsnippet
 
 snippet ( "Open parenthesis" i
-($1) $0
+($1)$0
+endsnippet
+
+snippet [ "Open parenthesis" i
+[$1]$0
+endsnippet
+
+snippet init-slide "Slide template"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass[10pt]{beamer}
+
+\mode<presentation> {
+
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+\colorlet{beamer@blendedblue}{green!40!black}
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{multirow}
+\usepackage{tikz}
+\usepackage{xcolor} 
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows,automata}
+\usetikzlibrary{positioning}
+\usetikzlibrary{decorations.text}
+\usetikzlibrary{decorations.pathmorphing}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{tikz}
+\usetikzlibrary{tikzmark,calc}
+\usepackage{mathtools}
+\usepackage{amsthm}
+%\usepackage{enumitem}
+
+\usepackage[english]{babel}
+
+\setlength{\parindent}{2em}
+\setlength{\parskip}{1em}
+\renewcommand{\baselinestretch}{1.6}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+
+% to change colors
+\newcommand{\fillcol}{green!10}
+\newcommand{\bordercol}{black}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\newcommand\DrawBox[3][]{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \draw[overlay,fill=gray!30,#1] 
+    ([xshift=-8em,yshift=2.1ex]{pic cs:#2}) 
+    rectangle 
+    ([xshift=2pt,yshift=-0.7ex]pic cs:#3);
+  \end{tikzpicture}%
+}
+
+\newcommand*{\captionsource}[2]{%
+  \caption[{#1}]{%
+    #1%
+    \\\\\\hspace{\linewidth}%
+    \textbf{Source:} #2%
+  }%
+}
+
+
+\algnewcommand\algorithmicinput{\textbf{Input:}}
+\algnewcommand\INPUT{\item[\algorithmicinput]}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[${1:type-the-title}]{$1} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+\author{Tri Nguyen} % Your name
+\institute[OSU] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+Oregon State University \\\\ % Your institution for the title page
+% \medskip
+% \textit{lehoang@oregonstate.edu \endgraf } % Your email address
+% }
+}
+\date{\today} % Date, can be changed to a custom date
+
+\graphicspath{ {images/} }
+
+\makeatletter
+\renewcommand{\ALG@beginalgorithmic}{\footnotesize}
+\makeatother
+
+\newcounter{saveenumi}
+\newcommand{\seti}{\setcounter{saveenumi}{\value{enumi}}}
+\newcommand{\conti}{\setcounter{enumi}{\value{saveenumi}}}
+
+\begin{document}
+% \newtheorem{theorem}{Theorem}[section]
+% \newtheorem{corollary}{Corollary}[theorem]
+% \newtheorem{lemma}[theorem]{Lemma}
+%------------------------------------------------
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}
+%------------------------------------------------
+%------------------------------------------------
+
+%------------------------------------------------
+%\begin{frame}
+%\frametitle{Contents} % Table of contents slide, comment this block out to remove it
+%\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+%\end{frame}
+%------------------------------------------------
+%------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+%\section{Description}
+\begin{frame}
+\frametitle{Description}
+$0
+\end{frame}
+\end{document}
+endsnippet
+
+snippet eps "epsilon" i
+\epsilon
+endsnippet
+
+snippet alp "alpha" i
+\alpha
+endsnippet
+
+snippet del "delta" i
+\delta
+endsnippet
+
+snippet eta "eta" i
+\eta
+endsnippet
+
+snippet sig "sigma" i
+\sigma
+endsnippet
+
+snippet Sig "Sigma" i
+\Sigma
+endsnippet
+
+snippet \bs "boldsymbol" i
+\boldsymbol
 endsnippet
 
 
