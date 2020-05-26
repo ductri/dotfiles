@@ -141,7 +141,16 @@ snippet init-article "Basic skeleton for an article" b
 % --------------------------------------------------------- 
 % CUSTOM ENVIRONMENTS
 % --------------------------------------------------------- 
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
 
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section]
 
 % --------------------------------------------------------- 
 % TITLE, AUTHORS, ...
@@ -161,18 +170,6 @@ $0
 
 
 \end{document}
-endsnippet
-
-snippet { "Open curly bracket" i
-{$1}$0
-endsnippet
-
-snippet ( "Open parenthesis" i
-($1)$0
-endsnippet
-
-snippet [ "Open parenthesis" i
-[$1]$0
 endsnippet
 
 snippet init-slide "Slide template"

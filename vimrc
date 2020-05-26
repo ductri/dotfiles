@@ -45,6 +45,11 @@ Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
 Plug 'tpope/vim-surround'
 
 Plug 'benmills/vimux'
+
+Plug 'christoomey/vim-tmux-navigator'
+" Disable tmux navigator when zooming the Vim pane
+let g:tmux_navigator_disable_when_zoomed = 1
+
 " Initialize plugin system
 call plug#end()
 
@@ -74,6 +79,8 @@ let g:vimtex_quickfix_ignore_filters = [
 
 let mapleader = "-" 
 let maplocalleader="\\"
+set tags=tags
+
 " ----------------------------------
 " KEY MAPPINGS
 " ----------------------------------
@@ -83,6 +90,7 @@ inoremap jk <esc>
 nnoremap <leader>ev :vsplit ~/.vimrc<cr>
 nnoremap <leader>sv :source ~/.vimrc<cr>
 nnoremap <leader>es :UltiSnipsEdit<cr> 
+nnoremap <leader>eS :vsplit ~/.vim/UltiSnips/all.snippets<cr> 
 nnoremap <leader>ed :split /home/tringuyen/research/notes/diary.md<cr>
 nnoremap <leader>ne G3o<esc>i# New entry: <esc>"=strftime('%c')<C-M>p2o<esc>i
 nnoremap <leader>c 0i%<esc>j
@@ -95,7 +103,11 @@ nnoremap <silent> <Leader>> :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
 nnoremap <silent> <Leader>< :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
 
 autocmd FileType matlab nnoremap <buffer> <f5> :call VimuxRunCommand(expand('%:t:r'))<cr>
+autocmd FileType matlab nnoremap <buffer> <f6> :call VimuxCurrentLine()<cr>
 autocmd FileType matlab nnoremap <buffer> <localleader>vl :VimuxRunLastCommand<CR>
+" Close vim tmux runner opened by VimuxRunCommand
+autocmd FileType matlab nnoremap <buffer> <localleader>vq :VimuxCloseRunner<CR>
+
 autocmd FileType matlab nnoremap <buffer> <localleader>cd :call VimuxRunCommand("cd ".expand('%:p:h'))<cr>
 autocmd FileType matlab nnoremap <buffer> <localleader>o :call VimuxRunCommand("matlab -nodesktop")<cr>
 autocmd FileType matlab nnoremap <buffer> <localleader>c 0i%<esc>j
@@ -112,5 +124,10 @@ function! OpenMarkdownPreview() abort
   let s:markdown_job = job_start(["grip", expand('%:p')])
   sleep 300m
   call system('firefox http://localhost:6419')
+endfunction
+
+function! VimuxCurrentLine()
+  let l:command = getline(".")
+  call VimuxRunCommand(l:command.";")
 endfunction
 
