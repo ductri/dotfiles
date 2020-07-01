@@ -1,39 +1,61 @@
-set synctex true
-set synctex-editor-command "gvim +%{line} %{input}"
-set highlight-active-color "#ffffff"
-set highlight-transparency 0.1
+# Zathura configuration file
+# See man `man zathurarc'
 
-# Setting color, borrow from: https://github.com/alezost/config/blob/master/zathura/dark-theme 
-# -*- mode: conf-space -*-
+# Open document in fit-width mode by default
+set adjust-open "best-fit"
 
-# Dark theme made in the spirit of 'alect-dark':
-# <https://github.com/alezost/alect-themes>.
+# One page per row by default
+set pages-per-row 1
 
-set default-bg "#4f4f4f"
-set default-fg "#d5d2be"
-set inputbar-bg "#464646"
-set inputbar-fg "#d5d2be"
-set statusbar-bg "#222222"
-set statusbar-fg "#d5d2be"
+#stop at page boundries
+set scroll-page-aware "true"
+set smooth-scroll "true"
+set scroll-full-overlap 0.01
+set scroll-step 100
 
-set completion-bg "#464646"
-set completion-fg "#d5d2be"
-set completion-group-bg "#464646"
-set completion-group-fg "#099709"
-set completion-highlight-bg "#6f6f6f"
-set completion-highlight-fg "#d5d2be"
+#zoom settings
+set zoom-min 10
+set guioptions ""
 
-set notification-bg "#464646"
-set notification-fg "#f6f0e1"
-set notification-warning-bg "#464646"
-set notification-warning-fg "#e8e815"
-set notification-error-bg "#c64242"
-set notification-error-fg "#f6f0e1"
+# zathurarc-dark
 
-set index-bg "#3f3f3f"
-set index-fg "#d5d2be"
-set index-active-bg "#4f4f4f"
-set index-active-fg "#d5d2be"
+set font "inconsolata 15"
+set default-bg "#000000" #00
+set default-fg "#F7F7F6" #01
 
-set recolor-lightcolor "#3f3f3f"
-set recolor-darkcolor "#d5d2be"
+set statusbar-fg "#B0B0B0" #04
+set statusbar-bg "#202020" #01
+
+set inputbar-bg "#151515" #00 currently not used
+set inputbar-fg "#FFFFFF" #02
+
+set notification-error-bg "#AC4142" #08
+set notification-error-fg "#151515" #00
+
+set notification-warning-bg "#AC4142" #08
+set notification-warning-fg "#151515" #00
+
+set highlight-color "#F4BF75" #0A
+set highlight-active-color "#6A9FB5" #0D
+
+set completion-highlight-fg "#151515" #02
+set completion-highlight-bg "#90A959" #0C
+
+set completion-bg "#303030" #02
+set completion-fg "#E0E0E0" #0C
+
+set notification-bg "#90A959" #0B
+set notification-fg "#151515" #00
+
+set recolor "false"
+set recolor-darkcolor "#dcdccc"
+set recolor-lightcolor "#1f1f1f"
+set recolor-reverse-video "true"
+set recolor-keephue "true"
+set window-title-basename "true"
+
+set render-loading "false"
+set scroll-step 50
+unmap f
+map f toggle_fullscreen
+map [fullscreen] f toggle_fullscreen

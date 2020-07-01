@@ -50,6 +50,8 @@ Plug 'christoomey/vim-tmux-navigator'
 " Disable tmux navigator when zooming the Vim pane
 let g:tmux_navigator_disable_when_zoomed = 1
 
+Plug 'junegunn/fzf'
+
 " Initialize plugin system
 call plug#end()
 
@@ -75,12 +77,59 @@ set conceallevel=1
 let g:tex_conceal='abdmg'
 let g:vimtex_quickfix_ignore_filters = [
       \ "Font shape `U/stmry/b/n' undefined",
+      \  "icml2019"
       \]
 
 let mapleader = "-" 
 let maplocalleader="\\"
 set tags=tags
+set hlsearch
+set pastetoggle=<F2>
+set showmode
+set laststatus=2
 
+" ----------------------------------
+" FUNCTIONS
+" ----------------------------------
+function! OpenMarkdownPreview() abort
+  if exists('s:markdown_job') 
+     call job_stop(s:markdown_job)
+     unlet s:markdown_job
+  endif
+  echo expand('%:p')
+  let s:markdown_job = job_start(["grip", expand('%:p')])
+  sleep 300m
+  call system('firefox http://localhost:6419')
+endfunction
+
+function! VimuxCurrentLine()
+  let l:command = getline(".")
+  call VimuxRunCommand(l:command.";")
+endfunction
+
+function! VimuxRunSelection()
+    let [line_start, column_start] = getpos("'<")[1:2]
+    let [line_end, column_end] = getpos("'>")[1:2]
+    let lines = getline(line_start, line_end)
+    if line_start == line_end
+        let lines[-1] = lines[-1][: column_end - 1]
+        let lines[0] = lines[0][column_start - 1:]
+    endif
+    let l:command = join(lines, "\n")
+    call VimuxRunCommand(l:command.";")
+endfunction
+
+function! s:get_visual_selection()
+    let [line_start, column_start] = getpos("'<")[1:2]
+    let [line_end, column_end] = getpos("'>")[1:2]
+    let lines = getline(line_start, line_end)
+    if len(lines) == 0
+        return ''
+    endif
+    let lines[-1] = lines[-1][: column_end - 2]
+    let lines[0] = lines[0][column_start - 1:]
+    return join(lines, "\n")
+endfunction
 " ----------------------------------
 " KEY MAPPINGS
 " ----------------------------------
@@ -103,7 +152,8 @@ nnoremap <silent> <Leader>> :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
 nnoremap <silent> <Leader>< :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
 
 autocmd FileType matlab nnoremap <buffer> <f5> :call VimuxRunCommand(expand('%:t:r'))<cr>
-autocmd FileType matlab nnoremap <buffer> <f6> :call VimuxCurrentLine()<cr>
+autocmd FileType matlab nnoremap <silent> <buffer> <f6> :call VimuxCurrentLine()<cr>
+autocmd FileType matlab vnoremap <buffer> <f6> :<c-u>call VimuxRunSelection()<cr>
 autocmd FileType matlab nnoremap <buffer> <localleader>vl :VimuxRunLastCommand<CR>
 " Close vim tmux runner opened by VimuxRunCommand
 autocmd FileType matlab nnoremap <buffer> <localleader>vq :VimuxCloseRunner<CR>
@@ -112,22 +162,22 @@ autocmd FileType matlab nnoremap <buffer> <localleader>cd :call VimuxRunCommand(
 autocmd FileType matlab nnoremap <buffer> <localleader>o :call VimuxRunCommand("matlab -nodesktop")<cr>
 autocmd FileType matlab nnoremap <buffer> <localleader>c 0i%<esc>j
 
-" ----------------------------------
-" FUNCTIONS
-" ----------------------------------
-function! OpenMarkdownPreview() abort
-  if exists('s:markdown_job') 
-     call job_stop(s:markdown_job)
-     unlet s:markdown_job
-  endif
-  echo expand('%:p')
-  let s:markdown_job = job_start(["grip", expand('%:p')])
-  sleep 300m
-  call system('firefox http://localhost:6419')
-endfunction
+autocmd FileType python nnoremap <buffer> <localleader>vl :VimuxRunLastCommand<CR>
 
-function! VimuxCurrentLine()
-  let l:command = getline(".")
-  call VimuxRunCommand(l:command.";")
-endfunction
+nnoremap <leader>zz :tabnew %<cr>
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+nnoremap <cr> :nohlsearch<CR>
 
+nnoremap <F2> :set invpaste paste?<CR>
+
+" Run ctags
+nnoremap <leader>rt :!ctags -R .<cr><cr>
+
+" Go down 5 lines
+nnoremap gj 5j
+
+" Go up 5 lines
+nnoremap gk 5k
+
+" Use system clipboard as default
+set clipboard=unnamedplus

@@ -10,7 +10,7 @@ end
 endsnippet
 
 snippet for "for loop"
-for ${1:i=1:n}
+for ${1:i}=1:${2:n}
 	${0}
 end
 endsnippet
@@ -25,4 +25,13 @@ snippet if "if"
 if ${1}
 	${0}
 end
+endsnippet
+
+
+snippet clear "clear"
+%% Clear all things
+clc;
+clear;
+close all;
+${0}
 endsnippet

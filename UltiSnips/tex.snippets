@@ -7,35 +7,22 @@ else:
     snip.rv = ''
 `$2
 endsnippet
-
 snippet dm "Math" wA
 \[
 $1
 \] $0
 endsnippet
 
-snippet '([A-Za-z])(\d)' "auto subscript" wrA
-`!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
-endsnippet
+#snippet '([A-Za-z])(\d)' "auto subscript" wrA
+#`!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
+#endsnippet
 
-snippet '([A-Za-z])_(\d\d)' "auto subscript2" wrA
-`!p snip.rv = match.group(1)`_{`!p snip.rv = match.group(2)`}
-endsnippet
-
-snippet sr "^2" iA
-^2
-endsnippet
+#snippet '([A-Za-z])_(\d\d)' "auto subscript2" wrA
+#`!p snip.rv = match.group(1)`_{`!p snip.rv = match.group(2)`}
+#endsnippet
 
 snippet cb "^3" iA
 ^3
-endsnippet
-
-snippet compl "complement" iA
-^{c}
-endsnippet
-
-snippet td "superscript" iA
-^{$1}$0
 endsnippet
 
 snippet // "Fraction" iA
@@ -54,10 +41,15 @@ snippet '(tb)(\w+)' "textbf" ir
 \textbf{`!p snip.rv = match.group(2)`}
 endsnippet
 
+snippet '(tt)(\w+)' "text" ir
+\text{`!p snip.rv = match.group(2)`}
+endsnippet
+
 snippet '(bb)(\w+)' "mathbf" ir
 \mathbf{`!p snip.rv = match.group(2)`}
 endsnippet
 
+# Consider to remove
 snippet '(tb)\\(\w+)' "textbf for greek letters (amsmath is required)" ir
 \boldsymbol\\`!p snip.rv = match.group(2)`
 endsnippet
@@ -68,6 +60,14 @@ endsnippet
 
 snippet '(tm)(\w+)' "mathcal" ir
 \mathcal{`!p snip.rv = match.group(2)`}
+endsnippet
+
+snippet '(~)' "\tilde" ir
+\widetilde{$1}$0
+endsnippet
+
+snippet 'bar' "\bar" ir
+\overline{$1}$0
 endsnippet
 
 snippet mr "\mathbb{R}" i
@@ -121,6 +121,8 @@ snippet init-article "Basic skeleton for an article" b
 %\setlength{\parskip}{\baselineskip} % Instead use vertical paragraph spacing.
 \fontencoding{T1} % the better font encoding.
 \usepackage{chngcntr} % https://tex.stackexchange.com/questions/28333/continuous-v-per-chapter-section-numbering-of-figures-tables-and-other-docume
+%\usepackage{thmtools} % http://ftp.math.purdue.edu/mirrors/ctan.org/macros/latex/exptl/thmtools/thmtools.pdf
+
 % --------------------------------------------------------- 
 % SETTINGS
 % --------------------------------------------------------- 
@@ -133,8 +135,11 @@ snippet init-article "Basic skeleton for an article" b
 \newcommand{\rank}{\text{rank}}
 \newcommand{\trace}{\text{trace}}
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
-\newcommand{\abs}[1]{\lvert#1\rvert}
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert}
+\newcommand{\vect}{\text{vec}}
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}} % https://tex.stackexchange.com/questions/42726/align-but-show-one-equation-number-at-the-end 
+\newcommand{\set}[1]{\left\{#1\right\}}
+
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
 
@@ -375,6 +380,14 @@ snippet alp "alpha" i
 \alpha
 endsnippet
 
+snippet lam "lambda" i
+\lambda
+endsnippet
+
+snippet Lam "Lambda" i
+\Lambda
+endsnippet
+
 snippet del "delta" i
 \delta
 endsnippet
@@ -391,8 +404,11 @@ snippet Sig "Sigma" i
 \Sigma
 endsnippet
 
+snippet nab "nabla" i
+\nabla
+endsnippet
+
 snippet \bs "boldsymbol" i
 \boldsymbol
 endsnippet
-
 
