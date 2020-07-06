@@ -174,10 +174,14 @@ nnoremap <F2> :set invpaste paste?<CR>
 nnoremap <leader>rt :!ctags -R .<cr><cr>
 
 " Go down 5 lines
-nnoremap gj 5j
+noremap gj 5j
 
 " Go up 5 lines
-nnoremap gk 5k
+noremap gk 5k
 
 " Use system clipboard as default
 set clipboard=unnamedplus
+
+" Reload UtilSnip
+nnoremap <leader>rs :call UltiSnips#RefreshSnippets()<cr>
+
