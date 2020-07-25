@@ -3,7 +3,6 @@
 " ----------------------------------
 
 call plug#begin('~/.vim/plugged')
-
 Plug 'lervag/vimtex'
   let g:vimtex_view_method = 'zathura'
   let g:vimtex_log_ignore = ['Overfull']
@@ -14,10 +13,8 @@ Plug 'lervag/vimtex'
       \   'default' : 0,
       \ },
       \}
-
 " Track the engine.
 Plug 'sirver/ultisnips'
-
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
   " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -26,7 +23,6 @@ Plug 'honza/vim-snippets'
   let g:UltiSnipsJumpBackwardTrigger="<c-z>"
   " If you want :UltiSnipsEdit to split your window.
   let g:UltiSnipsEditSplit="vertical"
-
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -35,23 +31,18 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 let g:deoplete#enable_at_startup = 1
-
 Plug 'preservim/nerdtree'
-
 Plug 'morhetz/gruvbox'
-
+let g:gruvbox_italic=1
+let g:gruvbox_invert_selection=0
 Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'} 
-
 Plug 'tpope/vim-surround'
-
 Plug 'benmills/vimux'
-
 Plug 'christoomey/vim-tmux-navigator'
 " Disable tmux navigator when zooming the Vim pane
 let g:tmux_navigator_disable_when_zoomed = 1
-
 Plug 'junegunn/fzf'
-
+Plug 'junegunn/fzf.vim'
 " Initialize plugin system
 call plug#end()
 
@@ -88,6 +79,14 @@ set pastetoggle=<F2>
 set showmode
 set laststatus=2
 
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+"set termguicolors
+"let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+"let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
 " ----------------------------------
 " FUNCTIONS
 " ----------------------------------
@@ -151,18 +150,24 @@ nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 nnoremap <silent> <Leader>> :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
 nnoremap <silent> <Leader>< :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
 
-autocmd FileType matlab nnoremap <buffer> <f5> :call VimuxRunCommand(expand('%:t:r'))<cr>
-autocmd FileType matlab nnoremap <silent> <buffer> <f6> :call VimuxCurrentLine()<cr>
-autocmd FileType matlab vnoremap <buffer> <f6> :<c-u>call VimuxRunSelection()<cr>
-autocmd FileType matlab nnoremap <buffer> <localleader>vl :VimuxRunLastCommand<CR>
-" Close vim tmux runner opened by VimuxRunCommand
-autocmd FileType matlab nnoremap <buffer> <localleader>vq :VimuxCloseRunner<CR>
+""" MATLAB
+    autocmd FileType matlab nnoremap <buffer> <f5> :call VimuxRunCommand(expand('%:t:r'))<cr>
+    "autocmd FileType matlab nnoremap <silent> <buffer> <f6> :call VimuxCurrentLine()<cr>
+    autocmd FileType matlab vnoremap <buffer> <f6> :<c-u>call VimuxRunSelection()<cr>
+    autocmd FileType matlab nnoremap <buffer> <localleader>vl :VimuxRunLastCommand<CR>
+    " Close vim tmux runner opened by VimuxRunCommand
+    autocmd FileType matlab nnoremap <buffer> <localleader>vq :VimuxCloseRunner<CR>
+    autocmd FileType matlab nnoremap <buffer> <localleader>cd :call VimuxRunCommand("cd ".expand('%:p:h'))<cr>
+    autocmd FileType matlab nnoremap <buffer> <f9> :call VimuxRunCommand("dbstop in ".expand('%')." at ".line("."))<cr>
+    autocmd FileType matlab nnoremap <buffer> <f10> :call VimuxRunCommand("dbclear all\n")<cr>
+    autocmd FileType matlab nnoremap <buffer> <localleader>o :call VimuxRunCommand("matlab -nodesktop")<cr>
+    autocmd FileType matlab nnoremap <buffer> <localleader>c 0i%<esc>j
+    autocmd FileType python nnoremap <buffer> <localleader>vl :VimuxRunLastCommand<CR>
 
-autocmd FileType matlab nnoremap <buffer> <localleader>cd :call VimuxRunCommand("cd ".expand('%:p:h'))<cr>
-autocmd FileType matlab nnoremap <buffer> <localleader>o :call VimuxRunCommand("matlab -nodesktop")<cr>
-autocmd FileType matlab nnoremap <buffer> <localleader>c 0i%<esc>j
-
-autocmd FileType python nnoremap <buffer> <localleader>vl :VimuxRunLastCommand<CR>
+""" PYTPHON
+    autocmd FileType python nnoremap <buffer> <localleader>o :call VimuxRunCommand("python3")<cr>
+    autocmd FileType python nnoremap <buffer> <f5> :call VimuxRunCommand("exec(open('".expand('%:p')."').read())")<cr>
+    autocmd FileType python vnoremap <buffer> <f6> :<c-u>call VimuxRunSelection()<cr>
 
 nnoremap <leader>zz :tabnew %<cr>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
