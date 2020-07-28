@@ -33,7 +33,7 @@ endif
 let g:deoplete#enable_at_startup = 1
 Plug 'preservim/nerdtree'
 Plug 'morhetz/gruvbox'
-let g:gruvbox_italic=1
+let g:gruvbox_italic=0
 let g:gruvbox_invert_selection=0
 Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'} 
 Plug 'tpope/vim-surround'
@@ -152,14 +152,14 @@ nnoremap <silent> <Leader>< :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
 
 """ MATLAB
     autocmd FileType matlab nnoremap <buffer> <f5> :call VimuxRunCommand(expand('%:t:r'))<cr>
-    "autocmd FileType matlab nnoremap <silent> <buffer> <f6> :call VimuxCurrentLine()<cr>
+    autocmd FileType matlab nnoremap <silent> <buffer> <f6> :call VimuxCurrentLine()<cr>
     autocmd FileType matlab vnoremap <buffer> <f6> :<c-u>call VimuxRunSelection()<cr>
     autocmd FileType matlab nnoremap <buffer> <localleader>vl :VimuxRunLastCommand<CR>
     " Close vim tmux runner opened by VimuxRunCommand
     autocmd FileType matlab nnoremap <buffer> <localleader>vq :VimuxCloseRunner<CR>
     autocmd FileType matlab nnoremap <buffer> <localleader>cd :call VimuxRunCommand("cd ".expand('%:p:h'))<cr>
     autocmd FileType matlab nnoremap <buffer> <f9> :call VimuxRunCommand("dbstop in ".expand('%')." at ".line("."))<cr>
-    autocmd FileType matlab nnoremap <buffer> <f10> :call VimuxRunCommand("dbclear all\n")<cr>
+    autocmd FileType matlab nnoremap <buffer> <f10> :call VimuxRunCommand("dbclear all")<cr>
     autocmd FileType matlab nnoremap <buffer> <localleader>o :call VimuxRunCommand("matlab -nodesktop")<cr>
     autocmd FileType matlab nnoremap <buffer> <localleader>c 0i%<esc>j
     autocmd FileType python nnoremap <buffer> <localleader>vl :VimuxRunLastCommand<CR>
@@ -168,6 +168,7 @@ nnoremap <silent> <Leader>< :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
     autocmd FileType python nnoremap <buffer> <localleader>o :call VimuxRunCommand("python3")<cr>
     autocmd FileType python nnoremap <buffer> <f5> :call VimuxRunCommand("exec(open('".expand('%:p')."').read())")<cr>
     autocmd FileType python vnoremap <buffer> <f6> :<c-u>call VimuxRunSelection()<cr>
+    autocmd FileType python nnoremap <silent> <buffer> <f6> :call VimuxCurrentLine()<cr>
 
 nnoremap <leader>zz :tabnew %<cr>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
@@ -189,4 +190,10 @@ set clipboard=unnamedplus
 
 " Reload UtilSnip
 nnoremap <leader>rs :call UltiSnips#RefreshSnippets()<cr>
+
+" Centering the hitting search
+nnoremap n nzz
+
+" Count search
+nnoremap <f4> :%s///gn<cr>
 
