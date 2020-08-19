@@ -122,3 +122,5 @@ eval `dircolors /home/tringuyen/tools/gnome-terminal/dircolors`
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 complete -F _fzf_file_completion -o default -o bashdefault xdg-open
 complete -F _fzf_file_completion -o default -o bashdefault run
+complete -F _fzf_file_completion -o default -o bashdefault zathura
+complete -F _fzf_file_completion -o default -o bashdefault evince

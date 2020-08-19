@@ -30,6 +30,8 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+Plug 'raingo/vim-matlab'
+
 let g:deoplete#enable_at_startup = 1
 Plug 'preservim/nerdtree'
 Plug 'morhetz/gruvbox'
@@ -60,11 +62,12 @@ call deoplete#custom#var('omni', 'input_patterns', {
 set number
 set encoding=utf-8
 set tabstop=4 shiftwidth=4 expandtab
+set background=dark
+set conceallevel=1
+set autoindent
 let g:tex_flavor = "latex" 
 let DIARY='/home/tringuyen/research/notes/diary.md'
 colorscheme gruvbox
-set background=dark
-set conceallevel=1
 let g:tex_conceal='abdmg'
 let g:vimtex_quickfix_ignore_filters = [
       \ "Font shape `U/stmry/b/n' undefined",
@@ -152,6 +155,8 @@ nnoremap <silent> <Leader>< :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
 
 """ MATLAB
     autocmd FileType matlab nnoremap <buffer> <f5> :call VimuxRunCommand(expand('%:t:r'))<cr>
+    autocmd FileType matlab nnoremap <buffer> <f7>:call VimuxRunCommand(expand('%:t:r').'; !notify-send Matlab "It is done"' )<cr>
+    "noremap <f7> :call VimuxRunCommand(expand('%:t:r').'; !notify-send Matlab "It is done"' )<cr>
     autocmd FileType matlab nnoremap <silent> <buffer> <f6> :call VimuxCurrentLine()<cr>
     autocmd FileType matlab vnoremap <buffer> <f6> :<c-u>call VimuxRunSelection()<cr>
     autocmd FileType matlab nnoremap <buffer> <localleader>vl :VimuxRunLastCommand<CR>

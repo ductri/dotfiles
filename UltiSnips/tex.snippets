@@ -49,6 +49,10 @@ snippet '(bb)(\w+)' "mathbf" ir
 \mathbf{`!p snip.rv = match.group(2)`}
 endsnippet
 
+snippet '(hat)(\w+)' "hat" ir
+\hat{`!p snip.rv = match.group(2)`}
+endsnippet
+
 # Consider to remove
 snippet '(tb)\\(\w+)' "textbf for greek letters (amsmath is required)" ir
 \boldsymbol\\`!p snip.rv = match.group(2)`
