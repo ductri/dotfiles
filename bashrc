@@ -124,3 +124,5 @@ complete -F _fzf_file_completion -o default -o bashdefault xdg-open
 complete -F _fzf_file_completion -o default -o bashdefault run
 complete -F _fzf_file_completion -o default -o bashdefault zathura
 complete -F _fzf_file_completion -o default -o bashdefault evince
+
+

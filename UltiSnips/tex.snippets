@@ -1,3 +1,5 @@
+priority 1
+
 # From this genius guy: https://castel.dev/post/lecture-notes-1/
 snippet mk "Math" wA
 $${1}$`!p
@@ -98,6 +100,7 @@ snippet '(\')' "\Rightarrow" r
 ^T
 endsnippet
 
+priority 2 
 snippet init-article "Basic skeleton for an article" b
 \documentclass[11pt,a4paper]{article}
 
@@ -146,6 +149,8 @@ snippet init-article "Basic skeleton for an article" b
 
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\minimize}{minimize}
+\DeclareMathOperator*{\maximize}{maximize}
 
 % --------------------------------------------------------- 
 % CUSTOM ENVIRONMENTS
@@ -180,6 +185,7 @@ $0
 
 \end{document}
 endsnippet
+priority 1
 
 snippet init-slide "Slide template"
 
@@ -410,6 +416,10 @@ endsnippet
 
 snippet nab "nabla" i
 \nabla
+endsnippet
+
+snippet gam "gamma" i
+\gamma
 endsnippet
 
 snippet \bs "boldsymbol" i

@@ -37,14 +37,23 @@ Plug 'preservim/nerdtree'
 Plug 'morhetz/gruvbox'
 let g:gruvbox_italic=0
 let g:gruvbox_invert_selection=0
+Plug 'dracula/vim', { 'as': 'dracula' }
+"
 Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'} 
 Plug 'tpope/vim-surround'
 Plug 'benmills/vimux'
+    let g:VimuxUseNearest = 0
 Plug 'christoomey/vim-tmux-navigator'
 " Disable tmux navigator when zooming the Vim pane
 let g:tmux_navigator_disable_when_zoomed = 1
+
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+    " Always enable preview window on the right with 60% width
+    let g:fzf_preview_window = 'right:60%'
+    " [Buffers] Jump to the existing window if possible
+    let g:fzf_buffers_jump = 1
+
 " Initialize plugin system
 call plug#end()
 
@@ -83,10 +92,11 @@ set showmode
 set laststatus=2
 
 if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
+   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+   set termguicolors
 endif
+set incsearch
 "set termguicolors
 "let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
 "let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
@@ -175,7 +185,8 @@ nnoremap <silent> <Leader>< :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
     autocmd FileType python vnoremap <buffer> <f6> :<c-u>call VimuxRunSelection()<cr>
     autocmd FileType python nnoremap <silent> <buffer> <f6> :call VimuxCurrentLine()<cr>
 
-nnoremap <leader>zz :tabnew %<cr>
+" nnoremap <leader>zz : vertical resize<cr> :resize<cr>
+nnoremap <silent> <leader>zz :tab split<CR> 
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 nnoremap <cr> :nohlsearch<CR>
 
@@ -202,3 +213,24 @@ nnoremap n nzz
 " Count search
 nnoremap <f4> :%s///gn<cr>
 
+nnoremap <leader>o :Files<cr>
+nnoremap <leader>b :Buffers<cr>
+nnoremap <leader>f :Rg<cr>
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
+autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+noremap <leader>a <C-a>
+noremap <leader>x <C-x>
+
+" For transparent
+"
+let t:is_transparent = 0
+function! Toggle_transparent()
+    if t:is_transparent == 0
+        hi Normal guibg=NONE ctermbg=NONE
+        let t:is_transparent = 1
+    else
+        set background=dark
+        let t:is_transparent = 0
+    endif
+endfunction
+" nnoremap gt : call Toggle_transparent()<CR>
