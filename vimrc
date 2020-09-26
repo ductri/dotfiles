@@ -4,15 +4,15 @@
 
 call plug#begin('~/.vim/plugged')
 Plug 'lervag/vimtex'
-  let g:vimtex_view_method = 'zathura'
-  let g:vimtex_log_ignore = ['Overfull']
-  let g:vimtex_quickfix_latexlog = {
-      \ 'overfull' : 0,
-      \ 'underfull' : 0,
-      \ 'packages' : {
-      \   'default' : 0,
-      \ },
-      \}
+    let g:vimtex_view_method = 'zathura'
+    let g:vimtex_log_ignore = ['Overfull']
+    let g:vimtex_quickfix_latexlog = {
+    \ 'overfull' : 0,
+    \ 'underfull' : 0,
+    \ 'packages' : {
+    \   'default' : 0,
+    \ },
+    \}
 " Track the engine.
 Plug 'sirver/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
@@ -220,6 +220,7 @@ command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-hea
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 noremap <leader>a <C-a>
 noremap <leader>x <C-x>
+noremap <leader>w :close<cr>
 
 " For transparent
 "

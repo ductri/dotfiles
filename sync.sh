@@ -29,3 +29,6 @@ echo "Save bash_aliases"
 cp ~/.bash_aliases bash_aliases
 echo 
 
+echo "Save latexmkrc"
+cp ~/.latexmkrc latexmkrc
+echo 

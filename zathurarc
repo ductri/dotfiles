@@ -41,3 +41,5 @@ set recolor                     "true"
 
 set statusbar-basename true
 set statusbar-home-tilde false
+
+set selection-clipboard "clipboard"

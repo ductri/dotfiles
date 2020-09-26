@@ -26,3 +26,5 @@ echo
 echo "Not install  bash_aliases"
 echo 
 
+echo "Install latexmkrc"
+cp latexmkrc ~/.latexmkrc 

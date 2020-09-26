@@ -130,6 +130,12 @@ snippet init-article "Basic skeleton for an article" b
 \usepackage{chngcntr} % https://tex.stackexchange.com/questions/28333/continuous-v-per-chapter-section-numbering-of-figures-tables-and-other-docume
 %\usepackage{thmtools} % http://ftp.math.purdue.edu/mirrors/ctan.org/macros/latex/exptl/thmtools/thmtools.pdf
 
+\usepackage[
+backend=biber,
+style=alphabetic,
+citestyle=alphabetic
+]{biblatex}
+%\addbibresource{citation.bib}
 % --------------------------------------------------------- 
 % SETTINGS
 % --------------------------------------------------------- 
@@ -143,7 +149,7 @@ snippet init-article "Basic skeleton for an article" b
 \newcommand{\trace}{\text{trace}}
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 \newcommand{\abs}[1]{\left\lvert#1\right\rvert}
-\newcommand{\vect}{\text{vec}}
+\newcommand{\vect}[1]{\text{vec}\left(#1\right)}
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}} % https://tex.stackexchange.com/questions/42726/align-but-show-one-equation-number-at-the-end 
 \newcommand{\set}[1]{\left\{#1\right\}}
 
@@ -422,7 +428,21 @@ snippet gam "gamma" i
 \gamma
 endsnippet
 
+snippet par "partial" i
+\partial\; 
+endsnippet
+
 snippet \bs "boldsymbol" i
 \boldsymbol
 endsnippet
+
+snippet \left( "open left parathesis" i
+\left( $1 \right)$0
+endsnippet
+
+
+snippet l( "open left parathesis" i
+\left( $1 \right)$0
+endsnippet
+
 

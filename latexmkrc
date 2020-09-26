@@ -13,3 +13,5 @@ push @generated_exts, "synctex.gz";
 push @generated_exts, "run.xml";
 push @generated_exts, "fdb_latexmk";
 
+$out_dir = './.out/';
+$pdflatex="pdflatex --shell-escape %O  %S; cp ./.out/*.pdf .;"
