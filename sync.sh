@@ -32,3 +32,7 @@ echo
 echo "Save latexmkrc"
 cp ~/.latexmkrc latexmkrc
 echo 
+
+echo "Save nerdtree_plugin"
+cp ~/.vim/plugged/nerdtree/nerdtree_plugin/fs_menu.vim  fs_menu.vim
+echo 

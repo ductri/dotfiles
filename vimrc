@@ -221,6 +221,7 @@ autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 noremap <leader>a <C-a>
 noremap <leader>x <C-x>
 noremap <leader>w :close<cr>
+noremap <c-g> :silent exec "!gnome-terminal -e ranger"<cr>
 
 " For transparent
 "
@@ -234,4 +235,5 @@ function! Toggle_transparent()
         let t:is_transparent = 0
     endif
 endfunction
-" nnoremap gt : call Toggle_transparent()<CR>
+
+

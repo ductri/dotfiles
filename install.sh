@@ -28,3 +28,8 @@ echo
 
 echo "Install latexmkrc"
 cp latexmkrc ~/.latexmkrc 
+
+echo "Install nerdtree_plugin"
+cp fs_menu.vim ~/.vim/plugged/nerdtree/nerdtree_plugin/fs_menu.vim 
+echo 
+
