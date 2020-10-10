@@ -54,6 +54,8 @@ Plug 'junegunn/fzf.vim'
     " [Buffers] Jump to the existing window if possible
     let g:fzf_buffers_jump = 1
 
+Plug 'tpope/vim-obsession'
+
 " Initialize plugin system
 call plug#end()
 

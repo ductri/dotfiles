@@ -30,8 +30,10 @@ endsnippet
 
 snippet clear "clear"
 %% Clear all things
-clc;
-clear;
-close all;
+clc; clear; close all;
 ${0}
+endsnippet
+
+snippet saveas "saveas"
+saveas(gcf, '${1}.eps', 'epsc')
 endsnippet
