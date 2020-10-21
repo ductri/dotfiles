@@ -1,7 +1,4 @@
-" ----------------------------------
-" Pluggins 
-" ----------------------------------
-
+" Plugins ---------------------- {{{
 call plug#begin('~/.vim/plugged')
 Plug 'lervag/vimtex'
     let g:vimtex_view_method = 'zathura'
@@ -13,6 +10,7 @@ Plug 'lervag/vimtex'
     \   'default' : 0,
     \ },
     \}
+
 " Track the engine.
 Plug 'sirver/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
@@ -55,21 +53,19 @@ Plug 'junegunn/fzf.vim'
     let g:fzf_buffers_jump = 1
 
 Plug 'tpope/vim-obsession'
+Plug 'kenn7/vim-arsync'
+Plug 'gcmt/taboo.vim' 
 
 " Initialize plugin system
 call plug#end()
+" }}}
 
 " This is new style
 call deoplete#custom#var('omni', 'input_patterns', {
       \ 'tex': g:vimtex#re#deoplete
       \})
 
-
-
-
-" ----------------------------------
-" OPTIONS AND VARIABLES
-" ----------------------------------
+" Basic settings ---------------------------- {{{
 set number
 set encoding=utf-8
 set tabstop=4 shiftwidth=4 expandtab
@@ -84,7 +80,6 @@ let g:vimtex_quickfix_ignore_filters = [
       \ "Font shape `U/stmry/b/n' undefined",
       \  "icml2019"
       \]
-
 let mapleader = "-" 
 let maplocalleader="\\"
 set tags=tags
@@ -92,19 +87,13 @@ set hlsearch
 set pastetoggle=<F2>
 set showmode
 set laststatus=2
+" Use system clipboard as default
+set clipboard=unnamedplus
+set sessionoptions+=tabpages,globals " For Taboo plugin
+" }}}
 
-if exists('+termguicolors')
-   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-   set termguicolors
-endif
-set incsearch
-"set termguicolors
-"let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
-"let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
-" ----------------------------------
-" FUNCTIONS
-" ----------------------------------
+
+" Functions ---------------------- {{{
 function! OpenMarkdownPreview() abort
   if exists('s:markdown_job') 
      call job_stop(s:markdown_job)
@@ -144,9 +133,35 @@ function! s:get_visual_selection()
     let lines[0] = lines[0][column_start - 1:]
     return join(lines, "\n")
 endfunction
-" ----------------------------------
-" KEY MAPPINGS
-" ----------------------------------
+
+function! ListEPSFiles()
+    call inputsave()
+    let dirpath = input('Enter relative path to directory: ')
+    call inputrestore()
+    if dirpath == ""
+        return
+    endif
+    let list_pdfs = split(globpath(dirpath, '*.eps'), "\n")
+    let output = ["\\begin{figure} \n"] 
+    let index = 0
+    for item in list_pdfs
+        let file_name = join(split(split(item, '/')[-1], '\.')[:-2], '.')
+        let new_item=printf("\\begin{subfigure}[t]{0.45\\textwidth}\n\\includegraphics[width=\\textwidth]{%s}\n\\caption{\"%s\"}\n\\end{subfigure}\n",item,file_name)
+        if index %2 ==1
+            let new_item = new_item . "\n"
+        endif
+        call add(output, new_item)
+        let index += 1
+    endfor
+    call add(output, "\\end{figure}" )
+    let output = join(output, "")
+    execute ':normal! O' . output
+"    $put=output
+endfunction
+" }}}
+
+
+" Mappings ---------------------------------- {{{
 nnoremap <f3> :NERDTreeToggle<cr>
 inoremap jk <esc>
 
@@ -156,7 +171,7 @@ nnoremap <leader>es :UltiSnipsEdit<cr>
 nnoremap <leader>eS :vsplit ~/.vim/UltiSnips/all.snippets<cr> 
 nnoremap <leader>ed :split /home/tringuyen/research/notes/diary.md<cr>
 nnoremap <leader>ne G3o<esc>i# New entry: <esc>"=strftime('%c')<C-M>p2o<esc>i
-nnoremap <leader>c 0i%<esc>j
+nnoremap <leader>c ^i% <esc>
 nnoremap <leader>j i<cr><esc>
 " Thanks to https://www.reddit.com/r/vim/comments/8asgjj/topnotch_vim_markdown_live_previews_with_no/
 noremap <silent> <leader>om :call OpenMarkdownPreview()<cr>
@@ -179,6 +194,7 @@ nnoremap <silent> <Leader>< :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
     autocmd FileType matlab nnoremap <buffer> <f10> :call VimuxRunCommand("dbclear all")<cr>
     autocmd FileType matlab nnoremap <buffer> <localleader>o :call VimuxRunCommand("matlab -nodesktop")<cr>
     autocmd FileType matlab nnoremap <buffer> <localleader>c 0i%<esc>j
+
     autocmd FileType python nnoremap <buffer> <localleader>vl :VimuxRunLastCommand<CR>
 
 """ PYTPHON
@@ -187,6 +203,8 @@ nnoremap <silent> <Leader>< :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
     autocmd FileType python vnoremap <buffer> <f6> :<c-u>call VimuxRunSelection()<cr>
     autocmd FileType python nnoremap <silent> <buffer> <f6> :call VimuxCurrentLine()<cr>
 
+
+nnoremap <localleader>h :call ListEPSFiles()<cr>
 " nnoremap <leader>zz : vertical resize<cr> :resize<cr>
 nnoremap <silent> <leader>zz :tab split<CR> 
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
@@ -202,9 +220,6 @@ noremap gj 5j
 
 " Go up 5 lines
 noremap gk 5k
-
-" Use system clipboard as default
-set clipboard=unnamedplus
 
 " Reload UtilSnip
 nnoremap <leader>rs :call UltiSnips#RefreshSnippets()<cr>
@@ -224,18 +239,32 @@ noremap <leader>a <C-a>
 noremap <leader>x <C-x>
 noremap <leader>w :close<cr>
 noremap <c-g> :silent exec "!gnome-terminal -e ranger"<cr>
+noremap <c-b> :ARsyncUp<cr>
 
-" For transparent
-"
-let t:is_transparent = 0
-function! Toggle_transparent()
-    if t:is_transparent == 0
-        hi Normal guibg=NONE ctermbg=NONE
-        let t:is_transparent = 1
-    else
-        set background=dark
-        let t:is_transparent = 0
-    endif
-endfunction
+inoremap <f7> <C-O>za
+nnoremap <f7> za
+onoremap <f7> <C-C>za
+vnoremap <f7> zf
+" }}}
+
+
+" Vimscript file settings ---------------------- {{{
+augroup filetype_vim
+autocmd!
+autocmd FileType vim setlocal foldmethod=marker
+augroup END
+" }}}
+
+
+" Miscellacious -------------------- {{{
+" 
+if exists('+termguicolors')
+   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+   set termguicolors
+endif
+set incsearch
+" }}}
+
 
 

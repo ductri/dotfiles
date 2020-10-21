@@ -72,6 +72,45 @@ xterm*|rxvt*)
     ;;
 esac
 
+#function set-title() {
+#  if [[ -z "$ORIG" ]]; then
+#    ORIG=$PS1
+#  fi
+#  TITLE="\[\e]2;$*\a\]"
+#  PS1=${ORIG}${TITLE}
+#}
+#
+#if [[ -z "$CUSTOM_TITLE" ]]; then
+#    CUSTOM_TITLE="New terminal"
+#fi
+#set-title $CUSTOM_TITLE
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
+
+    # Show the currently running command in the terminal title:
+    # http://www.davidpashley.com/articles/xterm-titles-with-bash.html
+    show_command_in_title_bar()
+    {
+        case "$BASH_COMMAND" in
+            *\033]0*)
+                # The command is trying to set the title bar as well;
+                # this is most likely the execution of $PROMPT_COMMAND.
+                # In any case nested escapes confuse the terminal, so don't
+                # output them.
+                ;;
+            *)
+                echo -ne "\033]0;${USER}@${HOSTNAME}: ${BASH_COMMAND}\007"
+                ;;
+        esac
+    }
+    trap show_command_in_title_bar DEBUG
+    ;;
+*)
+    ;;
+esac
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"

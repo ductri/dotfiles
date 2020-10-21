@@ -28,11 +28,11 @@ snippet cb "^3" iA
 endsnippet
 
 snippet // "Fraction" iA
-\\frac{$1}{$2}$0
+\\dfrac{$1}{$2}$0
 endsnippet
 
 snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "Fraction" wr
-\\frac{`!p snip.rv = match.group(1)`}{$1}$0
+\\dfrac{`!p snip.rv = match.group(1)`}{$1}$0
 endsnippet
 
 
@@ -449,4 +449,16 @@ snippet l( "open left parathesis" i
 \left( $1 \right)$0
 endsnippet
 
+snippet mtx "bmatrix environment"
+\begin{bmatrix}
+$1
+\end{bmatrix} $0
+endsnippet
 
+snippet ... "..."
+\ldots 
+endsnippet
+
+snippet hat "widehat" i
+\widehat{$1}$0
+endsnippet
