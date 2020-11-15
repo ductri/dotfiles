@@ -142,11 +142,11 @@ function! ListEPSFiles()
         return
     endif
     let list_pdfs = split(globpath(dirpath, '*.eps'), "\n")
-    let output = ["\\begin{figure} \n"] 
+    let output = ["\\begin{figure}[H] \n"] 
     let index = 0
     for item in list_pdfs
         let file_name = join(split(split(item, '/')[-1], '\.')[:-2], '.')
-        let new_item=printf("\\begin{subfigure}[t]{0.45\\textwidth}\n\\includegraphics[width=\\textwidth]{%s}\n\\caption{\"%s\"}\n\\end{subfigure}\n",item,file_name)
+        let new_item=printf("\\begin{subfigure}[t]{0.45\\textwidth}\n\\includegraphics[width=\\textwidth]{%s}\n\\caption{%s}\n\\end{subfigure}\n",item,file_name)
         if index %2 ==1
             let new_item = new_item . "\n"
         endif
@@ -171,7 +171,7 @@ nnoremap <leader>es :UltiSnipsEdit<cr>
 nnoremap <leader>eS :vsplit ~/.vim/UltiSnips/all.snippets<cr> 
 nnoremap <leader>ed :split /home/tringuyen/research/notes/diary.md<cr>
 nnoremap <leader>ne G3o<esc>i# New entry: <esc>"=strftime('%c')<C-M>p2o<esc>i
-nnoremap <leader>c ^i% <esc>
+nnoremap <leader>c ^i% <esc>j
 nnoremap <leader>j i<cr><esc>
 " Thanks to https://www.reddit.com/r/vim/comments/8asgjj/topnotch_vim_markdown_live_previews_with_no/
 noremap <silent> <leader>om :call OpenMarkdownPreview()<cr>
@@ -182,6 +182,8 @@ nnoremap <silent> <Leader>< :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
 
 """ MATLAB
     autocmd FileType matlab nnoremap <buffer> <f5> :call VimuxRunCommand(expand('%:t:r'))<cr>
+    " autocmd FileType matlab nnoremap <buffer> <c-w><F5> :call VimuxRunCommand('dbstop if error; '.expand('%:t:r'))<cr>
+
     autocmd FileType matlab nnoremap <buffer> <f7>:call VimuxRunCommand(expand('%:t:r').'; !notify-send Matlab "It is done"' )<cr>
     "noremap <f7> :call VimuxRunCommand(expand('%:t:r').'; !notify-send Matlab "It is done"' )<cr>
     autocmd FileType matlab nnoremap <silent> <buffer> <f6> :call VimuxCurrentLine()<cr>
@@ -245,6 +247,7 @@ inoremap <f7> <C-O>za
 nnoremap <f7> za
 onoremap <f7> <C-C>za
 vnoremap <f7> zf
+nnoremap <C-]> g<C-]>
 " }}}
 
 

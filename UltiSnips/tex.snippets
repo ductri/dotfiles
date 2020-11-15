@@ -146,7 +146,8 @@ citestyle=alphabetic
 % --------------------------------------------------------- 
 
 \newcommand{\rank}{\text{rank}}
-\newcommand{\trace}{\text{trace}}
+\newcommand{\st}{\text{subject to}\quad }
+\newcommand{\trace}[1]{\text{tr}\left(#1\right)}
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 \newcommand{\abs}[1]{\left\lvert#1\right\rvert}
 \newcommand{\vect}[1]{\text{vec}\left(#1\right)}
@@ -432,6 +433,10 @@ snippet gam "gamma" i
 \gamma
 endsnippet
 
+snippet Gam "Gamma" i
+\Gamma
+endsnippet
+
 snippet par "partial" i
 \partial\; 
 endsnippet
@@ -444,6 +449,9 @@ snippet \left( "open left parathesis" i
 \left( $1 \right)$0
 endsnippet
 
+snippet \left[ "open left bracket parathesis" i
+\left[ $1 \right]$0
+endsnippet
 
 snippet l( "open left parathesis" i
 \left( $1 \right)$0
