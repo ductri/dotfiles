@@ -1,7 +1,7 @@
 priority 1
 
 # From this genius guy: https://castel.dev/post/lecture-notes-1/
-snippet mk "Math" wA
+snippet mk "Math" whA
 $${1}$`!p
 if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
     snip.rv = ' '
@@ -153,6 +153,7 @@ citestyle=alphabetic
 \newcommand{\vect}[1]{\text{vec}\left(#1\right)}
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}} % https://tex.stackexchange.com/questions/42726/align-but-show-one-equation-number-at-the-end 
 \newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
 
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
@@ -413,6 +414,10 @@ snippet del "delta" i
 \delta
 endsnippet
 
+snippet Del "Delta" i
+\Delta
+endsnippet
+
 snippet eta "eta" i
 \eta
 endsnippet
@@ -439,6 +444,10 @@ endsnippet
 
 snippet par "partial" i
 \partial\; 
+endsnippet
+
+snippet tau "tau" i
+\tau 
 endsnippet
 
 snippet \bs "boldsymbol" i

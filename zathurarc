@@ -44,7 +44,7 @@ set statusbar-home-tilde false
 set selection-clipboard "clipboard"
 
 
-map <C-o> feedkeys ":exec zathura %"<Return>
+map <C-n> feedkeys ":exec zathura %"<Return>
 map <C-i> recolor
 unmap <C-r>
 

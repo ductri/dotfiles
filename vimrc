@@ -171,7 +171,8 @@ nnoremap <leader>es :UltiSnipsEdit<cr>
 nnoremap <leader>eS :vsplit ~/.vim/UltiSnips/all.snippets<cr> 
 nnoremap <leader>ed :split /home/tringuyen/research/notes/diary.md<cr>
 nnoremap <leader>ne G3o<esc>i# New entry: <esc>"=strftime('%c')<C-M>p2o<esc>i
-nnoremap <leader>c ^i% <esc>j
+" Comment
+nnoremap <leader>c ^i% <esc>j 
 nnoremap <leader>j i<cr><esc>
 " Thanks to https://www.reddit.com/r/vim/comments/8asgjj/topnotch_vim_markdown_live_previews_with_no/
 noremap <silent> <leader>om :call OpenMarkdownPreview()<cr>
@@ -179,8 +180,9 @@ nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 nnoremap <silent> <Leader>> :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
 nnoremap <silent> <Leader>< :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
+nnoremap <silent> <Leader>r :edit!<CR>
 
-""" MATLAB
+    " MATLAB {{{
     autocmd FileType matlab nnoremap <buffer> <f5> :call VimuxRunCommand(expand('%:t:r'))<cr>
     " autocmd FileType matlab nnoremap <buffer> <c-w><F5> :call VimuxRunCommand('dbstop if error; '.expand('%:t:r'))<cr>
 
@@ -196,14 +198,20 @@ nnoremap <silent> <Leader>< :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
     autocmd FileType matlab nnoremap <buffer> <f10> :call VimuxRunCommand("dbclear all")<cr>
     autocmd FileType matlab nnoremap <buffer> <localleader>o :call VimuxRunCommand("matlab -nodesktop")<cr>
     autocmd FileType matlab nnoremap <buffer> <localleader>c 0i%<esc>j
+    autocmd FileType matlab set cc=80
+    autocmd FileType matlab nnoremap <buffer> <localleader>sd :ARsyncDown<cr>:copen<cr><c-w>k
+    autocmd FileType matlab nnoremap <buffer> <localleader>su :ARsyncUp<cr>:copen<cr><c-w>k
+    autocmd FileType matlab nnoremap <buffer> <localleader>zz :vertical resize 80<cr>
+    " }}}
 
+
+    " PYTPHON {{{
     autocmd FileType python nnoremap <buffer> <localleader>vl :VimuxRunLastCommand<CR>
-
-""" PYTPHON
     autocmd FileType python nnoremap <buffer> <localleader>o :call VimuxRunCommand("python3")<cr>
     autocmd FileType python nnoremap <buffer> <f5> :call VimuxRunCommand("exec(open('".expand('%:p')."').read())")<cr>
     autocmd FileType python vnoremap <buffer> <f6> :<c-u>call VimuxRunSelection()<cr>
     autocmd FileType python nnoremap <silent> <buffer> <f6> :call VimuxCurrentLine()<cr>
+    " }}}
 
 
 nnoremap <localleader>h :call ListEPSFiles()<cr>
