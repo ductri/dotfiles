@@ -51,3 +51,5 @@ sudo mkdir /etc/X11/xorg.conf.d/
 sudo cp 90-touchpad.conf /etc/X11/xorg.conf.d/
 echo "Done touchpad setting"
 
+echo "Install gtk config"
+cp gtk/.gtkrc-2.0 ~/.gtkrc-2.0
