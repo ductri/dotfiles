@@ -17,6 +17,7 @@ cp latexmkrc ~/.latexmkrc
 echo 
 
 echo "Install zathurarc"
+mkdir -p ~./config/zathura/
 cp zathurarc ~/.config/zathura/zathurarc 
 echo 
 
