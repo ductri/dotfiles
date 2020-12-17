@@ -37,3 +37,7 @@ echo "Install i3"
 cp -r i3 ~/.config/
 echo 
 
+echo "Install polybar"
+cp -r polybar ~/.config/
+echo 
+

@@ -40,3 +40,7 @@ echo
 echo "Save i3 config"
 cp -r ~/.config/i3 .
 echo 
+
+echo "Save polybar config"
+cp -r ~/.config/polybar .
+echo 
