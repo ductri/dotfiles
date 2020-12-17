@@ -52,3 +52,7 @@ sudo cp 90-touchpad.conf /etc/X11/xorg.conf.d/
 
 echo "Install gtk config"
 cp gtk/.gtkrc-2.0 ~/.gtkrc-2.0
+
+echo "Install Gnome-terminal profiles"
+dconf load /org/gnome/terminal/legacy/profiles:/ < gnome-terminal-profiles.dconf
+
