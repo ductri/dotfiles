@@ -46,9 +46,6 @@ echo "Install rofi"
 cp -r rofi ~/.config/
 echo 
 
-mkdir -p ~/.config/
-cp -r config/* ~/.config/
-
 echo "Install touchpad config"
 sudo mkdir /etc/X11/xorg.conf.d/
 sudo cp 90-touchpad.conf /etc/X11/xorg.conf.d/
