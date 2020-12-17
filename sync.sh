@@ -53,7 +53,7 @@ echo "Save touchpad config for i3"
 cp /etc/X11/xorg.conf.d/90-touchpad.conf 90-touchpad.conf
 
 echo "Save fonts"
-cp ~/.fonts fonts
+cp -r ~/.fonts fonts
 
 echo "Save gtk config"
 mkdir -p gtk

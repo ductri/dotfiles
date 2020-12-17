@@ -309,3 +309,12 @@ bindsym $mod+Shift+minus move scratchpad
 
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
+
+
+# Only enable gaps on a workspace when there is at least one container
+smart_gaps on
+
+# Only enable outer gaps when there is exactly one container
+smart_gaps inverse_outer
+
+gaps inner 10
