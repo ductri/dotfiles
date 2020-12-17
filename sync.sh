@@ -37,7 +37,19 @@ echo "Save nerdtree_plugin"
 cp ~/.vim/plugged/nerdtree/nerdtree_plugin/fs_menu.vim  fs_menu.vim
 echo 
 
-echo "Save .config"
+echo "Save i3 config"
+cp -r ~/.config/i3 .
+echo 
+
+echo "Save polybar config"
+cp -r ~/.config/polybar .
+echo 
+
+echo "Save rofi config"
+cp -r ~/.config/rofi .
+echo 
+
+echo "Install .config"
 mkdir -p config
 cp -r ~/.config/* config/
 
