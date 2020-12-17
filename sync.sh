@@ -36,3 +36,7 @@ echo
 echo "Save nerdtree_plugin"
 cp ~/.vim/plugged/nerdtree/nerdtree_plugin/fs_menu.vim  fs_menu.vim
 echo 
+
+echo "Save i3 config"
+cp -r ~/.config/i3 i3
+echo 

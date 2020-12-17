@@ -49,3 +49,4 @@ map <C-i> recolor
 unmap <C-r>
 
 set database="plain"
+set first-page-column 1:2

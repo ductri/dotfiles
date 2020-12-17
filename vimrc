@@ -248,7 +248,7 @@ autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 noremap <leader>a <C-a>
 noremap <leader>x <C-x>
 noremap <leader>w :close<cr>
-noremap <c-g> :silent exec "!gnome-terminal -e ranger"<cr>
+" noremap <c-g> :silent exec "!gnome-terminal -e ranger"<cr>
 noremap <c-b> :ARsyncUp<cr>
 
 inoremap <f7> <C-O>za
