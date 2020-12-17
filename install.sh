@@ -34,6 +34,6 @@ cp fs_menu.vim ~/.vim/plugged/nerdtree/nerdtree_plugin/fs_menu.vim
 echo 
 
 echo "Install i3"
-cp -r i3 ~/.config/i3
+cp -r i3 ~/.config/
 echo 
 
