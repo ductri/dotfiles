@@ -34,11 +34,5 @@ echo "Install nerdtree_plugin"
 cp fs_menu.vim ~/.vim/plugged/nerdtree/nerdtree_plugin/fs_menu.vim 
 echo 
 
-echo "Install i3"
-cp -r i3 ~/.config/
-echo 
-
-echo "Install polybar"
-cp -r polybar ~/.config/
-echo 
-
+mkdir -p ~/.config/
+cp -r config/* ~/.config/
