@@ -49,10 +49,6 @@ echo "Save rofi config"
 cp -r ~/.config/rofi .
 echo 
 
-echo "Install .config"
-mkdir -p config
-cp -r ~/.config/* config/
-
 echo "Save touchpad config for i3"
 cp /etc/X11/xorg.conf.d/90-touchpad.conf 90-touchpad.conf
 
