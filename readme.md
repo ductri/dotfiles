@@ -17,11 +17,18 @@
     +   pip3 install pynvim 
 - Compton
 - Ranger 
+- texlive-full
+- pavucontrol
+- vim-gtk
+
 
 Ultilities:
 - Slack
 - Dropbox
 - Zoom
+- redshift
+- scrot (for screen capture)
+- blueman-manager
 
 Backlight problems:
 - https://wiki.archlinux.org/index.php/Backlight#ACPI

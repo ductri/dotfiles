@@ -62,3 +62,5 @@ cp ~/.gtkrc-2.0 gtk/.gtkrc-2.0
 echo "Gnome terminal profile"
 dconf dump /org/gnome/terminal/legacy/profiles:/ > gnome-terminal-profiles.dconf
 
+echo "Save compton"
+cp ~/.config/compton.conf compton.conf
