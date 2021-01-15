@@ -8,13 +8,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'lervag/vimtex'
     let g:vimtex_view_method = 'zathura'
     let g:vimtex_log_ignore = ['Overfull']
-    let g:vimtex_quickfix_latexlog = {
-    \ 'overfull' : 0,
-    \ 'underfull' : 0,
-    \ 'packages' : {
-    \   'default' : 0,
-    \ },
-    \}
 
 " Track the engine.
 Plug 'sirver/ultisnips'
@@ -22,7 +15,7 @@ Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
   " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
   let g:UltiSnipsExpandTrigger="<tab>"
-  let g:UltiSnipsJumpForwardTrigger="<c-b>"
+  let g:UltiSnipsJumpForwardTrigger="<tab>"
   let g:UltiSnipsJumpBackwardTrigger="<c-z>"
   " If you want :UltiSnipsEdit to split your window.
   let g:UltiSnipsEditSplit="vertical"
@@ -58,8 +51,15 @@ Plug 'junegunn/fzf.vim'
     let g:fzf_buffers_jump = 1
 
 Plug 'tpope/vim-obsession'
-Plug 'kenn7/vim-arsync'
+" Plug 'kenn7/vim-arsync'
 Plug 'gcmt/taboo.vim' 
+Plug 'chrisbra/Colorizer'
+
+Plug 'Valloric/YouCompleteMe'
+let g:ycm_key_list_select_completion = ['<Down>']
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "ᐅ"
+" Plug 'vim-syntastic/syntastic'
+" Plug 'nvie/vim-flake8'
 
 " Initialize plugin system
 call plug#end()
@@ -95,6 +95,7 @@ set laststatus=2
 " Use system clipboard as default
 set clipboard=unnamedplus
 set sessionoptions+=tabpages,globals " For Taboo plugin
+let python_highlight_all=1
 " }}}
 
 
@@ -163,6 +164,16 @@ function! ListEPSFiles()
     execute ':normal! O' . output
 "    $put=output
 endfunction
+
+function! VimuxCreateNewPane()
+  " Creates new Tmux pane
+  let splitExitCode = system("tmux split-window -p 20")
+  " Set the proper index
+  let g:VimuxRunnerIndex = _VimuxTmuxIndex()
+  call _VimuxTmux("last-"._VimuxRunnerType())
+endfunction
+
+
 " }}}
 
 
@@ -187,6 +198,8 @@ nnoremap <silent> <Leader>> :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
 nnoremap <silent> <Leader>< :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
 nnoremap <silent> <Leader>r :edit!<CR>
 
+inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
+nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
     " MATLAB {{{
     autocmd FileType matlab nnoremap <buffer> <f5> :call VimuxRunCommand(expand('%:t:r'))<cr>
     " autocmd FileType matlab nnoremap <buffer> <c-w><F5> :call VimuxRunCommand('dbstop if error; '.expand('%:t:r'))<cr>
@@ -204,8 +217,10 @@ nnoremap <silent> <Leader>r :edit!<CR>
     autocmd FileType matlab nnoremap <buffer> <localleader>o :call VimuxRunCommand("matlab -nodesktop")<cr>
     autocmd FileType matlab nnoremap <buffer> <localleader>c 0i%<esc>j
     autocmd FileType matlab set cc=80
-    autocmd FileType matlab nnoremap <buffer> <localleader>sd :ARsyncDown<cr>:copen<cr><c-w>k
-    autocmd FileType matlab nnoremap <buffer> <localleader>su :ARsyncUp<cr>:copen<cr><c-w>k
+    " autocmd FileType matlab nnoremap <buffer> <localleader>sd :ARsyncDown<cr>:copen<cr><c-w>k
+    " autocmd FileType matlab nnoremap <buffer> <localleader>su :ARsyncUp<cr>:copen<cr><c-w>k
+    nnoremap <localleader>sd :call VimuxCreateNewPane()<cr>:VimuxRunCommand("./.my_rsync_down.sh")<cr>:VimuxRunCommand("sleep 2")<cr>:VimuxRunCommand("exit")<cr>
+    nnoremap <localleader>su :call VimuxCreateNewPane()<cr>:VimuxRunCommand("./.my_rsync_up.sh")<cr>:VimuxRunCommand("sleep 2")<cr>:VimuxRunCommand("exit")<cr>
     autocmd FileType matlab nnoremap <buffer> <localleader>zz :vertical resize 80<cr>
     " }}}
 

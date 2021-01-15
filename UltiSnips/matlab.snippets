@@ -1,3 +1,4 @@
+priority 10
 
 snippet func "function"
 function [${1:out}] = ${2:`!p snip.rv = snip.basename`}(${3:inputArg1}, varargin) 
@@ -5,12 +6,15 @@ function [${1:out}] = ${2:`!p snip.rv = snip.basename`}(${3:inputArg1}, varargin
 % ${4:
 % Summary of this function goes here
 % Detailed explanation goes here
+
+
+% Author: Tri Nguyen (nguyetr9@oregonstate.edu)
 }
 % -------------------------------------------------------------------------
     
     % Check the options structure.
     p = inputParser;
-    p.addOptional('display', 0);
+    p.addOptional('verbose', 0);
     p.addOptional('debug', 0);
     p.KeepUnmatched = true;
     p.parse(varargin{:});
@@ -65,4 +69,16 @@ endsnippet
 
 snippet plot "plot"
 plot(${1}, ${2}, 'DisplayName', '${3:plotname}')
+endsnippet
+
+snippet dq  "Open double quote" iA
+"${1}"$0
+endsnippet
+
+snippet sq  "Open single quote" iA
+'${1}'$0
+endsnippet
+
+snippet ( "Open parenthesis" i
+($1)$0
 endsnippet

@@ -13,8 +13,8 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-# font pango:monospace 8
-font pango:System San Francisco Display 11
+font pango:monospace 50
+# font pango:System San Francisco Display 20
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -30,6 +30,8 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
+
+exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -195,14 +197,14 @@ bindsym $mod+r mode "resize"
 #        position top
 #}
 
-set $output_main "eDP-1-1"
-set $output_hdmi "HDMI-1-2"
+set $output_main "eDP-1"
+set $output_hdmi "HDMI-1"
 set $output_vga "DP-1-1"
-exec --no-startup-id xrandr --output $output_hdmi --primary --auto  --pos 1366x0 
+#exec_always --no-startup-id xrandr --output $output_main --primary --auto 
 #exec_always --no-startup-id xrandr --output $output_vga --auto --right-of $output_main
-#exec_always --no-startup-id xrandr --output $output_hdmi  --auto --left-of $output_main
+#exec_always --no-startup-id xrandr --output $output_hdmi  --auto --above $output_main --primary --auto --scale 1x1
+
 exec_always --no-startup-id feh --bg-fill "/home/tringuyen/code/dotfiles/bg.jpg"
-exec --no-startup-id orange-app
 exec --no-startup-id slack
 exec --no-startup-id goldendict
 exec --no-startup-id mendeleydesktop
@@ -232,6 +234,9 @@ for_window [class="Matplotlib"] floating enable
 for_window [class="Steam" title="Friends List"] floating enable
 for_window [class="Cisco AnyConnect Secure Mobility Client"] floating enable
 for_window [title="floating_window"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="Arandr"] floating enable
+for_window [class="Inkscape"] floating enable
 
 # Assign workspace
 assign [class="Orange"] $ws9
@@ -248,12 +253,12 @@ workspace $ws9 output $output_main
 
 bindsym $mod+Shift+x exec systemctl suspend
 bindsym $mod+b exec google-chrome
-exec compton 
+exec_always compton  --config ~/.config/compton.conf -b
 
 # Draculus theme #6272A4
 # class                 border  bground text    indicator child_border
 # client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
-client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4  #009105
+client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4  #99abf2 
 client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
 client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
 client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
@@ -302,7 +307,7 @@ bindsym $mod+Ctrl+b exec --no-startup-id blueman-manager
 # QuteBrowser
 bindsym $mod+Ctrl+t exec --no-startup-id qutebrowser
 
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 1
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -318,3 +323,6 @@ smart_gaps on
 smart_gaps inverse_outer
 
 gaps inner 10
+
+# Bind System settings
+bindsym $mod+z exec env XDG_CURRENT_DESKTOP=GNOME gnome-control-center 

@@ -60,9 +60,9 @@ snippet '(tb)\\(\w+)' "textbf for greek letters (amsmath is required)" ir
 \boldsymbol\\`!p snip.rv = match.group(2)`
 endsnippet
 
-snippet '(ti)(\w+)' "textit" ir
-\textit{`!p snip.rv = match.group(2)`}
-endsnippet
+#snippet '(ti)(\w+)' "textit" r
+#\textit{`!p snip.rv = match.group(2)`}
+#endsnippet
 
 snippet '(tm)(\w+)' "mathcal" ir
 \mathcal{`!p snip.rv = match.group(2)`}
@@ -96,8 +96,8 @@ snippet '(<>)' "\Rightarrow" rA
 \Leftrightarrow
 endsnippet
 
-snippet '(\')' "\Rightarrow" r
-^T
+snippet ' "transpose" i
+^T 
 endsnippet
 
 priority 2 
@@ -108,6 +108,7 @@ snippet init-article "Basic skeleton for an article" b
 % PACKAGES AND PREDEFINED SETTINGS
 % --------------------------------------------------------- 
 
+%\usepackage{lmodern}
 %\usepackage{xcolor}
 %\usepackage{float}
 %\usepackage{caption}
@@ -129,7 +130,37 @@ snippet init-article "Basic skeleton for an article" b
 \fontencoding{T1} % the better font encoding.
 \usepackage{chngcntr} % https://tex.stackexchange.com/questions/28333/continuous-v-per-chapter-section-numbering-of-figures-tables-and-other-docume
 %\usepackage{thmtools} % http://ftp.math.purdue.edu/mirrors/ctan.org/macros/latex/exptl/thmtools/thmtools.pdf
+\usepackage{import}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{xcolor}
 
+\usepackage{listings}
+\lstset{language=python}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
 \usepackage[
 backend=biber,
 style=alphabetic,
@@ -154,6 +185,11 @@ citestyle=alphabetic
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}} % https://tex.stackexchange.com/questions/42726/align-but-show-one-equation-number-at-the-end 
 \newcommand{\set}[1]{\left\{#1\right\}}
 \newcommand*\diff{\mathop{}\!\mathrm{d}}
+
+\newcommand{\incfig}[2][1]{%
+    \def\svgwidth{#1\columnwidth}
+    \import{./figures/}{#2.pdf_tex}
+}
 
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
@@ -470,7 +506,7 @@ snippet l( "open left parathesis" i
 \left( $1 \right)$0
 endsnippet
 
-snippet mtx "bmatrix environment"
+snippet mat "bmatrix environment"
 \begin{bmatrix}
 $1
 \end{bmatrix} $0
@@ -482,4 +518,16 @@ endsnippet
 
 snippet hat "widehat" i
 \widehat{$1}$0
+endsnippet
+
+snippet tx "text" i
+\text{$1}$0
+endsnippet
+
+snippet ss "quad" i
+\quad 
+endsnippet
+
+snippet ... "ldots" iA
+\ldots 
 endsnippet

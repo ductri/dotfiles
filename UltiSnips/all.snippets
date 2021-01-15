@@ -14,12 +14,22 @@ snippet < "Open <" i
 <$1>$0
 endsnippet
 
-snippet ' "Open single quote" i
-'$1'$0
+snippet dq  "Open double quote" iA
+"${1}"`!p 
+if t[2] and t[2][0] not in [',', '.', '?', '-', ' ', ')']:
+    snip.rv = ' '
+else:
+    snip.rv = ''
+`$2
 endsnippet
 
-snippet " "Open double quote" i
-"$1"$0
+snippet qq  "Open single quote" iA
+'${1}'`!p 
+if t[2] and t[2][0] not in [',', '.', '?', '-', ' ', ')']:
+    snip.rv = ' '
+else:
+    snip.rv = ''
+`$2
 endsnippet
 
 snippet '[^b]td' "superscript" irA
