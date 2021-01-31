@@ -110,11 +110,11 @@ snippet init-article "Basic skeleton for an article" b
 
 %\usepackage{lmodern}
 %\usepackage{xcolor}
-%\usepackage{float}
-%\usepackage{caption}
-%\usepackage{subcaption}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
 %\usepackage[utf8x]{inputenc}
-%\usepackage{algorithm2e}
+\usepackage{algorithm2e}
 \usepackage{enumitem}
 %\usepackage[english]{babel}
 \usepackage{amssymb}
@@ -171,7 +171,8 @@ citestyle=alphabetic
 % SETTINGS
 % --------------------------------------------------------- 
 \counterwithin{figure}{section}
-
+\newcommand\mycommfont[1]{\footnotesize\ttfamily\textcolor{blue}{#1}}
+\SetCommentSty{mycommfont}
 % --------------------------------------------------------- 
 % CUSTOM COMMANDS
 % --------------------------------------------------------- 
@@ -183,7 +184,7 @@ citestyle=alphabetic
 \newcommand{\abs}[1]{\left\lvert#1\right\rvert}
 \newcommand{\vect}[1]{\text{vec}\left(#1\right)}
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}} % https://tex.stackexchange.com/questions/42726/align-but-show-one-equation-number-at-the-end 
-\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\set}[1]{\left\\{#1\right\\}}
 \newcommand*\diff{\mathop{}\!\mathrm{d}}
 
 \newcommand{\incfig}[2][1]{%
@@ -490,6 +491,10 @@ snippet psi "psi" i
 \psi 
 endsnippet
 
+snippet Phi "Phi" i
+\Phi
+endsnippet
+
 snippet \bs "boldsymbol" i
 \boldsymbol
 endsnippet
@@ -530,4 +535,22 @@ endsnippet
 
 snippet ... "ldots" iA
 \ldots 
+endsnippet
+
+snippet algorithm "algorithm" i
+\begin{algorithm}
+    \caption{$1}
+    \SetAlgoLined
+    \SetKwInOut{Input}{Input}
+    \SetKwInOut{Output}{Output}
+    \Input{$2}
+    \Output{$3}
+    $4
+    \BlankLine
+    \BlankLine
+\end{algorithm}
+endsnippet
+
+snippet lst "lstinline" i 
+\lstinline{$1}$0
 endsnippet

@@ -8,6 +8,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'lervag/vimtex'
     let g:vimtex_view_method = 'zathura'
     let g:vimtex_log_ignore = ['Overfull']
+    let g:vimtex_quickfix_ignore_filters = [
+          \ 'Overfull',
+          \]
 
 " Track the engine.
 Plug 'sirver/ultisnips'
@@ -58,6 +61,7 @@ Plug 'chrisbra/Colorizer'
 Plug 'Valloric/YouCompleteMe'
 let g:ycm_key_list_select_completion = ['<Down>']
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "ᐅ"
+set completeopt-=preview
 " Plug 'vim-syntastic/syntastic'
 " Plug 'nvie/vim-flake8'
 
@@ -268,7 +272,7 @@ autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 noremap <leader>a <C-a>
 noremap <leader>x <C-x>
 noremap <leader>w :close<cr>
-" noremap <c-g> :silent exec "!gnome-terminal -e ranger"<cr>
+noremap <c-g> :silent exec "!gnome-terminal -e ranger"<cr>
 noremap <c-b> :ARsyncUp<cr>
 
 inoremap <f7> <C-O>za

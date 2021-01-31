@@ -60,3 +60,7 @@ dconf load /org/gnome/terminal/legacy/profiles:/ < gnome-terminal-profiles.dconf
 echo "Install compton"
 cp  compton.conf ~/.config/compton.conf
 
+echo "Install pavucontrol config"
+cp /etc/pulse/default.pa /etc/pulse/default.pa.bk
+sudo cp default.pa /etc/pulse/default.pa 
+

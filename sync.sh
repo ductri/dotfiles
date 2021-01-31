@@ -64,3 +64,7 @@ dconf dump /org/gnome/terminal/legacy/profiles:/ > gnome-terminal-profiles.dconf
 
 echo "Save compton"
 cp ~/.config/compton.conf compton.conf
+
+echo "Save pavocontrol config"
+cp /etc/pulse/default.pa default.pa
+

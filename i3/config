@@ -253,7 +253,7 @@ workspace $ws9 output $output_main
 
 bindsym $mod+Shift+x exec systemctl suspend
 bindsym $mod+b exec google-chrome
-exec_always compton  --config ~/.config/compton.conf -b
+exec --no-startup-id compton --config ~/.config/compton.conf -b
 
 # Draculus theme #6272A4
 # class                 border  bground text    indicator child_border
