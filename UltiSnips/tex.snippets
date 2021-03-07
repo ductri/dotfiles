@@ -84,7 +84,7 @@ snippet mc "\mathbb{C}" i
 \mathbb{C}
 endsnippet
 
-snippet me "\mathbb{E}" i 
+snippet me "\mathbb{E}"  
 \mathbb{E}
 endsnippet
 
@@ -177,7 +177,8 @@ citestyle=alphabetic
 % CUSTOM COMMANDS
 % --------------------------------------------------------- 
 
-\newcommand{\rank}{\text{rank}}
+\newcommand{\rank}[1]{\text{rank}(#1)}
+\newcommand{\pr}[1]{\text{Pr}\left(#1\right)}
 \newcommand{\st}{\text{subject to}\quad }
 \newcommand{\trace}[1]{\text{tr}\left(#1\right)}
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
@@ -496,14 +497,14 @@ snippet Phi "Phi" i
 endsnippet
 
 snippet \bs "boldsymbol" i
-\boldsymbol
+\boldsymbol 
 endsnippet
 
 snippet \left( "open left parathesis" i
 \left( $1 \right)$0
 endsnippet
 
-snippet \left[ "open left bracket parathesis" i
+snippet l[ "open left bracket parathesis" i
 \left[ $1 \right]$0
 endsnippet
 
@@ -553,4 +554,12 @@ endsnippet
 
 snippet lst "lstinline" i 
 \lstinline{$1}$0
+endsnippet
+
+snippet amp "ampersand &" i
+&
+endsnippet
+
+snippet grad "nabla" i
+\nabla 
 endsnippet

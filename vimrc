@@ -1,4 +1,4 @@
-if empty(glob('~/.vim/autoload/plug.vim'))
+if empty(glob('~/.vim/autoload/plug.vim'))"{{{}}}{{{}}}
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
@@ -53,17 +53,24 @@ Plug 'junegunn/fzf.vim'
     " [Buffers] Jump to the existing window if possible
     let g:fzf_buffers_jump = 1
 
-Plug 'tpope/vim-obsession'
+" Plug 'tpope/vim-obsession'
 " Plug 'kenn7/vim-arsync'
 Plug 'gcmt/taboo.vim' 
 Plug 'chrisbra/Colorizer'
 
 Plug 'Valloric/YouCompleteMe'
 let g:ycm_key_list_select_completion = ['<Down>']
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "ᐅ"
+" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "ᐅ"
 set completeopt-=preview
 " Plug 'vim-syntastic/syntastic'
 " Plug 'nvie/vim-flake8'
+
+Plug 'Chiel92/vim-autoformat'
+
+Plug 'tomtom/tcomment_vim'
+
+Plug 'francoiscabrol/ranger.vim'
+let g:ranger_map_keys = 0
 
 " Initialize plugin system
 call plug#end()
@@ -93,6 +100,7 @@ let mapleader = "-"
 let maplocalleader="\\"
 set tags=tags
 set hlsearch
+nohls
 set pastetoggle=<F2>
 set showmode
 set laststatus=2
@@ -100,6 +108,7 @@ set laststatus=2
 set clipboard=unnamedplus
 set sessionoptions+=tabpages,globals " For Taboo plugin
 let python_highlight_all=1
+set scrolloff=5
 " }}}
 
 
@@ -151,7 +160,7 @@ function! ListEPSFiles()
     if dirpath == ""
         return
     endif
-    let list_pdfs = split(globpath(dirpath, '*.eps'), "\n")
+    let list_pdfs = split(globpath(dirpath, '*.eps|*.png'), "\n")
     let output = ["\\begin{figure}[H] \n"] 
     let index = 0
     for item in list_pdfs
@@ -192,7 +201,6 @@ nnoremap <leader>eS :vsplit ~/.vim/UltiSnips/all.snippets<cr>
 nnoremap <leader>ed :split /home/tringuyen/research/notes/diary.md<cr>
 nnoremap <leader>ne G3o<esc>i# New entry: <esc>"=strftime('%c')<C-M>p2o<esc>i
 " Comment
-nnoremap <leader>c ^i% <esc>j 
 nnoremap <leader>j i<cr><esc>
 " Thanks to https://www.reddit.com/r/vim/comments/8asgjj/topnotch_vim_markdown_live_previews_with_no/
 noremap <silent> <leader>om :call OpenMarkdownPreview()<cr>
@@ -204,6 +212,9 @@ nnoremap <silent> <Leader>r :edit!<CR>
 
 inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
 nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
+
+map <c-g> :Ranger<CR>
+
     " MATLAB {{{
     autocmd FileType matlab nnoremap <buffer> <f5> :call VimuxRunCommand(expand('%:t:r'))<cr>
     " autocmd FileType matlab nnoremap <buffer> <c-w><F5> :call VimuxRunCommand('dbstop if error; '.expand('%:t:r'))<cr>
@@ -219,7 +230,6 @@ nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/
     autocmd FileType matlab nnoremap <buffer> <f9> :call VimuxRunCommand("dbstop in ".expand('%')." at ".line("."))<cr>
     autocmd FileType matlab nnoremap <buffer> <f10> :call VimuxRunCommand("dbclear all")<cr>
     autocmd FileType matlab nnoremap <buffer> <localleader>o :call VimuxRunCommand("matlab -nodesktop")<cr>
-    autocmd FileType matlab nnoremap <buffer> <localleader>c 0i%<esc>j
     autocmd FileType matlab set cc=80
     " autocmd FileType matlab nnoremap <buffer> <localleader>sd :ARsyncDown<cr>:copen<cr><c-w>k
     " autocmd FileType matlab nnoremap <buffer> <localleader>su :ARsyncUp<cr>:copen<cr><c-w>k
@@ -235,6 +245,8 @@ nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/
     autocmd FileType python nnoremap <buffer> <f5> :call VimuxRunCommand("exec(open('".expand('%:p')."').read())")<cr>
     autocmd FileType python vnoremap <buffer> <f6> :<c-u>call VimuxRunSelection()<cr>
     autocmd FileType python nnoremap <silent> <buffer> <f6> :call VimuxCurrentLine()<cr>
+    autocmd FileType python set cc=80
+    autocmd FileType python nnoremap <buffer> <localleader>zz :vertical resize 80<cr>
     " }}}
 
 
@@ -272,7 +284,6 @@ autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 noremap <leader>a <C-a>
 noremap <leader>x <C-x>
 noremap <leader>w :close<cr>
-noremap <c-g> :silent exec "!gnome-terminal -e ranger"<cr>
 noremap <c-b> :ARsyncUp<cr>
 
 inoremap <f7> <C-O>za
@@ -287,6 +298,7 @@ nnoremap <C-]> g<C-]>
 augroup filetype_vim
 autocmd!
 autocmd FileType vim setlocal foldmethod=marker
+autocmd FileType vim setlocal nofoldenable
 augroup END
 " }}}
 

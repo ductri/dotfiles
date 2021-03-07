@@ -165,3 +165,12 @@ complete -F _fzf_file_completion -o default -o bashdefault zathura
 complete -F _fzf_file_completion -o default -o bashdefault evince
 
 
+function jpt(){
+    # Fires-up a Jupyter notebook by supplying a specific port
+    jupyter notebook --no-browser --port=$1
+}
+
+function jptt(){
+    # Forwards port $1 into port $2 and listens to it
+    ssh -N -f -L localhost:$1:localhost:$1 nguyetr9@hpc
+}

@@ -47,6 +47,9 @@ set selection-clipboard "clipboard"
 map <C-n> feedkeys ":exec zathura %"<Return>
 map <C-i> recolor
 unmap <C-r>
+map <F2> focus_inputbar ":set guioptions none<Return>"
+map <C-F2> focus_inputbar ":set guioptions s<Return>"
+
 
 set database="plain"
 set first-page-column 1:2
