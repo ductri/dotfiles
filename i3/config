@@ -58,7 +58,8 @@ bindsym $mod+Shift+q exec xdotool getwindowfocus windowkill
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 # bindsym $mod+d exec --no-startup-id rofi -monitor -1 -show drun -theme default
 # bindsym $mod+shift+d exec --no-startup-id rofi -monitor -1 -show window -theme default
-bindsym $mod+d exec --no-startup-id "rofi -monitor -1 -combi-modi window,drun -show combi -modi combi"
+# bindsym $mod+d exec --no-startup-id "rofi -monitor -1 -combi-modi window,drun -show combi -modi combi"
+bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/text/launcher.sh
 
 # change focus
 bindsym $mod+h focus left
@@ -163,7 +164,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -260,7 +261,7 @@ workspace $ws9 output $output_main
 
 bindsym $mod+Shift+x exec systemctl suspend
 bindsym $mod+b exec google-chrome
-exec --no-startup-id compton --config ~/.config/compton.conf -b
+exec_always --no-startup-id compton --config ~/.config/compton.conf -b
 
 # Draculus theme #6272A4
 # class                 border  bground text    indicator child_border
@@ -350,6 +351,7 @@ mode "$mode_system" {
 }
 
 bindsym $mod+Pause mode "$mode_system"
+bindsym $mod+shift+e mode "$mode_system"
 
 ## Manual management of external displays
 # Set the shortcuts and what they do

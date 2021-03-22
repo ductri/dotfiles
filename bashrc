@@ -156,7 +156,6 @@ if ! shopt -oq posix; then
 fi
 
 
-eval `dircolors /home/tringuyen/tools/gnome-terminal/dircolors`
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 complete -F _fzf_file_completion -o default -o bashdefault xdg-open
@@ -174,3 +173,5 @@ function jptt(){
     # Forwards port $1 into port $2 and listens to it
     ssh -N -f -L localhost:$1:localhost:$1 nguyetr9@hpc
 }
+
+eval `dircolors $HOME/.dir_colors/dircolors`

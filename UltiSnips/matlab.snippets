@@ -48,12 +48,12 @@ clc; clear; close all; path(pathdef);
 ${0}
 endsnippet
 
-snippet saveas "saveas"
-saveas(gcf, '${1}.eps', 'epsc')
-endsnippet
+# snippet saveas "saveas"
+# saveas(gcf, '${1}.eps', 'epsc')
+# endsnippet
 
 snippet exportgraphics "export graphics"
-exportgraphics(gcf, '${1}.pgn', 'resolution', 300);
+exportgraphics(gcf, '${1}.png', 'resolution', 300);
 endsnippet
 
 snippet DEBUG "debug"
@@ -86,3 +86,11 @@ endsnippet
 snippet ( "Open parenthesis" i
 ($1)$0
 endsnippet
+
+snippet createdir "Create directory"
+if ~isdir(${1:output_dir})
+    mkdir($1)
+    fprintf('Created directory at: %s\n', $1);
+end
+endsnippet
+

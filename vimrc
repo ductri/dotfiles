@@ -54,7 +54,6 @@ Plug 'junegunn/fzf.vim'
     let g:fzf_buffers_jump = 1
 
 " Plug 'tpope/vim-obsession'
-" Plug 'kenn7/vim-arsync'
 Plug 'gcmt/taboo.vim' 
 Plug 'chrisbra/Colorizer'
 
@@ -71,6 +70,9 @@ Plug 'tomtom/tcomment_vim'
 
 Plug 'francoiscabrol/ranger.vim'
 let g:ranger_map_keys = 0
+
+Plug 'jeetsukumaran/vim-markology'
+
 
 " Initialize plugin system
 call plug#end()
@@ -109,6 +111,8 @@ set clipboard=unnamedplus
 set sessionoptions+=tabpages,globals " For Taboo plugin
 let python_highlight_all=1
 set scrolloff=5
+set rnu
+
 " }}}
 
 
@@ -160,7 +164,8 @@ function! ListEPSFiles()
     if dirpath == ""
         return
     endif
-    let list_pdfs = split(globpath(dirpath, '*.eps|*.png'), "\n")
+    " Credit to https://stackoverflow.com/questions/9033239/vim-regex-or-in-file-name-pattern-on-windows
+    let list_pdfs = filter(split(globpath(dirpath, '**'), "\n"), 'v:val =~ ''\.\(\(png\)\|\(eps\)\)$''')
     let output = ["\\begin{figure}[H] \n"] 
     let index = 0
     for item in list_pdfs
@@ -231,10 +236,9 @@ map <c-g> :Ranger<CR>
     autocmd FileType matlab nnoremap <buffer> <f10> :call VimuxRunCommand("dbclear all")<cr>
     autocmd FileType matlab nnoremap <buffer> <localleader>o :call VimuxRunCommand("matlab -nodesktop")<cr>
     autocmd FileType matlab set cc=80
-    " autocmd FileType matlab nnoremap <buffer> <localleader>sd :ARsyncDown<cr>:copen<cr><c-w>k
-    " autocmd FileType matlab nnoremap <buffer> <localleader>su :ARsyncUp<cr>:copen<cr><c-w>k
-    nnoremap <localleader>sd :call VimuxCreateNewPane()<cr>:VimuxRunCommand("./.my_rsync_down.sh")<cr>:VimuxRunCommand("sleep 2")<cr>:VimuxRunCommand("exit")<cr>
-    nnoremap <localleader>su :call VimuxCreateNewPane()<cr>:VimuxRunCommand("./.my_rsync_up.sh")<cr>:VimuxRunCommand("sleep 2")<cr>:VimuxRunCommand("exit")<cr>
+    nnoremap <localleader>sd :call VimuxCreateNewPane()<cr>:VimuxRunCommand("./scripts/my_rsync/rsync_down.sh")<cr>:VimuxRunCommand("sleep 0.2")<cr>:VimuxRunCommand("exit")<cr>
+    nnoremap <localleader>su :call VimuxCreateNewPane()<cr>:VimuxRunCommand("./scripts/my_rsync/rsync_up.sh")<cr>:VimuxRunCommand("sleep 0.2")<cr>:VimuxRunCommand("exit")<cr>
+    nnoremap <localleader>sl :vs scripts/my_rsync/log<cr>
     autocmd FileType matlab nnoremap <buffer> <localleader>zz :vertical resize 80<cr>
     " }}}
 
@@ -276,9 +280,9 @@ nnoremap n nzz
 " Count search
 nnoremap <f4> :%s///gn<cr>
 
-nnoremap <leader>o :Files<cr>
-nnoremap <leader>b :Buffers<cr>
-nnoremap <leader>f :Rg<cr>
+nnoremap <leader>fo :Files<cr>
+nnoremap <leader>fb :Buffers<cr>
+nnoremap <leader>ff :Rg<cr>
 command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 noremap <leader>a <C-a>
