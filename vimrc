@@ -295,6 +295,9 @@ nnoremap <f7> za
 onoremap <f7> <C-C>za
 vnoremap <f7> zf
 nnoremap <C-]> g<C-]>
+nnoremap <localleader>cr :execute "cd " . project_root<cr>
+
+
 " }}}
 
 

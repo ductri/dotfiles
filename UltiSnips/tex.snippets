@@ -114,7 +114,7 @@ snippet init-article "Basic skeleton for an article" b
 \usepackage{caption}
 \usepackage{subcaption}
 %\usepackage[utf8x]{inputenc}
-\usepackage{algorithm2e}
+\usepackage[linesnumbered,lined,boxed,commentsnumbered,ruled,vlined]{algorithm2e}
 \usepackage{enumitem}
 %\usepackage[english]{babel}
 \usepackage{amssymb}
@@ -542,10 +542,8 @@ snippet algorithm "algorithm" i
 \begin{algorithm}
     \caption{$1}
     \SetAlgoLined
-    \SetKwInOut{Input}{Input}
-    \SetKwInOut{Output}{Output}
-    \Input{$2}
-    \Output{$3}
+    \KwIn{$2}
+    \KwOut{$3}
     $4
     \BlankLine
     \BlankLine

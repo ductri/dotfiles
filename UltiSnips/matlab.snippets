@@ -2,7 +2,7 @@ priority 10
 
 snippet func "function"
 function [${1:out}] = ${2:`!p snip.rv = snip.basename`}(${3:inputArg1}, varargin) 
-% -------------------------------------------------------------------------
+% ----------------------------------------------------------------------
 % ${4:
 % Summary of this function goes here
 % Detailed explanation goes here
@@ -10,7 +10,7 @@ function [${1:out}] = ${2:`!p snip.rv = snip.basename`}(${3:inputArg1}, varargin
 
 % Author: Tri Nguyen (nguyetr9@oregonstate.edu)
 }
-% -------------------------------------------------------------------------
+% ----------------------------------------------------------------------
     
     % Check the options structure.
     p = inputParser;
@@ -63,6 +63,13 @@ $1
 $0
 endsnippet
 
+snippet BLOCK "block commend"
+
+% ==============================
+% $1
+% ==============================
+$0
+endsnippet
 snippet todo "todo"
 %TODO 
 endsnippet
@@ -77,10 +84,6 @@ endsnippet
 
 snippet dq  "Open double quote" iA
 "${1}"$0
-endsnippet
-
-snippet sq  "Open single quote" iA
-'${1}'$0
 endsnippet
 
 snippet ( "Open parenthesis" i

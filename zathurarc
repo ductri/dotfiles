@@ -42,13 +42,13 @@ set statusbar-basename true
 set statusbar-home-tilde false
 
 set selection-clipboard "clipboard"
-
+set guioptions "hv"
 
 map <C-n> feedkeys ":exec zathura %"<Return>
 map <C-i> recolor
 unmap <C-r>
-map <F2> focus_inputbar ":set guioptions none<Return>"
-map <C-F2> focus_inputbar ":set guioptions s<Return>"
+map <F2> focus_inputbar ':set guioptions "hv"<Return>'
+map <C-F2> focus_inputbar ':set guioptions "shv"<Return>'
 
 
 set database="plain"
