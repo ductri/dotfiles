@@ -53,7 +53,7 @@ Plug 'junegunn/fzf.vim'
     " [Buffers] Jump to the existing window if possible
     let g:fzf_buffers_jump = 1
 
-" Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-obsession'
 Plug 'gcmt/taboo.vim' 
 Plug 'chrisbra/Colorizer'
 
@@ -112,6 +112,7 @@ set sessionoptions+=tabpages,globals " For Taboo plugin
 let python_highlight_all=1
 set scrolloff=5
 set rnu
+set nowrapscan
 
 " }}}
 

@@ -52,4 +52,4 @@ map <C-F2> focus_inputbar ':set guioptions "shv"<Return>'
 
 
 set database="plain"
-set first-page-column 1:2
+set first-page-column 1:1

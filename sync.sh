@@ -51,20 +51,38 @@ echo
 
 echo "Save touchpad config for i3"
 cp /etc/X11/xorg.conf.d/90-touchpad.conf 90-touchpad.conf
+echo
 
 echo "Save fonts"
 cp -r ~/.fonts fonts
+echo
 
 echo "Save gtk config"
 mkdir -p gtk
 cp ~/.gtkrc-2.0 gtk/.gtkrc-2.0
+echo
 
 echo "Gnome terminal profile"
 dconf dump /org/gnome/terminal/legacy/profiles:/ > gnome-terminal-profiles.dconf
+echo
 
 echo "Save compton"
 cp ~/.config/compton.conf compton.conf
+echo
 
 echo "Save pavocontrol config"
 cp /etc/pulse/default.pa default.pa
+echo
+
+echo "Save sway config"
+cp -r ~/.config/sway sway
+echo
+
+echo "Save alacritty config"
+cp  ~/.config/alacritty/alacritty.yml alacritty.yml 
+echo
+
+echo "Save Xresources"
+cp  ~/.Xresources Xresources
+echo
 

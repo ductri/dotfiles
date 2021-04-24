@@ -44,7 +44,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+q kill
@@ -101,9 +101,6 @@ bindsym $mod+Shift+y layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
-
-# toggle tiling / floating
-bindsym $mod+ctrl+Shift+space sticky toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -163,9 +160,9 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod+shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $mod+shift+r reload
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
@@ -203,9 +200,12 @@ bindsym $mod+r mode "resize"
 #        position top
 #}
 
-set $output_main "eDP-1"
-set $output_hdmi "HDMI-1"
-set $output_vga "DP-1-1"
+# set $output_main "eDP-1"
+# set $output_hdmi "HDMI-1"
+# set $output_vga "DP-1-1"
+output eDP-1 disable
+output DP-2 scale 2 pos 0 0 res 3840x2160
+output HDMI-A-1 pos 1920 0 res 1920x1080
 #exec_always --no-startup-id xrandr --output $output_main --primary --auto 
 #exec_always --no-startup-id xrandr --output $output_vga --auto --right-of $output_main
 #exec_always --no-startup-id xrandr --output $output_hdmi  --auto --above $output_main --primary --auto --scale 1x1
@@ -217,7 +217,7 @@ exec --no-startup-id mendeleydesktop
 exec --no-startup-id redshift
 exec --no-startup-id anki
 
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Multi-screen screenshots with scrot
 bindsym --release Print exec scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # All screens
@@ -263,7 +263,7 @@ workspace $ws3 output $current_additional_output
 workspace $ws9 output $output_main
 
 bindsym $mod+Shift+x exec systemctl suspend
-bindsym $mod+b exec google-chrome
+bindsym $mod+b exec google-chrome --enable-features=UseOzonePlatform --ozone-platform=wayland
 exec_always --no-startup-id compton --config ~/.config/compton.conf -b
 
 # Draculus theme #6272A4
@@ -358,16 +358,18 @@ bindsym $mod+shift+e mode "$mode_system"
 
 ## Manual management of external displays
 # Set the shortcuts and what they do
-set $mode_display Ext Screen (v) VGA ON, (h) HDMI ON, (x) VGA OFF, (y) HDMI OFF
-mode "$mode_display" {
-    bindsym v exec --no-startup-id xrandr --output VGA1 --auto --right-of LVDS1, mode "default"
-    bindsym h exec --no-startup-id xrandr --output HDMI1 --auto --right-of LVDS1, mode "default"
-    bindsym x exec --no-startup-id xrandr --output VGA1 --auto --off, mode "default"
-    bindsym y exec --no-startup-id xrandr --output HDMI1 --auto --off, mode "default"
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
+# set $mode_display Ext Screen (v) VGA ON, (h) HDMI ON, (x) VGA OFF, (y) HDMI OFF
+# mode "$mode_display" {
+#     bindsym v exec --no-startup-id xrandr --output VGA1 --auto --right-of LVDS1, mode "default"
+#     bindsym h exec --no-startup-id xrandr --output HDMI1 --auto --right-of LVDS1, mode "default"
+#     bindsym x exec --no-startup-id xrandr --output VGA1 --auto --off, mode "default"
+#     bindsym y exec --no-startup-id xrandr --output HDMI1 --auto --off, mode "default"
+#
+#     # back to normal: Enter or Escape
+#     bindsym Return mode "default"
+#     bindsym Escape mode "default"
+# }
 # Declare here the shortcut to bring the display selection menu
 bindsym $mod+x mode "$mode_display"
+
+default_border pixel 1

@@ -64,3 +64,15 @@ echo "Install pavucontrol config"
 cp /etc/pulse/default.pa /etc/pulse/default.pa.bk
 sudo cp default.pa /etc/pulse/default.pa 
 
+echo "Install sway config"
+cp -r sway ~/.config/sway
+echo
+
+echo "Install alacritty config"
+cp  alacritty.yml ~/.config/alacritty/alacritty.yml
+echo
+
+echo "Install Xresources"
+cp Xresources ~/.Xresources
+echo
+

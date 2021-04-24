@@ -33,3 +33,11 @@ Ultilities:
 Backlight problems:
 - https://wiki.archlinux.org/index.php/Backlight#ACPI
 - https://badsimplicity.com/2020/01/28/screen-brightness-control-on-i3wm-for-lenovo-x240-ubuntu/
+
+
+# Sway
+- Alcaritty
+- Setting PS1='\[\033[01;31m\]\t \[\033[01;32m\]Naruto \[\033[02;36m\]\h \[\033[01;34m\]`pwd | sed "s#\(/[^/]\{1,\}/[^/]\{1,\}/[^/]\{1,\}/\).*\(/[^/]\{1,\}/[^/]\{1,\}\)/\{0,1\}#\1_\2#g"` \[\033[00m\]\n\$'
+- grim, slurp, wl-copy, grimshot, shotman for screenshot. Juck run `grimshot check` to see if something is missing
+- goldendict: its not completed. Currently, it runs with Xwayland. But I suppose it can Qt can run in wayland natively
+- Rofi: now supports wayland
