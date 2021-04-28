@@ -210,7 +210,7 @@ set $output_vga "DP-1-1"
 #exec_always --no-startup-id xrandr --output $output_vga --auto --right-of $output_main
 #exec_always --no-startup-id xrandr --output $output_hdmi  --auto --above $output_main --primary --auto --scale 1x1
 
-exec_always --no-startup-id feh --bg-fill "/home/tringuyen/code/dotfiles/bg.jpg"
+exec_always --no-startup-id feh --bg-fill "/home/tringuyen/code/dotfiles/bg/bg.jpg"
 exec --no-startup-id slack
 exec --no-startup-id goldendict
 exec --no-startup-id mendeleydesktop

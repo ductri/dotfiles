@@ -114,6 +114,8 @@ set scrolloff=5
 set rnu
 set nowrapscan
 
+" For background transparent
+hi Normal guibg=NONE ctermbg=NONE
 " }}}
 
 
@@ -201,6 +203,7 @@ nnoremap <f3> :NERDTreeToggle<cr>
 inoremap jk <esc>
 
 nnoremap <leader>ev :vsplit ~/.vimrc<cr>
+nnoremap <leader>et :vsplit ~/.tmux.conf<cr>
 nnoremap <leader>sv :source ~/.vimrc<cr>
 nnoremap <leader>es :UltiSnipsEdit<cr> 
 nnoremap <leader>eS :vsplit ~/.vim/UltiSnips/all.snippets<cr> 

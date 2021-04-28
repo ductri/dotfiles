@@ -1,6 +1,3 @@
-URxvt.font: xft:monospace:size=12
-URxvt.scrollBar: false
-
 ! Dracula Xresources palette
 *.foreground: #F8F8F2
 *.background: #282A36
