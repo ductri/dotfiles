@@ -36,7 +36,7 @@ Plug 'preservim/nerdtree'
 Plug 'morhetz/gruvbox'
 let g:gruvbox_italic=0
 let g:gruvbox_invert_selection=0
-Plug 'dracula/vim', { 'as': 'dracula' }
+" Plug 'dracula/vim', { 'as': 'dracula' }
 "
 Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'} 
 Plug 'tpope/vim-surround'
@@ -107,7 +107,7 @@ set pastetoggle=<F2>
 set showmode
 set laststatus=2
 " Use system clipboard as default
-set clipboard=unnamedplus
+" set clipboard=unnamedplus
 set sessionoptions+=tabpages,globals " For Taboo plugin
 let python_highlight_all=1
 set scrolloff=5

@@ -76,3 +76,10 @@ echo "Install Xresources"
 cp Xresources ~/.Xresources
 echo
 
+echo "Install tlp"
+cp  tlp.conf /etc/tlp.conf 
+echo
+
+echo "Install waybar"
+cp -r waybar ~/.config/waybar
+echo

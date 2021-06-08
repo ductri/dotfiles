@@ -86,3 +86,10 @@ echo "Save Xresources"
 cp  ~/.Xresources Xresources
 echo
 
+echo "Save tlp"
+cp  /etc/tlp.conf tlp.conf
+echo
+
+echo "Save waybar"
+cp -r ~/.config/waybar waybar
+echo

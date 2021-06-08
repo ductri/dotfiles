@@ -172,7 +172,8 @@ function jpt(){
 
 function jptt(){
     # Forwards port $1 into port $2 and listens to it
-    ssh -N -f -L localhost:$1:localhost:$1 nguyetr9@hpc
+    # ssh -N -f -L localhost:$1:localhost:$1 nguyetr9@hpc
+    ssh -N -f -L localhost:$1:localhost:$1 devcloud
 }
 
 eval `dircolors $HOME/.dir_colors/dircolors`

@@ -43,7 +43,7 @@ snippet '(tb)(\w+)' "textbf" ir
 \textbf{`!p snip.rv = match.group(2)`}
 endsnippet
 
-snippet '(tt)(\w+)' "text" ir
+snippet '(tt)(\w+)' "" ir
 \text{`!p snip.rv = match.group(2)`}
 endsnippet
 
@@ -90,6 +90,10 @@ endsnippet
 
 snippet mn "\mathbb{N}"  
 \mathbb{N}
+endsnippet
+
+snippet mz "\mathbb{Z}"  
+\mathbb{Z}
 endsnippet
 
 snippet '(->)' "\Rightarrow" rA
@@ -443,6 +447,10 @@ snippet alp "alpha" i
 \alpha
 endsnippet
 
+snippet zet "zetaj" i
+\zeta
+endsnippet
+
 snippet lam "lambda" i
 \lambda
 endsnippet
@@ -547,6 +555,7 @@ endsnippet
 
 snippet algorithm "algorithm" i
 \begin{algorithm}
+    \DontPrintSemicolon
     \caption{$1}
     \SetAlgoLined
     \KwIn{$2}

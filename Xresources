@@ -18,8 +18,9 @@
 *.color7:     #BFBFBF
 *.color15:    #E6E6E6
 
-Xft.dpi: 192
-! Xft.dpi: 96 
+! Xft.dpi: 192
+Xft.dpi: 96 
+! xrdb ~/.Xresources
 ! from https://www.linuxsecrets.com/archlinux-wiki/wiki.archlinux.org/index.php/HiDPI.html
 Xft.autohint: 0
 Xft.lcdfilter:  lcddefault
