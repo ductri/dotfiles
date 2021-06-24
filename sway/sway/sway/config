@@ -24,7 +24,7 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/code/dotfiles/bg/bg2.jpg fill
+output * bg ~/code/dotfiles/bg.jpg fill
 #
 # Example configuration:
 #
@@ -33,19 +33,14 @@ output * bg ~/code/dotfiles/bg/bg2.jpg fill
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
 # Position 1
-output eDP-1 resolution 1920x1080 position 0,0 scale 1
-output DP-2 resolution 3840x2160 position 1920,0 scale 2
-output HDMI-A-1 resolution 1920x1080 position 3840,0 scale 1
-
+# output eDP-1 resolution 1920x1080 position 0,0 scale 1
+# output DP-2 resolution 3840x2160 position 1920,0 scale 2
+# output HDMI-A-1 resolution 1920x1080 position 3840,0 scale 1
 # Position 2
-# output eDP-1 resolution 1920x1080 position 0,1080 scale 1
-# output DP-2 resolution 3840x2160 position 0,0 scale 2
-# output HDMI-A-1 resolution 1920x1080 position 1920,0 scale 1
-
-# Position 3: 32' -> 24' -> 14'
+output eDP-1 resolution 1920x1080 position 0,1080 scale 1
 output DP-2 resolution 3840x2160 position 0,0 scale 2
 output HDMI-A-1 resolution 1920x1080 position 1920,0 scale 1
-output eDP-1 resolution 1920x1080 position 3840,0 scale 1
+
 
 ### Idle configuration
 #
@@ -75,13 +70,6 @@ output eDP-1 resolution 1920x1080 position 3840,0 scale 1
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
-  input "1739:52619:SYNA8006:00_06CB:CD8B_Touchpad" {
-      dwt enabled
-      tap enabled
-      natural_scroll enabled
-      middle_emulation enabled
-  }
-
 ### Key bindings
 #
 # Basics:
@@ -104,7 +92,7 @@ output eDP-1 resolution 1920x1080 position 3840,0 scale 1
     bindsym $mod+Shift+r reload
 
     # Exit sway (logs you out of your Wayland session)
-    # bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
 #
@@ -252,9 +240,7 @@ include /etc/sway/config.d/*
     bindsym $mod+Shift+Ctrl+Right move workspace to output right
     bindsym $mod+Shift+Ctrl+Left move workspace to output left
 
-################################################
-#   APPEARANCE SETTINGS
-################################################
+# Custom appearance settings
     default_border pixel 2
     font pango: SourceCodePro Medium 12
     # Only enable gaps on a workspace when there is at least one container
@@ -300,29 +286,12 @@ include /etc/sway/config.d/*
         set $monitor_main "DP-2"
         set $laptop "eDP-1"
         set $monitor_right "HDMI-A-1"
-        workspace $ws1 output $monitor_main
-        workspace $ws2 output $monitor_main
-        workspace $ws3 output $laptop
-        workspace $ws4 output $monitor_main
-        workspace $ws5 output $laptop
-        workspace $ws6 output $monitor_main
-        workspace $ws7 output $laptop
-        workspace $ws8 output $monitor_main
-        workspace $ws9 output $monitor_right
-        workspace $ws10 output $monitor_right
+        workspace $ws1 output $current_additional_output
+        workspace $ws2 output $current_additional_output
+        workspace $ws3 output $current_additional_output
+        workspace $ws9 output $output_main
 
-    # class                   border  backgr. text    indicator child_border
-    client.focused           #2e9ef4  #285577 #ffffff #2e9ef4   #007a21
-    # client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-    # client.unfocused        #333333 #222222 #888888 #292d2e   #222222
-    # client.urgent           #2f343a #900000 #ffffff #900000   #900000
-    # client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
-    #
-    # client.background       #ffffff
-
-##############################
-#   CUSTOM SCRIPTS
-##############################
+# Custom scripts
     # Ranger
     bindsym $mod+w exec --no-startup-id $term -e "ranger"
     bindsym $mod+Shift+q exec xdotool getwindowfocus windowkill
@@ -347,9 +316,7 @@ include /etc/sway/config.d/*
     bindsym XF86AudioNext exec playerctl next
     bindsym XF86AudioPrev exec playerctl previous
 
-##################################
-#   CUSTOM BEHAVIOURS
-##################################
+# Custom behaviours
     for_window [class="MATLAB R2020b - academic use"] floating enable 
     for_window [class="^zoom"] floating enable
     for_window [app_id="^zoom"] floating enable
@@ -358,10 +325,7 @@ include /etc/sway/config.d/*
     for_window [app_id="^pavucontrol"] floating enable
     for_window [instance="goldendict"] floating enable, resize set 640 480
     for_window [app_id="gnome-control-center"] floating enable
-    for_window [app_id="org.inkscape.Inkscape"] floating enable
-    
 
-    # KEY BINDING
     # move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace number $ws1
     bindsym $mod+Shift+2 move container to workspace number $ws2
@@ -387,43 +351,14 @@ include /etc/sway/config.d/*
 
     bindswitch --reload --locked lid:on output $laptop disable
     bindswitch --reload --locked lid:off output $laptop enable
-
-    # toggle tiling / floating
-    bindsym $mod+ctrl+Shift+space sticky toggle
-
-#   Exit session
-    set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
-    mode "$mode_system" {
-        bindsym l exec --no-startup-id $Locker, mode "default"
-        bindsym e exec --no-startup-id i3-msg exit, mode "default"
-        bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
-        bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
-        bindsym r exec --no-startup-id systemctl reboot, mode "default"
-        bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-    }
-    bindsym $mod+Pause mode "$mode_system"
-    bindsym $mod+shift+e mode "$mode_system"
-
     exec_always ./clamshell_mode.sh
     # Hide cursor
     seat seat0 hide_cursor 5000
 
+# Auto run
+exec $HOME/bin/gammastep/bin/gammastep-indicator
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
-
-##########################################
-# AUTO RUN
-##########################################
-    exec $HOME/bin/gammastep/bin/gammastep-indicator
-    exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
-    exec hash dbus-update-activation-environment 2>/dev/null && \
-         dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
-    exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-    # exec xrdb ~/.Xresources_sway
-
-    exec wl-paste -t text --watch clipman store
-    exec swayidle timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
 

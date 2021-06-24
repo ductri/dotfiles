@@ -51,6 +51,10 @@ snippet '(bb)(\w+)' "mathbf" ir
 \mathbf{`!p snip.rv = match.group(2)`}
 endsnippet
 
+snippet '(bm)(\w+)' "bm" ir
+\bm{`!p snip.rv = match.group(2)`}
+endsnippet
+
 snippet '(hat)(\w+)' "hat" ir
 \hat{`!p snip.rv = match.group(2)`}
 endsnippet
@@ -409,6 +413,7 @@ Oregon State University \\\\ % Your institution for the title page
 \newcommand{\conti}{\setcounter{enumi}{\value{saveenumi}}}
 
 \begin{document}
+\DeclareFontShape{OT1}{cmss}{b}{n}{<->ssub * cmss/bx/n}{}
 % \newtheorem{theorem}{Theorem}[section]
 % \newtheorem{corollary}{Corollary}[theorem]
 % \newtheorem{lemma}[theorem]{Lemma}
@@ -576,4 +581,20 @@ endsnippet
 
 snippet grad "nabla" i
 \nabla 
+endsnippet
+
+snippet sr "^2" iA
+^2
+endsnippet
+
+snippet cb "^3" iA
+^3
+endsnippet
+
+snippet compl "complement" iA
+^{c}
+endsnippet
+
+snippet td "superscript" iA
+^{$1}$0
 endsnippet

@@ -107,12 +107,15 @@ set pastetoggle=<F2>
 set showmode
 set laststatus=2
 " Use system clipboard as default
-" set clipboard=unnamedplus
+set clipboard=unnamedplus
 set sessionoptions+=tabpages,globals " For Taboo plugin
 let python_highlight_all=1
 set scrolloff=5
 set rnu
 set nowrapscan
+set ignorecase
+set smartcase
+
 
 " For background transparent
 hi Normal guibg=NONE ctermbg=NONE
@@ -250,7 +253,7 @@ map <c-g> :Ranger<CR>
     " PYTPHON {{{
     autocmd FileType python nnoremap <buffer> <localleader>vl :VimuxRunLastCommand<CR>
     autocmd FileType python nnoremap <buffer> <localleader>o :call VimuxRunCommand("python3")<cr>
-    autocmd FileType python nnoremap <buffer> <f5> :call VimuxRunCommand("exec(open('".expand('%:p')."').read())")<cr>
+    autocmd FileType python nnoremap <buffer> <f5> :call VimuxRunCommand("python3 '".expand('%:p')."'")<cr>
     autocmd FileType python vnoremap <buffer> <f6> :<c-u>call VimuxRunSelection()<cr>
     autocmd FileType python nnoremap <silent> <buffer> <f6> :call VimuxCurrentLine()<cr>
     autocmd FileType python set cc=80

@@ -46,10 +46,10 @@ echo "Install rofi"
 cp -r rofi ~/.config/
 echo 
 
-echo "Install touchpad config"
-sudo mkdir /etc/X11/xorg.conf.d/
-sudo cp 90-touchpad.conf /etc/X11/xorg.conf.d/
-echo "Done touchpad setting"
+# echo "Install touchpad config"
+# sudo mkdir /etc/X11/xorg.conf.d/
+# sudo cp 90-touchpad.conf /etc/X11/xorg.conf.d/
+# echo "Done touchpad setting"
 
 echo "Install gtk config"
 cp gtk/.gtkrc-2.0 ~/.gtkrc-2.0
@@ -60,9 +60,9 @@ dconf load /org/gnome/terminal/legacy/profiles:/ < gnome-terminal-profiles.dconf
 echo "Install compton"
 cp  compton.conf ~/.config/compton.conf
 
-echo "Install pavucontrol config"
-cp /etc/pulse/default.pa /etc/pulse/default.pa.bk
-sudo cp default.pa /etc/pulse/default.pa 
+# echo "Install pavucontrol config"
+# cp /etc/pulse/default.pa /etc/pulse/default.pa.bk
+# sudo cp default.pa /etc/pulse/default.pa 
 
 echo "Install sway config"
 cp -r sway ~/.config/sway
