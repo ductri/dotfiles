@@ -69,6 +69,7 @@ cp -r sway ~/.config/sway
 echo
 
 echo "Install alacritty config"
+mkdir -p ~/.config/alacritty/
 cp  alacritty.yml ~/.config/alacritty/alacritty.yml
 echo
 
