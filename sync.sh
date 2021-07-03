@@ -93,3 +93,7 @@ echo
 echo "Save waybar"
 cp -r ~/.config/waybar waybar
 echo
+
+echo "Save grimshot script"
+cp -r ~/.local/bin/grimshot grimshot
+echo 

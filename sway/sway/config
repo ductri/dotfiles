@@ -329,13 +329,13 @@ include /etc/sway/config.d/*
     bindsym mod1+l exec goldendict
 
     # Multi-screen screenshots with scrot
-    bindsym --release Print exec grimshot save screen 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # All screens
+    # bindsym --release Print exec grimshot save screen 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # All screens
 
     # OSX-like area selection screenshots
     # bindsym --release Shift+Print exec grimshot save area 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # Area selection
     set $grimshot ~/.local/bin/grimshot
-    bindsym Print exec $grimshot --notify save screen
-    bindsym --release Shift+Print exec $grimshot --notify save area 
+    bindsym Print exec $grimshot --notify save-and-copy screen
+    bindsym --release Shift+Print exec $grimshot --notify save-and-copy area 
     # volume / brightness / media controls
     bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
     bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%

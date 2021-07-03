@@ -27,6 +27,6 @@ sed -i -e "s/@import .*/@import \"$color\"/g" $dir/styles/colors.rasi
 # -modi run,drun,window \
 # -theme $dir/"$theme"
 
-rofi -no-lazy-grab -show drun \
+$HOME/bin/rofi/bin/rofi -no-lazy-grab -show drun \
 -modi run,drun \
 -theme $dir/"$theme"

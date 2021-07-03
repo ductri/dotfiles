@@ -51,7 +51,7 @@ snippet '(bb)(\w+)' "mathbf" ir
 \mathbf{`!p snip.rv = match.group(2)`}
 endsnippet
 
-snippet '(bm)(\w+)' "bm" ir
+snippet '(bm)(\w+)' "textbf version 2 " ir
 \bm{`!p snip.rv = match.group(2)`}
 endsnippet
 
@@ -462,6 +462,10 @@ endsnippet
 
 snippet the "theta" i
 \theta
+endsnippet
+
+snippet The "Theta" i
+\Theta
 endsnippet
 
 snippet Lam "Lambda" i
