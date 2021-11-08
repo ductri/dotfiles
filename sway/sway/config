@@ -24,7 +24,7 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/code/dotfiles/bg/bg2.jpg fill
+output "*" background /home/tringuyen/code/dotfiles/bg/bg2.jpg fill
 #
 # Example configuration:
 #
@@ -32,20 +32,37 @@ output * bg ~/code/dotfiles/bg/bg2.jpg fill
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
-# Position 1
+
+# Position 1: | Laptop | DP-2 |
+# Example: (virtual screen coordinates)
+#      0       1366                 1366+1920
+#
+#    0           A-----------------------
+#                |                      |
+#                |                      |
+#                |                      |
+#   x? B---------|         HDMI         |
+#      |         |                      |
+#      |  LVDS   |       1920x1080      |
+#      |1366x768 |                      |
+# 1080 ----------------------------------
+# output eDP-1 resolution 1920x1080 position 0,0 scale 1
+# output DP-2 resolution 3840x2160 position 1920,0 scale 1
+
+# Position 2: | DP-2 |
+# output eDP-1 dpms off
 output eDP-1 resolution 1920x1080 position 0,0 scale 1
-output DP-2 resolution 3840x2160 position 1920,0 scale 2
-output HDMI-A-1 resolution 1920x1080 position 3840,0 scale 1
+output DP-2 resolution 3840x2160 position 1920,0 scale 1
 
 # Position 2
-# output eDP-1 resolution 1920x1080 position 0,1080 scale 1
-# output DP-2 resolution 3840x2160 position 0,0 scale 2
-# output HDMI-A-1 resolution 1920x1080 position 1920,0 scale 1
+# output eDP-1 resolution 1920x1080 position 0,0 scale 1
+# output DP-2 resolution 3840x2160 position 1920,0 scale 2
+# output HDMI-A-1 resolution 1920x1080 position 3840,0 scale 1
 
-# Position 3: 32' -> 24' -> 14'
-output DP-2 resolution 3840x2160 position 0,0 scale 2
-output HDMI-A-1 resolution 1920x1080 position 1920,0 scale 1
-output eDP-1 resolution 1920x1080 position 3840,0 scale 1
+# Position 3
+# output eDP-1 resolution 1920x1080 position 0,0 scale 1
+# output DP-2 resolution 3840x2160 position 1920,0 scale 2
+# output HDMI-A-1 resolution 1920x1080 position 3840,0 scale 1
 
 ### Idle configuration
 #
@@ -302,14 +319,14 @@ include /etc/sway/config.d/*
         set $monitor_right "HDMI-A-1"
         workspace $ws1 output $monitor_main
         workspace $ws2 output $monitor_main
-        workspace $ws3 output $laptop
+        workspace $ws3 output $monitor_main
         workspace $ws4 output $monitor_main
-        workspace $ws5 output $laptop
+        workspace $ws5 output $monitor_main
         workspace $ws6 output $monitor_main
-        workspace $ws7 output $laptop
+        workspace $ws7 output $monitor_main
         workspace $ws8 output $monitor_main
         workspace $ws9 output $monitor_right
-        workspace $ws10 output $monitor_right
+        workspace $ws10 output $monitor_main
 
     # class                   border  backgr. text    indicator child_border
     client.focused           #2e9ef4  #285577 #ffffff #2e9ef4   #007a21
@@ -356,9 +373,18 @@ include /etc/sway/config.d/*
     for_window [class="^Cisco AnyConnect"] floating enable
     for_window [app_id="^Cisco AnyConnect"] floating enable
     for_window [app_id="^pavucontrol"] floating enable
-    for_window [instance="goldendict"] floating enable, resize set 640 480
+
+    for_window [instance="goldendict"] floating enable, resize set 1000 1000
+    # for_window [instance="GoldenDict"] floating enable, resize set 640 480
+    # for_window [class="GoldenDict"] floating enable, resize set 640 480
+    # for_window [class="goldendict"] floating enable, resize set 640 480
+    # for_window [title="goldendict"] floating enable, resize set 640 480
+    # for_window [title="GoldenDict"] floating enable, resize set 640 480
+
     for_window [app_id="gnome-control-center"] floating enable
     for_window [app_id="org.inkscape.Inkscape"] floating enable
+    for_window [app_id="org.gnome.Nautilus"] floating enable
+    for_window [app_id="org.remmina.Remmina"] floating enable
     
 
     # KEY BINDING
@@ -400,6 +426,7 @@ include /etc/sway/config.d/*
         bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
         bindsym r exec --no-startup-id systemctl reboot, mode "default"
         bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
+        # bindsym o output eDP-1 dpms off, mode "default"
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -407,6 +434,7 @@ include /etc/sway/config.d/*
     }
     bindsym $mod+Pause mode "$mode_system"
     bindsym $mod+shift+e mode "$mode_system"
+
 
     exec_always ./clamshell_mode.sh
     # Hide cursor
@@ -426,4 +454,9 @@ include /etc/sway/config.d/*
 
     exec wl-paste -t text --watch clipman store
     exec swayidle timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
+    exec $HOME/bin/mendeley.sh
+    # exec_always pkill -f '/usr/local/bin/nwg-wrapper -s /home/tringuyen/build_tools/nwg-wrapper/nwg_wrapper/config/timezones.sh'; nwg-wrapper -o "eDP-1" -s ~/build_tools/nwg-wrapper/nwg_wrapper/config/timezones.sh -r 1000 -c timezones.css -p right -mr 50 -a start -mt 50 -j right & nwg-wrapper -o "HDMI-A-1" -s ~/build_tools/nwg-wrapper/nwg_wrapper/config/timezones.sh -r 1000 -c timezones.css -p right -mr 50 -a start -mt 50 -j right &
+    exec nwg-wrapper -o "eDP-1" -s ~/build_tools/nwg-wrapper/nwg_wrapper/config/timezones.sh -r 1000 -c timezones.css -p right -mr 50 -a start -mt 50 -j right & nwg-wrapper -o "HDMI-A-1" -s ~/build_tools/nwg-wrapper/nwg_wrapper/config/timezones.sh -r 1000 -c timezones.css -p right -mr 50 -a start -mt 50 -j right &
+    exec syncthing -logfile $HOME/logs/syncthing.txt
+    exec kanshi
 

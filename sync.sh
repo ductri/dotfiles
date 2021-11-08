@@ -97,3 +97,11 @@ echo
 echo "Save grimshot script"
 cp -r ~/.local/bin/grimshot grimshot
 echo 
+
+echo "Save google-chrome. It is just for scaling factor to fit dpi"
+cp  /usr/bin/google-chrome-stable google-chrome-stable
+echo 
+
+echo "Save kanshi"
+cp -r ~/.config/kanshi kanshi
+echo 

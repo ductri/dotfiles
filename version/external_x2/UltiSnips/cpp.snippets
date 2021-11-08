@@ -1,0 +1,22 @@
+priority 2
+snippet qq  "Open double quote" iA
+"${1}"`!p 
+if t[2] and t[2][0] not in [',', '.', '?', '-', ' ', ')']:
+    snip.rv = " "
+else:
+    snip.rv = ""
+`$2
+endsnippet
+
+priority 1
+snippet BLOCK "block commend"
+
+// ==============================
+// BEGIN: $1
+// ------------------------------
+$2
+// ------------------------------
+// END: $1
+// ==============================
+$0
+endsnippet

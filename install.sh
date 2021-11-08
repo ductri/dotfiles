@@ -84,3 +84,7 @@ echo
 echo "Install waybar"
 cp -r waybar ~/.config/waybar
 echo
+
+echo "Install kanshi"
+cp -r kanshi ~/.config/kanshi
+echo

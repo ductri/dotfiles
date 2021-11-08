@@ -182,3 +182,4 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 source /home/tringuyen/build_tools/alacritty/extra/completions/alacritty.bash
 
 PS1='\[\033[01;31m\]\t \[\033[01;32m\]Naruto \[\033[02;36m\]\h \[\033[01;34m\]`pwd | sed "s#\(/[^/]\{1,\}/[^/]\{1,\}/[^/]\{1,\}/\).*\(/[^/]\{1,\}/[^/]\{1,\}\)/\{0,1\}#\1_\2#g"` \[\033[00m\]\n\$ '
+. "$HOME/.cargo/env"

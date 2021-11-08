@@ -11,6 +11,9 @@ Plug 'lervag/vimtex'
     let g:vimtex_quickfix_ignore_filters = [
           \ 'Overfull',
           \]
+    let g:vimtex_quickfix_enabled = 1
+    let g:vimtex_quickfix_mode = 2
+    let g:vimtex_quickfix_open_on_warning = 0
 
 " Track the engine.
 Plug 'sirver/ultisnips'
@@ -73,7 +76,9 @@ let g:ranger_map_keys = 0
 
 Plug 'jeetsukumaran/vim-markology'
 
-
+" Plug 'bfredl/nvim-miniyank'
+" map <leader>p <Plug>(miniyank-startput)
+" map <leader>P <Plug>(miniyank-startPut)
 " Initialize plugin system
 call plug#end()
 " }}}
@@ -260,6 +265,9 @@ map <c-g> :Ranger<CR>
     autocmd FileType python nnoremap <buffer> <localleader>zz :vertical resize 80<cr>
     " }}}
 
+    " TEX {{{
+    autocmd FileType tex nnoremap \\ :VimtexView<CR>
+    " }}}
 
 nnoremap <localleader>h :call ListEPSFiles()<cr>
 " nnoremap <leader>zz : vertical resize<cr> :resize<cr>

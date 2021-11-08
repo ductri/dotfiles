@@ -1,0 +1,701 @@
+priority 1
+
+# From this genius guy: https://castel.dev/post/lecture-notes-1/
+snippet mk "Math" whA
+$${1}$`!p
+if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
+    snip.rv = ' '
+else:
+    snip.rv = ''
+`$2
+endsnippet
+snippet dm "Math" wA
+\[
+$1
+\] $0
+endsnippet
+
+snippet '([A-Za-z])(\d)' "auto subscript" wrA
+`!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
+endsnippet
+
+#snippet '([A-Za-z])_(\d\d)' "auto subscript2" wrA
+#`!p snip.rv = match.group(1)`_{`!p snip.rv = match.group(2)`}
+#endsnippet
+
+snippet cb "^3" iA
+^3
+endsnippet
+
+snippet // "Fraction" iA
+\\dfrac{$1}{$2}$0
+endsnippet
+
+snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "Fraction" wr
+\\dfrac{`!p snip.rv = match.group(1)`}{$1}$0
+endsnippet
+
+
+# --------------------------------------
+# My creation
+# --------------------------------------
+snippet '(tb)(\w+)' "textbf" ir
+\textbf{`!p snip.rv = match.group(2)`}
+endsnippet
+
+snippet '(tt)(\w+)' "" ir
+\text{`!p snip.rv = match.group(2)`}
+endsnippet
+
+snippet '(bb)(\w+)' "mathbf" ir
+\mathbf{`!p snip.rv = match.group(2)`}
+endsnippet
+
+
+snippet '(hat)(\w+)' "hat" ir
+\hat{`!p snip.rv = match.group(2)`}
+endsnippet
+
+# Consider to remove
+snippet '(tb)\\(\w+)' "textbf for greek letters (amsmath is required)" ir
+\boldsymbol\\`!p snip.rv = match.group(2)`
+endsnippet
+
+#snippet '(ti)(\w+)' "textit" r
+#\textit{`!p snip.rv = match.group(2)`}
+#endsnippet
+
+snippet '(tm)(\w+)' "mathcal" ir
+\mathcal{`!p snip.rv = match.group(2)`}
+endsnippet
+
+snippet '(~)' "\tilde" ir
+\widetilde{$1}$0
+endsnippet
+
+snippet 'bar' "\bar" ir
+\overline{$1}$0
+endsnippet
+
+snippet mr "\mathbb{R}" i
+\mathbb{R}
+endsnippet
+
+snippet mc "\mathbb{C}" i
+\mathbb{C}
+endsnippet
+
+snippet me "\mathbb{E}" i
+\mathbb{E}
+endsnippet
+
+snippet mn "\mathbb{N}"  
+\mathbb{N}
+endsnippet
+
+snippet mz "\mathbb{Z}"  
+\mathbb{Z}
+endsnippet
+
+snippet '(->)' "\Rightarrow" rA
+\Rightarrow
+endsnippet
+
+snippet '(<>)' "\Rightarrow" rA
+\Leftrightarrow
+endsnippet
+
+snippet ' "transpose" i
+^T 
+endsnippet
+
+
+snippet init-slide "Slide template"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass[10pt]{beamer}
+
+\mode<presentation> {
+
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+\colorlet{beamer@blendedblue}{green!40!black}
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{multirow}
+\usepackage{tikz}
+\usepackage{xcolor} 
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows,automata}
+\usetikzlibrary{positioning}
+\usetikzlibrary{decorations.text}
+\usetikzlibrary{decorations.pathmorphing}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{tikz}
+\usetikzlibrary{tikzmark,calc}
+\usepackage{mathtools}
+\usepackage{amsthm}
+%\usepackage{enumitem}
+
+\usepackage[english]{babel}
+\usepackage{bm}
+
+\setlength{\parindent}{2em}
+\setlength{\parskip}{1em}
+\renewcommand{\baselinestretch}{1.6}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+
+% to change colors
+\newcommand{\fillcol}{green!10}
+\newcommand{\bordercol}{black}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\newcommand\DrawBox[3][]{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \draw[overlay,fill=gray!30,#1] 
+    ([xshift=-8em,yshift=2.1ex]{pic cs:#2}) 
+    rectangle 
+    ([xshift=2pt,yshift=-0.7ex]pic cs:#3);
+  \end{tikzpicture}%
+}
+
+\newcommand*{\captionsource}[2]{%
+  \caption[{#1}]{%
+    #1%
+    \\\\\\hspace{\linewidth}%
+    \textbf{Source:} #2%
+  }%
+}
+
+
+\algnewcommand\algorithmicinput{\textbf{Input:}}
+\algnewcommand\INPUT{\item[\algorithmicinput]}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[${1:type-the-title}]{$1} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+\author{Tri Nguyen} % Your name
+\institute[OSU] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+Oregon State University \\\\ % Your institution for the title page
+% \medskip
+% \textit{lehoang@oregonstate.edu \endgraf } % Your email address
+% }
+}
+\date{\today} % Date, can be changed to a custom date
+
+\graphicspath{ {images/} }
+
+\makeatletter
+\renewcommand{\ALG@beginalgorithmic}{\footnotesize}
+\makeatother
+
+\newcounter{saveenumi}
+\newcommand{\seti}{\setcounter{saveenumi}{\value{enumi}}}
+\newcommand{\conti}{\setcounter{enumi}{\value{saveenumi}}}
+
+\begin{document}
+\DeclareFontShape{OT1}{cmss}{b}{n}{<->ssub * cmss/bx/n}{}
+% \newtheorem{theorem}{Theorem}[section]
+% \newtheorem{corollary}{Corollary}[theorem]
+% \newtheorem{lemma}[theorem]{Lemma}
+%------------------------------------------------
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}
+%------------------------------------------------
+%------------------------------------------------
+
+%------------------------------------------------
+%\begin{frame}
+%\frametitle{Contents} % Table of contents slide, comment this block out to remove it
+%\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+%\end{frame}
+%------------------------------------------------
+%------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+%\section{Description}
+\begin{frame}
+\frametitle{Description}
+$0
+\end{frame}
+\end{document}
+endsnippet
+
+snippet eps "epsilon" i
+\epsilon
+endsnippet
+
+snippet alp "alpha" i
+\alpha
+endsnippet
+
+snippet bet "beta" i
+\beta
+endsnippet
+
+
+snippet zet "zetaj" i
+\zeta
+endsnippet
+
+snippet lam "lambda" i
+\lambda
+endsnippet
+
+snippet the "theta" i
+\theta
+endsnippet
+
+snippet The "Theta" i
+\Theta
+endsnippet
+
+snippet Lam "Lambda" i
+\Lambda
+endsnippet
+
+snippet del "delta" i
+\delta
+endsnippet
+
+snippet Del "Delta" i
+\Delta
+endsnippet
+
+snippet '[^h]eta' "eta" ir
+\eta
+endsnippet
+
+snippet sig "sigma" i
+\sigma
+endsnippet
+
+snippet Sig "Sigma" i
+\Sigma
+endsnippet
+
+snippet nab "nabla" i
+\nabla
+endsnippet
+
+snippet gam "gamma" i
+\gamma
+endsnippet
+
+snippet Gam "Gamma" i
+\Gamma
+endsnippet
+
+snippet par "partial" i
+\partial\; 
+endsnippet
+
+snippet tau "tau" i
+\tau 
+endsnippet
+
+snippet psi "psi" i
+\psi 
+endsnippet
+
+snippet Phi "Phi" i
+\Phi
+endsnippet
+
+# snippet '(tb)(\w+)' "textbf" ir
+# \textbf{`!p snip.rv = match.group(2)`}
+# endsnippet
+
+snippet '([^e])(ll)' "\ell" ir
+`!p snip.rv = match.group(1)`\ell
+endsnippet
+
+snippet \bs "boldsymbol" i
+\boldsymbol 
+endsnippet
+
+snippet \left( "open left parathesis" i
+\left( $1 \right)$0
+endsnippet
+
+snippet l[ "open left bracket parathesis" i
+\left[ $1 \right]$0
+endsnippet
+
+snippet l( "open left parathesis" i
+\left( $1 \right)$0
+endsnippet
+
+snippet mat "bmatrix environment"
+\begin{bmatrix}
+$1
+\end{bmatrix} $0
+endsnippet
+
+snippet ... "..."
+\ldots 
+endsnippet
+
+snippet hat "widehat" i
+\widehat{$1}$0
+endsnippet
+
+snippet tx "text" i
+\text{$1}$0
+endsnippet
+
+snippet vec "vec" i
+\text{vec}($1)$0
+endsnippet
+
+snippet var "variance" i
+\text{Var}($1)$0
+endsnippet
+
+snippet cov "covariance" i
+\text{cov}($1)$0
+endsnippet
+
+snippet para "paragraph" i
+\paragraph{$1}$0
+endsnippet
+
+snippet ss "quad" i
+\quad 
+endsnippet
+
+snippet subject "subject to" i
+\text{subject to } 
+endsnippet
+
+snippet ... "ldots" iA
+\ldots 
+endsnippet
+
+snippet algorithm "algorithm" i
+\begin{algorithm}
+    \DontPrintSemicolon
+    \caption{$1}
+    \SetAlgoLined
+    \KwIn{$2}
+    \KwOut{$3}
+    $4
+    \BlankLine
+    \BlankLine
+\end{algorithm}
+endsnippet
+
+snippet lst "lstinline" i 
+\lstinline{$1}$0
+endsnippet
+
+snippet amp "ampersand &" i
+&
+endsnippet
+
+snippet grad "nabla" i
+\nabla 
+endsnippet
+
+snippet sr "^2" iA
+^2
+endsnippet
+
+snippet cb "^3" iA
+^3
+endsnippet
+
+snippet td "superscript" iA
+^{$1}$0
+endsnippet
+
+snippet := "coloneqq" i
+\coloneqq 
+endsnippet
+
+snippet opti-prob "optimization problem" i
+\begin{equation}
+\begin{aligned}
+    &\minimize_{$1} & & $2 \\\\
+    &\text{subject to } & & $3
+\end{aligned}
+\end{equation}
+endsnippet
+
+
+snippet sums "summation" i
+\sum_{${1:i=1}} $0
+endsnippet
+
+snippet sum "summation" i
+\sum_{${1:i=1}}^{$2} $0
+endsnippet
+
+snippet int "integral" i
+\int_{$1}^{$2} $0
+endsnippet
+
+snippet inf "infty" i
+\infty
+endsnippet
+
+snippet prod "prod" i
+\prod_{${1:i=1}}^{$2} $0
+endsnippet
+
+snippet '([^\\])star' "star" ir
+`!p snip.rv = match.group(1)`\star
+endsnippet
+
+snippet '(ten)(\w+)' "tensor" ir
+\underline{\bm{`!p snip.rv = match.group(2)`}}
+endsnippet
+
+
+
+
+
+# PRIORITY 2
+priority 2
+snippet '(bm)(\w+)' "textbf version 2 " ir
+\bm{`!p snip.rv = match.group(2)`}
+endsnippet
+
+snippet init-article "Basic skeleton for an article" b
+\documentclass[10pt,a4paper]{article}
+
+% --------------------------------------------------------- 
+% PACKAGES AND PREDEFINED SETTINGS
+% --------------------------------------------------------- 
+
+%\usepackage{lmodern}
+%\usepackage{xcolor}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+%\usepackage[utf8x]{inputenc}
+\usepackage[linesnumbered,lined,boxed,commentsnumbered,ruled,vlined]{algorithm2e}
+\usepackage{enumitem}
+%\usepackage[english]{babel}
+\usepackage{amssymb}
+\usepackage{amsmath,mathtools}
+\usepackage{amsthm}
+\usepackage{graphicx} % Allows including images
+\usepackage[colorlinks=false]{hyperref} % the option is there to remove the square around links which is what I don't like.
+\usepackage{perpage} 
+\MakePerPage{footnote} % Reset the footnote counter perpage. may require to run latex twice.
+\usepackage[margin=2cm]{geometry} % This is here to fit more text into the page.
+\setlength{\parindent}{0pt} % No indentation for paragraphs. Because that is just old.
+%\setlength{\parskip}{\baselineskip} % Instead use vertical paragraph spacing.
+\fontencoding{T1} % the better font encoding.
+\usepackage{chngcntr} % https://tex.stackexchange.com/questions/28333/continuous-v-per-chapter-section-numbering-of-figures-tables-and-other-docume
+%\usepackage{thmtools} % http://ftp.math.purdue.edu/mirrors/ctan.org/macros/latex/exptl/thmtools/thmtools.pdf
+\usepackage{import}
+% \usepackage{pdfpages} ! Conflict with xcolors
+\usepackage{transparent}
+\usepackage{xcolor}
+
+\usepackage{listings}
+\usepackage{mathtools}
+\lstset{language=python}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+\usepackage[
+backend=biber,
+style=alphabetic,
+citestyle=alphabetic
+]{biblatex}
+%\addbibresource{citation.bib}
+\usepackage{afterpage}
+\usepackage{multirow}
+\usepackage[open,openlevel=2,atend,numbered]{bookmark}
+\usepackage{ulem,bm}
+% --------------------------------------------------------- 
+% SETTINGS
+% --------------------------------------------------------- 
+\counterwithin{figure}{section}
+\newcommand\mycommfont[1]{\footnotesize\ttfamily\textcolor{blue}{#1}}
+\SetCommentSty{mycommfont}
+% --------------------------------------------------------- 
+% CUSTOM COMMANDS
+% --------------------------------------------------------- 
+
+\newcommand{\cov}[1]{\text{cov}(#1)}
+\newcommand{\rank}[1]{\text{rank}(#1)}
+\newcommand{\pr}[1]{\text{Pr}\left(#1\right)}
+\newcommand{\st}{\text{subject to}\quad }
+\newcommand{\trace}[1]{\text{tr}\left(#1\right)}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert}
+\newcommand{\vect}[1]{\text{vec}\left(#1\right)}
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}} % https://tex.stackexchange.com/questions/42726/align-but-show-one-equation-number-at-the-end 
+\newcommand{\set}[1]{\left\\{#1\right\\}}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+
+\newcommand{\incfig}[2][1]{%
+    \def\svgwidth{#1\columnwidth}
+    \import{./figures/}{#2.pdf_tex}
+}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\minimize}{minimize}
+\DeclareMathOperator*{\maximize}{maximize}
+\newcommand{\blue}{\color{blue}}
+\newcommand{\red}{\color{red}}
+\newcommand{\green}{\color{ForestGreen}}
+\newcommand{\greenbox}[1]{\colorbox{ForestGreen}{\color{white}   \textbf{#1}}}
+
+% --------------------------------------------------------- 
+% CUSTOM ENVIRONMENTS
+% --------------------------------------------------------- 
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section]
+
+% --------------------------------------------------------- 
+% TITLE, AUTHORS, ...
+% --------------------------------------------------------- 
+\title{${1:type-the-title}}
+\author{	Tri Nguyen \\\\
+        \texttt{nguyetr9@oregonstate.edu} \\\\
+        }
+
+% --------------------------------------------------------- 
+% BEGIN DOCUMENT
+% --------------------------------------------------------- 
+\begin{document}
+\maketitle
+$0
+
+
+
+\end{document}
+endsnippet
+
+snippet ome "omega" i
+\omega
+endsnippet
+
+
+
+# You can use the \substack command, from the amsmath package, just like \text.
+#
+# \[
+#   \underbrace{...}_{\substack{\text{Some long text that} \\ \text{should be multiline}}}
+# \]
