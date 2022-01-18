@@ -1,57 +1,6 @@
-set notification-error-bg       "#fbf1c7" # bg
-set notification-error-fg       "#9d0006" # bright:red
-set notification-warning-bg     "#fbf1c7" # bg
-set notification-warning-fg     "#b57614" # bright:yellow
-set notification-bg             "#fbf1c7" # bg
-set notification-fg             "#79740e" # bright:green
-
-set completion-bg               "#d5c4a1" # bg2
-set completion-fg               "#3c3836" # fg
-set completion-group-bg         "#ebdbb2" # bg1
-set completion-group-fg         "#928374" # gray
-set completion-highlight-bg     "#076678" # bright:blue
-set completion-highlight-fg     "#d5c4a1" # bg2
-
-# Define the color in index mode
-set index-bg                    "#d5c4a1" # bg2
-set index-fg                    "#3c3836" # fg
-set index-active-bg             "#076678" # bright:blue
-set index-active-fg             "#d5c4a1" # bg2
-
-set inputbar-bg                 "#fbf1c7" # bg
-set inputbar-fg                 "#3c3836" # fg
-
-set statusbar-bg                "#d5c4a1" # bg2
-set statusbar-fg                "#3c3836" # fg
-
-set highlight-color             "#b57614" # bright:yellow
-set highlight-active-color      "#af3a03" # bright:orange
-
-
-set render-loading              true
-set render-loading-bg           "#EDD1B0" # bg
-set render-loading-fg           "#000000" # fg
-
-# Recolor book content's color
-set default-bg                  "#515659" # bg
-set recolor-lightcolor          "#EDD1B0" 
-set recolor-darkcolor           "#000000"
-set recolor-reverse-video             "true"
-
-set statusbar-basename true
-set statusbar-home-tilde false
-
-set selection-clipboard "clipboard"
-set guioptions "hv"
-
+set font "monospace normal 20"
 map <C-n> feedkeys ":exec zathura %"<Return>
-map <C-i> recolor
-unmap <C-r>
+
 map <F2> focus_inputbar ':set guioptions "hv"<Return>'
 map <C-F2> focus_inputbar ':set guioptions "shv"<Return>'
-
-
-set database="plain"
-set first-page-column 1:1
-set font "monospace normal 20"
 

@@ -20,31 +20,30 @@ Plug 'sirver/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
   " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-  let g:UltiSnipsExpandTrigger="<tab>"
-  let g:UltiSnipsJumpForwardTrigger="<tab>"
-  let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-  " If you want :UltiSnipsEdit to split your window.
-  let g:UltiSnipsEditSplit="vertical"
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+    let g:UltiSnipsExpandTrigger="<tab>"
+    let g:UltiSnipsJumpForwardTrigger="<tab>"
+    let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+    " If you want :UltiSnipsEdit to split your window.
+    let g:UltiSnipsEditSplit="vertical"
+
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+    let g:deoplete#enable_at_startup = 1
+
 Plug 'raingo/vim-matlab'
 
-let g:deoplete#enable_at_startup = 1
 Plug 'preservim/nerdtree'
 Plug 'morhetz/gruvbox'
-let g:gruvbox_italic=0
-let g:gruvbox_invert_selection=0
+    let g:gruvbox_italic=0
+    let g:gruvbox_invert_selection=0
 " Plug 'dracula/vim', { 'as': 'dracula' }
 "
 Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'} 
 Plug 'tpope/vim-surround'
 Plug 'benmills/vimux'
-    let g:VimuxUseNearest = 0
+    let g:VimuxUseNearest = 1
+
 Plug 'christoomey/vim-tmux-navigator'
 " Disable tmux navigator when zooming the Vim pane
 let g:tmux_navigator_disable_when_zoomed = 1
@@ -76,9 +75,10 @@ let g:ranger_map_keys = 0
 
 Plug 'jeetsukumaran/vim-markology'
 
-" Plug 'bfredl/nvim-miniyank'
-" map <leader>p <Plug>(miniyank-startput)
-" map <leader>P <Plug>(miniyank-startPut)
+xnoremap "+y y:call system("wl-copy", @")<cr>
+nnoremap "+p :let @"=substitute(system("wl-paste --no-newline"), '<C-v><C-m>', '', 'g')<cr>p
+nnoremap "*p :let @"=substitute(system("wl-paste --no-newline --primary"), '<C-v><C-m>', '', 'g')<cr>p
+
 " Initialize plugin system
 call plug#end()
 " }}}
@@ -112,7 +112,7 @@ set pastetoggle=<F2>
 set showmode
 set laststatus=2
 " Use system clipboard as default
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 set sessionoptions+=tabpages,globals " For Taboo plugin
 let python_highlight_all=1
 set scrolloff=5
@@ -120,10 +120,13 @@ set rnu
 set nowrapscan
 set ignorecase
 set smartcase
-
+autocmd FileType snippets setlocal foldmethod=marker
+autocmd FileType python setlocal foldmethod=indent
+au BufRead * normal zR
 
 " For background transparent
 hi Normal guibg=NONE ctermbg=NONE
+
 " }}}
 
 
@@ -193,16 +196,6 @@ function! ListEPSFiles()
     execute ':normal! O' . output
 "    $put=output
 endfunction
-
-function! VimuxCreateNewPane()
-  " Creates new Tmux pane
-  let splitExitCode = system("tmux split-window -p 20")
-  " Set the proper index
-  let g:VimuxRunnerIndex = _VimuxTmuxIndex()
-  call _VimuxTmux("last-"._VimuxRunnerType())
-endfunction
-
-
 " }}}
 
 
@@ -215,7 +208,7 @@ nnoremap <leader>et :vsplit ~/.tmux.conf<cr>
 nnoremap <leader>sv :source ~/.vimrc<cr>
 nnoremap <leader>es :UltiSnipsEdit<cr> 
 nnoremap <leader>eS :vsplit ~/.vim/UltiSnips/all.snippets<cr> 
-nnoremap <leader>ed :split /home/tringuyen/research/notes/diary.md<cr>
+nnoremap <leader>ed :edit /home/tringuyen/research/notes/diary.md<cr>
 nnoremap <leader>ne G3o<esc>i# New entry: <esc>"=strftime('%c')<C-M>p2o<esc>i
 " Comment
 nnoremap <leader>j i<cr><esc>
@@ -231,6 +224,10 @@ inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" 
 nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
 
 map <c-g> :Ranger<CR>
+
+vnoremap ip <esc>?left(<cr>Ewv/right)<cr>bbe
+omap ip :normal vlp<cr>
+
 
     " MATLAB {{{
     autocmd FileType matlab nnoremap <buffer> <f5> :call VimuxRunCommand(expand('%:t:r'))<cr>
@@ -248,12 +245,11 @@ map <c-g> :Ranger<CR>
     autocmd FileType matlab nnoremap <buffer> <f10> :call VimuxRunCommand("dbclear all")<cr>
     autocmd FileType matlab nnoremap <buffer> <localleader>o :call VimuxRunCommand("matlab -nodesktop")<cr>
     autocmd FileType matlab set cc=80
-    nnoremap <localleader>sd :call VimuxCreateNewPane()<cr>:VimuxRunCommand("./scripts/my_rsync/rsync_down.sh")<cr>:VimuxRunCommand("sleep 0.2")<cr>:VimuxRunCommand("exit")<cr>
-    nnoremap <localleader>su :call VimuxCreateNewPane()<cr>:VimuxRunCommand("./scripts/my_rsync/rsync_up.sh")<cr>:VimuxRunCommand("sleep 0.2")<cr>:VimuxRunCommand("exit")<cr>
+    nnoremap <localleader>sd :let g:VimuxUseNearest=0<cr>:call VimuxOpenRunner()<cr>:VimuxRunCommand("./scripts/my_rsync/rsync_down.sh")<cr>:VimuxRunCommand("sleep 0.2")<cr>:VimuxRunCommand("exit")<cr>:let g:VimuxUseNearest=1<cr>
+    nnoremap <localleader>su :let g:VimuxUseNearest=0<cr>:call VimuxOpenRunner()<cr>:VimuxRunCommand("./scripts/my_rsync/rsync_up.sh")<cr>:VimuxRunCommand("sleep 0.2")<cr>:VimuxRunCommand("exit")<cr>:let g:VimuxUseNearest=1<cr>
     nnoremap <localleader>sl :vs scripts/my_rsync/log<cr>
     autocmd FileType matlab nnoremap <buffer> <localleader>zz :vertical resize 80<cr>
     " }}}
-
 
     " PYTPHON {{{
     autocmd FileType python nnoremap <buffer> <localleader>vl :VimuxRunLastCommand<CR>
@@ -267,6 +263,7 @@ map <c-g> :Ranger<CR>
 
     " TEX {{{
     autocmd FileType tex nnoremap \\ :VimtexView<CR>
+    autocmd FileType tex nnoremap <localleader>ww :!~/pyvenv/basic/bin/inkscape-figures watch<CR>
     " }}}
 
 nnoremap <localleader>h :call ListEPSFiles()<cr>
@@ -274,6 +271,7 @@ nnoremap <localleader>h :call ListEPSFiles()<cr>
 nnoremap <silent> <leader>zz :tab split<CR> 
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 nnoremap <cr> :nohlsearch<CR>
+" vnoremap <cr> :nohlsearch<CR>
 
 nnoremap <F2> :set invpaste paste?<CR>
 
@@ -334,6 +332,7 @@ if exists('+termguicolors')
 endif
 set incsearch
 " }}}
+
 
 
 

@@ -22,7 +22,7 @@ endif
 call NERDTreeAddMenuItem({'text': '(a)dd a childnode', 'shortcut': 'a', 'callback': 'NERDTreeAddNode'})
 call NERDTreeAddMenuItem({'text': '(m)ove the current node', 'shortcut': 'm', 'callback': 'NERDTreeMoveNode'})
 call NERDTreeAddMenuItem({'text': '(d)elete the current node', 'shortcut': 'd', 'callback': 'NERDTreeDeleteNode'})
-call NERDTreeAddMenuItem({'text': '(y) Open ranger here', 'shortcut': 'y', 'callback': 'OpenRangerNode'})
+call NERDTreeAddMenuItem({'text': '(z)athura the current node', 'shortcut': 'z', 'callback': 'NERDTreeZathuraNode'})
 
 if has('gui_mac') || has('gui_macvim') || has('mac')
     call NERDTreeAddMenuItem({'text': '(r)eveal in Finder the current node', 'shortcut': 'r', 'callback': 'NERDTreeRevealInFinder'})
@@ -35,6 +35,10 @@ if executable('xdg-open')
     call NERDTreeAddMenuItem({'text': '(o)pen the current node with system editor', 'shortcut': 'o', 'callback': 'NERDTreeExecuteFileLinux'})
 endif
 
+if nerdtree#runningWindows()
+    call NERDTreeAddMenuItem({'text': '(o)pen the current node with system editor', 'shortcut': 'o', 'callback': 'NERDTreeExecuteFileWindows'})
+endif
+
 if g:NERDTreePath.CopyingSupported()
     call NERDTreeAddMenuItem({'text': '(c)opy the current node', 'shortcut': 'c', 'callback': 'NERDTreeCopyNode'})
 endif
@@ -44,6 +48,10 @@ if has('unix') || has('osx')
     call NERDTreeAddMenuItem({'text': '(l)ist the current node', 'shortcut': 'l', 'callback': 'NERDTreeListNode'})
 else
     call NERDTreeAddMenuItem({'text': '(l)ist the current node', 'shortcut': 'l', 'callback': 'NERDTreeListNodeWin32'})
+endif
+
+if exists('*system')
+    call NERDTreeAddMenuItem({'text': 'Run (s)ystem command in this directory', 'shortcut':'s', 'callback': 'NERDTreeSystemCommand'})
 endif
 
 "FUNCTION: s:inputPrompt(action){{{1
@@ -162,7 +170,7 @@ endfunction
 function! NERDTreeAddNode()
     let curDirNode = g:NERDTreeDirNode.GetSelected()
     let prompt = s:inputPrompt('add')
-    let newNodeName = input(prompt, curDirNode.path.str() . g:NERDTreePath.Slash(), 'file')
+    let newNodeName = substitute(input(prompt, curDirNode.path.str() . nerdtree#slash(), 'file'), '\(^\s*\|\s*$\)', '', 'g')
 
     if newNodeName ==# ''
         call nerdtree#echo('Node Creation Aborted.')
@@ -199,7 +207,7 @@ function! NERDTreeMoveNode()
     let newNodePath = input(prompt, curNode.path.str(), 'file')
     while filereadable(newNodePath)
         call nerdtree#echoWarning('This destination already exists. Try again.')
-        let newNodePath = input(prompt, curNode.path.str(), 'file')
+        let newNodePath = substitute(input(prompt, curNode.path.str(), 'file'), '\(^\s*\|\s*$\)', '', 'g')
     endwhile
 
 
@@ -249,8 +257,6 @@ endfunction
 
 " FUNCTION: NERDTreeDeleteNode() {{{1
 function! NERDTreeDeleteNode()
-    let l:shellslash = &shellslash
-    let &shellslash = 0
     let currentNode = g:NERDTreeFileNode.GetSelected()
     let confirmed = 0
 
@@ -286,7 +292,6 @@ function! NERDTreeDeleteNode()
     else
         call nerdtree#echo('delete aborted')
     endif
-    let &shellslash = l:shellslash
 endfunction
 
 " FUNCTION: NERDTreeListNode() {{{1
@@ -331,11 +336,9 @@ endfunction
 
 " FUNCTION: NERDTreeCopyNode() {{{1
 function! NERDTreeCopyNode()
-    let l:shellslash = &shellslash
-    let &shellslash = 0
     let currentNode = g:NERDTreeFileNode.GetSelected()
     let prompt = s:inputPrompt('copy')
-    let newNodePath = input(prompt, currentNode.path.str(), 'file')
+    let newNodePath = substitute(input(prompt, currentNode.path.str(), 'file'), '\(^\s*\|\s*$\)', '', 'g')
 
     if newNodePath !=# ''
         "strip trailing slash
@@ -368,7 +371,6 @@ function! NERDTreeCopyNode()
     else
         call nerdtree#echo('Copy aborted.')
     endif
-    let &shellslash = l:shellslash
     redraw!
 endfunction
 
@@ -420,6 +422,21 @@ function! NERDTreeExecuteFile()
     call system('open ' . shellescape(l:node.path.str()))
 endfunction
 
+" FUNCTION: NERDTreeZathuraNode() {{{1
+function! NERDTreeZathuraNode()
+    let l:node = g:NERDTreeFileNode.GetSelected()
+
+    if empty(l:node)
+        return
+    endif
+
+    if empty(l:node.parent)
+        return
+    endif
+
+    call system('zathura ' . shellescape(l:node.path.str()) . '&')
+endfunction
+
 " FUNCTION: NERDTreeRevealFileLinux() {{{1
 function! NERDTreeRevealFileLinux()
     let l:node = g:NERDTreeFileNode.GetSelected()
@@ -441,10 +458,43 @@ function! NERDTreeRevealFileLinux()
     call system('xdg-open ' . shellescape(l:node.parent.path.str()))
 endfunction
 
-"FUNCTION: OpenRangerNode(){{{1
-function! OpenRangerNode()
-    let curDirNode = g:NERDTreeDirNode.GetSelected()
-    silent exec '!gnome-terminal -e "ranger ' . curDirNode.path.str() . '"'
-endfunction
-" nnoremap gt : call Toggle_transparent()<CR>
+" FUNCTION: NERDTreeExecuteFileLinux() {{{1
+function! NERDTreeExecuteFileLinux()
+    let l:node = g:NERDTreeFileNode.GetSelected()
 
+    if empty(l:node)
+        return
+    endif
+
+    call system('xdg-open ' . shellescape(l:node.path.str()))
+endfunction
+
+" FUNCTION: NERDTreeExecuteFileWindows() {{{1
+function! NERDTreeExecuteFileWindows()
+    let l:node = g:NERDTreeFileNode.GetSelected()
+
+    if empty(l:node)
+        return
+    endif
+
+    call system('cmd.exe /c start "" ' . shellescape(l:node.path.str()))
+endfunction
+
+" FUNCTION: NERDTreeSystemCommand() {{{1
+function! NERDTreeSystemCommand()
+    let l:node = g:NERDTreeFileNode.GetSelected()
+
+    if empty(l:node)
+        return
+    endif
+
+    let l:cwd = getcwd()
+    let l:directory = l:node.path.isDirectory ? l:node.path.str() : l:node.parent.path.str()
+    execute 'cd '.l:directory
+
+    let l:nl = nr2char(10)
+    echo l:nl . system(input(l:directory . (nerdtree#runningWindows() ? '> ' : ' $ ')))
+    execute 'cd '.l:cwd
+endfunction
+
+" vim: set sw=4 sts=4 et fdm=marker:
