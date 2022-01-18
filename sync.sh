@@ -54,7 +54,7 @@ cp /etc/X11/xorg.conf.d/90-touchpad.conf 90-touchpad.conf
 echo
 
 echo "Save fonts"
-yes | cp -rf ~/.fonts .
+cp -rf ~/.fonts .
 echo
 
 echo "Save gtk config"
@@ -105,3 +105,8 @@ echo
 echo "Save kanshi"
 cp -r ~/.config/kanshi .
 echo 
+
+echo "Save qutebrowser"
+cp -r ~/.config/qutebrowser .
+echo 
+
