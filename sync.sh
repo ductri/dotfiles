@@ -54,7 +54,7 @@ cp /etc/X11/xorg.conf.d/90-touchpad.conf 90-touchpad.conf
 echo
 
 echo "Save fonts"
-cp -r ~/.fonts fonts
+yes | cp -rf ~/.fonts .
 echo
 
 echo "Save gtk config"
@@ -75,7 +75,7 @@ cp /etc/pulse/default.pa default.pa
 echo
 
 echo "Save sway config"
-cp -r ~/.config/sway sway
+cp -r ~/.config/sway .
 echo
 
 echo "Save alacritty config"
@@ -91,11 +91,11 @@ cp  /etc/tlp.conf tlp.conf
 echo
 
 echo "Save waybar"
-cp -r ~/.config/waybar waybar
+cp -r ~/.config/waybar .
 echo
 
 echo "Save grimshot script"
-cp -r ~/.local/bin/grimshot grimshot
+cp -r ~/.local/bin/grimshot .
 echo 
 
 echo "Save google-chrome. It is just for scaling factor to fit dpi"
@@ -103,5 +103,5 @@ cp  /usr/bin/google-chrome-stable google-chrome-stable
 echo 
 
 echo "Save kanshi"
-cp -r ~/.config/kanshi kanshi
+cp -r ~/.config/kanshi .
 echo 
