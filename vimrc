@@ -122,11 +122,12 @@ set ignorecase
 set smartcase
 autocmd FileType snippets setlocal foldmethod=marker
 autocmd FileType python setlocal foldmethod=indent
+autocmd FileType tex :normal! /begin{document}<cr>mB
 au BufRead * normal zR
 
 " For background transparent
 hi Normal guibg=NONE ctermbg=NONE
-
+setlocal spell spelllang=en_us
 " }}}
 
 
@@ -225,8 +226,11 @@ nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/
 
 map <c-g> :Ranger<CR>
 
+" New objects
 vnoremap ip <esc>?left(<cr>Ewv/right)<cr>bbe
 omap ip :normal vlp<cr>
+vnoremap af :<C-U>silent! normal! [zV]z<CR>
+omap af :normal Vaf<CR>
 
 
     " MATLAB {{{
@@ -259,6 +263,10 @@ omap ip :normal vlp<cr>
     autocmd FileType python nnoremap <silent> <buffer> <f6> :call VimuxCurrentLine()<cr>
     autocmd FileType python set cc=80
     autocmd FileType python nnoremap <buffer> <localleader>zz :vertical resize 80<cr>
+    " }}}
+
+    " HASKELL {{{
+    autocmd FileType haskell vnoremap <buffer> <f6> :<c-u>call VimuxRunSelection()<cr>
     " }}}
 
     " TEX {{{

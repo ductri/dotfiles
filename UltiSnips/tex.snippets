@@ -1,5 +1,52 @@
 priority 1
 
+snippet ll "\ell" i
+\ell
+endsnippet
+
+snippet cov "covariance"
+\text{cov}($1)$0
+endsnippet
+
+snippet 3subfigure "3 subfigures" i
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{0.33\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{$1}
+        \caption{$2}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.33\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{$3}
+        \caption{$4}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.33\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{$4}
+        \caption{$5}
+    \end{subfigure}
+\end{figure}
+$0
+endsnippet
+
+snippet 2subfigure "2 subfigures" i
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{$1}
+        \caption{$2}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{$3}
+        \caption{$4}
+    \end{subfigure}
+\end{figure}
+$0
+endsnippet
+
 snippet int "integral" i
 \int_{0}^{} 
 endsnippet
@@ -357,6 +404,10 @@ snippet alp "alpha" i
 \alpha
 endsnippet
 
+snippet bet "beta" i
+\beta
+endsnippet
+
 snippet ome "omega" i
 \omega
 endsnippet
@@ -441,13 +492,18 @@ snippet \left( "open left parathesis" i
 \left( $1 \right)$0
 endsnippet
 
+snippet l( "open left parathesis" i
+\left( $1 \right)$0
+endsnippet
+
 snippet l[ "open left bracket parathesis" i
 \left[ $1 \right]$0
 endsnippet
 
-snippet l( "open left parathesis" i
-\left( $1 \right)$0
+snippet \left[ "open left bracket parathesis" i
+\left[ $1 \right]$0
 endsnippet
+
 
 snippet mat "bmatrix environment"
 \begin{bmatrix}

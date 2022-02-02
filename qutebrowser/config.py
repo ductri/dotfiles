@@ -478,7 +478,7 @@ c.bindings.key_mappings = {'<Ctrl-[>': '<Escape>', '<Ctrl-6>': '<Ctrl-^>', '<Ctr
 ## `colors.webpage.darkmode.threshold.background` to 205.  - "With
 ## selective inversion of everything": Combines the two variants   above.
 ## Type: Bool
-# c.colors.webpage.darkmode.enabled = False
+c.colors.webpage.darkmode.enabled = False
 
 ## Render all colors as grayscale. This only has an effect when
 ## `colors.webpage.darkmode.algorithm` is set to `lightness-hsl` or
@@ -1793,7 +1793,8 @@ c.url.default_page = 'https://google.com/'
 ## qutebrowser`.
 ## Type: Dict
 c.url.searchengines = {'DEFAULT': 'https://google.com/search?q={}',
-        'gs' : 'https://scholar.google.com/scholar?hl=en&q={}'}
+        'gs' : 'https://scholar.google.com/scholar?hl=en&q={}',
+        'd' : 'https://google.com/search?hl=en&q={} meaning'}
 
 ## Page(s) to open at the start.
 ## Type: List of FuzzyUrl, or FuzzyUrl
@@ -1815,7 +1816,7 @@ c.url.start_pages = ['https://google.com']
 
 ## Default zoom level.
 ## Type: Perc
-c.zoom.default = '150%'
+c.zoom.default = '100%'
 
 ## Available zoom levels.
 ## Type: List of Perc
