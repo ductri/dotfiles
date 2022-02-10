@@ -82,8 +82,11 @@ $1
 \] $0
 endsnippet
 
-snippet '([A-Za-z])(\d)' "auto subscript" wrA
-`!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
+# snippet '([A-Za-z])(\d)' "auto subscript" wrA
+# `!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
+# endsnippet
+snippet '([A-Za-z][A-Za-z])(\d)' "auto subscript" wrA
+`!p snip.rv = match.group(1)+'_'+match.group(2) if match.group(1)!='bm' and match.group(1)!='bb' else match.group(1)+match.group(2)`
 endsnippet
 
 snippet cb "^3" iA
@@ -148,7 +151,7 @@ snippet mr "\mathbb{R}" i
 \mathbb{R}
 endsnippet
 
-snippet mc "\mathbb{C}" i
+snippet mc "\mathbb{C}" w
 \mathbb{C}
 endsnippet
 
@@ -606,7 +609,14 @@ snippet optimisation "optimisation problem" i
 $0
 endsnippet
 
-priority 2 
+priority 2
+snippet bm0 "vector 0" i
+\textbf{0}
+endsnippet
+
+snippet bm1 "vector 1" i
+\textbf{1}
+endsnippet
 
 snippet init-article "Basic skeleton for an article" b
 \documentclass[11pt,a4paper]{article}

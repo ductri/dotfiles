@@ -1,0 +1,14 @@
+[Unit]
+Description=i3lock service
+Before=sleep.target
+Before=suspend.target
+
+[Service]
+User=<user>
+Type=forking
+Environment=DISPLAY=:0
+ExecStart=swaylock
+
+[Install]
+WantedBy=sleep.target
+

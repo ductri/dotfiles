@@ -88,3 +88,8 @@ echo
 echo "Install kanshi"
 cp -r kanshi ~/.config/kanshi
 echo
+
+echo "Install i3-lock service; require sudo"
+cp -r i3-lock.service /etc/systemd/system/
+echo
+

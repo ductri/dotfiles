@@ -97,6 +97,7 @@ set conceallevel=1
 set autoindent
 let g:tex_flavor = "latex" 
 let DIARY='/home/tringuyen/research/notes/diary.md'
+let VOCAB='/home/tringuyen/research/notes/math_vocab.md'
 colorscheme gruvbox
 let g:tex_conceal='abdmg'
 let g:vimtex_quickfix_ignore_filters = [
@@ -210,6 +211,7 @@ nnoremap <leader>sv :source ~/.vimrc<cr>
 nnoremap <leader>es :UltiSnipsEdit<cr> 
 nnoremap <leader>eS :vsplit ~/.vim/UltiSnips/all.snippets<cr> 
 nnoremap <leader>ed :edit /home/tringuyen/research/notes/diary.md<cr>
+nnoremap <leader>emv :edit /home/tringuyen/research/notes/math_vocab.md<cr>
 nnoremap <leader>ne G3o<esc>i# New entry: <esc>"=strftime('%c')<C-M>p2o<esc>i
 " Comment
 nnoremap <leader>j i<cr><esc>
