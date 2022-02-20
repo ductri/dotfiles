@@ -872,7 +872,7 @@ c.colors.webpage.darkmode.enabled = False
 ## still be downloaded by clicking the download button in the pdf.js
 ## viewer.
 ## Type: Bool
-c.content.pdfjs = True
+c.content.pdfjs = False
 
 ## Allow websites to request persistent storage quota via
 ## `navigator.webkitPersistentStorage.requestQuota`.
@@ -942,7 +942,7 @@ c.content.pdfjs = True
 
 ## List of user stylesheet filenames to use.
 ## Type: List of File, or File
-# c.content.user_stylesheets = []
+c.content.user_stylesheets = ["user.css"]
 
 ## Enable WebGL.
 ## Type: Bool

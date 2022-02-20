@@ -110,3 +110,6 @@ echo "Save qutebrowser"
 cp -r ~/.config/qutebrowser .
 echo 
 
+echo "Save mpd"
+cp -r ~/.config/mpd .
+echo 

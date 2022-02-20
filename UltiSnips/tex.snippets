@@ -8,20 +8,24 @@ snippet cov "covariance"
 \text{cov}($1)$0
 endsnippet
 
+snippet var "variance"
+\text{var}($1)$0
+endsnippet
+
 snippet 3subfigure "3 subfigures" i
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[t]{0.33\textwidth}
+    \begin{subfigure}[t]{0.32\textwidth}
         \centering
         \includegraphics[width=\textwidth]{$1}
         \caption{$2}
     \end{subfigure}
-    \begin{subfigure}[t]{0.33\textwidth}
+    \begin{subfigure}[t]{0.32\textwidth}
         \centering
         \includegraphics[width=\textwidth]{$3}
         \caption{$4}
     \end{subfigure}
-    \begin{subfigure}[t]{0.33\textwidth}
+    \begin{subfigure}[t]{0.32\textwidth}
         \centering
         \includegraphics[width=\textwidth]{$4}
         \caption{$5}
@@ -335,6 +339,7 @@ snippet init-slide "Slide template"
 \newcounter{saveenumi}
 \newcommand{\seti}{\setcounter{saveenumi}{\value{enumi}}}
 \newcommand{\conti}{\setcounter{enumi}{\value{saveenumi}}}
+\newcommand{\indep}{\perp \!\!\! \perp}
 
 % --------------------------------------------------------- 
 % CUSTOM ENVIRONMENTS
@@ -721,6 +726,7 @@ citestyle=alphabetic
 \DeclareMathOperator*{\argmin}{arg\,min}
 \DeclareMathOperator*{\minimize}{minimize}
 \DeclareMathOperator*{\maximize}{maximize}
+\newcommand{\indep}{\perp \!\!\! \perp}
 
 % --------------------------------------------------------- 
 % CUSTOM ENVIRONMENTS

@@ -15,6 +15,6 @@ d = ImageDraw.Draw(out)
 text = '"Hello world"'
 _, _,w, h = fnt.getmask(text).getbbox()
 
-d.text((int((W - w)/2), int((H-h)/2)), text, font=fnt, fill=(2, 153, 42))
+d.text((int((W - w)/2), int((H-h)/2)), text, font=fnt, fill=(0, 209, 21))
 out.save('./bg/bg_text.jpg')
 
