@@ -59,6 +59,18 @@ snippet left "leftarrow" i
 \leftarrow
 endsnippet
 
+snippet right "rightarrow" i
+\rightarrow
+endsnippet
+
+snippet lan "lelf angle" i
+\langle
+endsnippet
+
+snippet ran "right angle" i
+\rangle
+endsnippet
+
 snippet For "For in algorithm" i
 \For{ $${1:i} \leftarrow 1$ \KwTo $${2:N}$} {
 $3
@@ -179,8 +191,11 @@ snippet '(<>)' "\Rightarrow" rA
 \Leftrightarrow
 endsnippet
 
+# snippet ' "transpose" i
+# ^{\!\top\!}
+# endsnippet
 snippet ' "transpose" i
-^{\rm T} 
+^{\T}
 endsnippet
 
 snippet init-slide "Slide template"
@@ -204,13 +219,10 @@ snippet init-slide "Slide template"
 
 \documentclass[10pt]{beamer}
 
-\mode<presentation> {
-
-% The Beamer class comes with a number of default slide themes
-% which change the colors and layouts of slides. Below this is a list
-% of all the themes, uncomment each in turn to see what they look like.
-
-%\usetheme{default}
+\mode<presentation>
+\usetheme{default}
+\usecolortheme{orchid}
+\usefonttheme{professionalfonts}
 
 \colorlet{beamer@blendedblue}{green!40!black}
 
@@ -273,14 +285,15 @@ snippet init-slide "Slide template"
 \usepackage[utf8]{inputenc}
 \usepackage{csquotes}
 \usepackage[citestyle=authoryear,maxnames=1]{biblatex}
-%\addbibresource{citation.bib}
+%\addbibresource{refs.bib}
 \usepackage{caption}
-\usepackage{hyperref}
+\usepackage[hidelinks]{hyperref}
 \hypersetup{colorlinks,citecolor=blue,linkcolor=blue}
 \usepackage{import}
 \usepackage{xifthen}
 \usepackage{pdfpages}
 \usepackage{transparent}
+\usepackage{bm}
 % --------------------------------------------------------- 
 % SETTINGS
 % --------------------------------------------------------- 
@@ -291,6 +304,7 @@ snippet init-slide "Slide template"
 % CUSTOM COMMANDS
 % --------------------------------------------------------- 
 
+\definecolor{green}{RGB}{0, 180, 0}
 \def\green{\color{green}}
 \def\red{\color{red}}
 \def\blue{\color{blue}}
@@ -305,6 +319,7 @@ snippet init-slide "Slide template"
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}} % https://tex.stackexchange.com/questions/42726/align-but-show-one-equation-number-at-the-end 
 \newcommand{\set}[1]{\left\\{#1\right\\}}
 \newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand{\T}{\!\top\!}
 
 \newcommand{\incfig}[2][1]{%
     \def\svgwidth{#1\columnwidth}
@@ -433,11 +448,11 @@ snippet lam "lambda" i
 endsnippet
 
 snippet the "theta" i
-\theta 
+\theta
 endsnippet
 
 snippet The "Theta" i
-\Theta 
+\Theta
 endsnippet
 
 snippet Lam "Lambda" i
@@ -510,6 +525,10 @@ endsnippet
 
 snippet \left[ "open left bracket parathesis" i
 \left[ $1 \right]$0
+endsnippet
+
+snippet angle "left angle right angle" i
+\langle $1 \rangle$0
 endsnippet
 
 
@@ -616,11 +635,11 @@ endsnippet
 
 priority 2
 snippet bm0 "vector 0" i
-\textbf{0}
+\bm{0}
 endsnippet
 
 snippet bm1 "vector 1" i
-\textbf{1}
+\bm{1}
 endsnippet
 
 snippet init-article "Basic skeleton for an article" b
@@ -631,7 +650,7 @@ snippet init-article "Basic skeleton for an article" b
 % --------------------------------------------------------- 
 
 %\usepackage{lmodern}
-%\usepackage{xcolor}
+\usepackage[usenames,dvipsnames]{xcolor}
 \usepackage{float}
 \usepackage{caption}
 \usepackage{subcaption}
@@ -643,11 +662,11 @@ snippet init-article "Basic skeleton for an article" b
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{graphicx} % Allows including images
-\usepackage[colorlinks=false]{hyperref} % the option is there to remove the square around links which is what I don't like.
+\usepackage[hidelinks]{hyperref} % the option is there to remove the square around links which is what I don't like.
 \usepackage{perpage} 
 \MakePerPage{footnote} % Reset the footnote counter perpage. may require to run latex twice.
 \usepackage[margin=2cm]{geometry} % This is here to fit more text into the page.
-\setlength{\parindent}{0pt} % No indentation for paragraphs. Because that is just old.
+% \setlength{\parindent}{0pt} % No indentation for paragraphs. Because that is just old.
 %\setlength{\parskip}{\baselineskip} % Instead use vertical paragraph spacing.
 \fontencoding{T1} % the better font encoding.
 \usepackage{chngcntr} % https://tex.stackexchange.com/questions/28333/continuous-v-per-chapter-section-numbering-of-figures-tables-and-other-docume
@@ -655,7 +674,6 @@ snippet init-article "Basic skeleton for an article" b
 \usepackage{import}
 \usepackage{pdfpages}
 \usepackage{transparent}
-\usepackage{xcolor}
 
 \usepackage{listings}
 \lstset{language=python}
@@ -685,12 +703,13 @@ snippet init-article "Basic skeleton for an article" b
 \lstset{style=mystyle}
 \usepackage[
 backend=biber,
-style=alphabetic,
-citestyle=alphabetic
+style=authoryear,
+citestyle=authoryear
 ]{biblatex}
-%\addbibresource{citation.bib}
+%\addbibresource{refs.bib}
 \usepackage{afterpage}
 \usepackage{multirow}
+\usepackage{bm}
 
 % --------------------------------------------------------- 
 % SETTINGS
@@ -702,6 +721,7 @@ citestyle=alphabetic
 % CUSTOM COMMANDS
 % --------------------------------------------------------- 
 
+\definecolor{green}{RGB}{0, 180, 0}
 \def\green{\color{green}}
 \def\red{\color{red}}
 \def\blue{\color{blue}}
@@ -716,6 +736,7 @@ citestyle=alphabetic
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}} % https://tex.stackexchange.com/questions/42726/align-but-show-one-equation-number-at-the-end 
 \newcommand{\set}[1]{\left\\{#1\right\\}}
 \newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand{\T}{\!\top\!}
 
 \newcommand{\incfig}[2][1]{%
     \def\svgwidth{#1\columnwidth}

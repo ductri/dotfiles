@@ -97,3 +97,10 @@ if ~isdir(${1:output_dir})
 end
 endsnippet
 
+snippet defaultgraphics "matlab default graphics setting" i
+set(groot, 'defaultAxesTickLabelInterpreter','latex');
+set(groot, 'defaultLegendInterpreter','latex');
+set(groot, 'DefaultLineMarkerSize', 9)
+set(groot, 'DefaultLineLineWidth', 1.4)
+set(groot, 'DefaultAxesFontSize', 14);
+endsnippet

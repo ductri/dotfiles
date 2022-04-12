@@ -7,4 +7,6 @@
 config_version: 2
 settings:
   content.geolocation:
-    https://order.subway.com: false
+    https://www.google.com: false
+  content.media.audio_capture:
+    https://www.google.com: true

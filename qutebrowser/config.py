@@ -1816,7 +1816,7 @@ c.url.start_pages = ['https://google.com']
 
 ## Default zoom level.
 ## Type: Perc
-c.zoom.default = '160%'
+c.zoom.default = '100%'
 
 ## Available zoom levels.
 ## Type: List of Perc

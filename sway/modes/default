@@ -114,6 +114,8 @@ $bindsym $mod+f fullscreen
 ## Action // Toggle floating ##
 $bindsym $mod+Shift+space floating toggle
 
+$bindsym $mod+Ctrl+Shift+space sticky toggle
+
 ## Navigation // Toggle focus between tiling and floating ##
 $bindsym $mod+space focus mode_toggle
 
@@ -135,4 +137,7 @@ bindsym $mod+w exec --no-startup-id $term -e "ranger"
 bindsym $mod+semicolon split h
 # split in vertical orientation
 bindsym $mod+v split v
+
+# Application
+bindsym $mod+g exec goldendict
 
