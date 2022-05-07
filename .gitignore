@@ -1,2 +1,17 @@
 config/
 *.swp
+*.aux
+*.bbl
+*.bbl
+*.blg
+*.log
+*.nav
+*.pdf
+*.bcf
+*.fdb_latexmk
+*.fls
+*main.out
+*main.run.xml
+*.toc
+*main.synctex.gz
+*.snm

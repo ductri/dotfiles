@@ -1,0 +1,124 @@
+\ProvidesPackage{tri_preamble}
+
+% --------------------------------------------------------- 
+% PACKAGES AND PREDEFINED SETTINGS
+% --------------------------------------------------------- 
+
+%\usepackage{lmodern}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+%\usepackage[utf8x]{inputenc}
+\usepackage[linesnumbered,lined,boxed,commentsnumbered,ruled,vlined]{algorithm2e}
+\usepackage{enumitem}
+%\usepackage[english]{babel}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{graphicx} % Allows including images
+\usepackage[hidelinks]{hyperref} % the option is there to remove the square around links which is what I don't like.
+\usepackage{perpage} 
+\MakePerPage{footnote} % Reset the footnote counter perpage. may require to run latex twice.
+\usepackage[margin=2cm]{geometry} % This is here to fit more text into the page.
+% \setlength{\parindent}{0pt} % No indentation for paragraphs. Because that is just old.
+%\setlength{\parskip}{\baselineskip} % Instead use vertical paragraph spacing.
+\fontencoding{T1} % the better font encoding.
+\usepackage{chngcntr} % https://tex.stackexchange.com/questions/28333/continuous-v-per-chapter-section-numbering-of-figures-tables-and-other-docume
+%\usepackage{thmtools} % http://ftp.math.purdue.edu/mirrors/ctan.org/macros/latex/exptl/thmtools/thmtools.pdf
+\usepackage{import}
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\usepackage{listings}
+\lstset{language=python}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+\usepackage[
+backend=biber,
+style=authoryear,
+citestyle=authoryear
+]{biblatex}
+%\addbibresource{refs.bib}
+\usepackage{afterpage}
+\usepackage{multirow}
+\usepackage{bm}
+\usepackage{pgfplots}
+% --------------------------------------------------------- 
+% SETTINGS
+% --------------------------------------------------------- 
+\counterwithin{figure}{section}
+\newcommand\mycommfont[1]{\footnotesize\ttfamily\textcolor{blue}{#1}}
+\SetCommentSty{mycommfont}
+\pgfplotsset{every axis plot/.append style={
+font=\large,
+line width=0.6pt}
+}
+% --------------------------------------------------------- 
+% CUSTOM COMMANDS
+% --------------------------------------------------------- 
+
+\definecolor{green}{RGB}{0, 180, 0}
+\def\green{\color{green}}
+\def\red{\color{red}}
+\def\blue{\color{blue}}
+\newcommand{\rank}[1]{\text{rank}(#1)}
+\newcommand{\pr}[1]{\text{Pr}\left(#1\right)}
+\newcommand{\st}{\text{subject to}\quad }
+\newcommand{\trace}[1]{\text{tr}\left(#1\right)}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert}
+\newcommand{\vect}[1]{\text{vec}\left(#1\right)}
+\newcommand{\diag}[1]{\text{diag}\left(#1\right)}
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}} % https://tex.stackexchange.com/questions/42726/align-but-show-one-equation-number-at-the-end 
+\newcommand{\set}[1]{\left\\{#1\right\\}}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand{\T}{\!\top\!}
+
+\newcommand{\incfig}[2][1]{%
+    \def\svgwidth{#1\columnwidth}
+    \import{./figures/}{#2.pdf_tex}
+}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\minimize}{minimize}
+\DeclareMathOperator*{\maximize}{maximize}
+\newcommand{\indep}{\perp \!\!\! \perp}
+
+% --------------------------------------------------------- 
+% CUSTOM ENVIRONMENTS
+% --------------------------------------------------------- 
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section]
+
