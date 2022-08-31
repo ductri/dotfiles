@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cp ~/code/dotfiles/templates/latex/article/main.tex .
+cp ~/code/dotfiles/templates/latex/article/tri_preamble.sty .
+cp ~/code/dotfiles/templates/latex/article/refs.bib .
+echo "done"
+

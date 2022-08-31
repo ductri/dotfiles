@@ -15,6 +15,7 @@
 %\usepackage[english]{babel}
 \usepackage{amssymb}
 \usepackage{amsmath}
+\usepackage{mathtools}
 \usepackage{amsthm}
 \usepackage{graphicx} % Allows including images
 \usepackage[hidelinks]{hyperref} % the option is there to remove the square around links which is what I don't like.
@@ -61,11 +62,22 @@ backend=biber,
 style=authoryear,
 citestyle=authoryear
 ]{biblatex}
-%\addbibresource{refs.bib}
+\addbibresource{refs.bib}
 \usepackage{afterpage}
 \usepackage{multirow}
 \usepackage{bm}
 \usepackage{pgfplots}
+\usepackage{tcolorbox}
+\usepackage{titlesec}
+% \titleformat{\section}[frame]
+% {\vspace{20pt}\titlerule
+% \vspace{.8ex}%
+% \normalfont}
+%     {\filright
+%     \footnotesize
+%     \enspace SECTION \thesection\enspace}
+%     {8pt}
+%     {\Large\bfseries\filcenter}
 % --------------------------------------------------------- 
 % SETTINGS
 % --------------------------------------------------------- 
@@ -76,6 +88,8 @@ citestyle=authoryear
 font=\large,
 line width=0.6pt}
 }
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
 % --------------------------------------------------------- 
 % CUSTOM COMMANDS
 % --------------------------------------------------------- 
@@ -93,7 +107,7 @@ line width=0.6pt}
 \newcommand{\vect}[1]{\text{vec}\left(#1\right)}
 \newcommand{\diag}[1]{\text{diag}\left(#1\right)}
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}} % https://tex.stackexchange.com/questions/42726/align-but-show-one-equation-number-at-the-end 
-\newcommand{\set}[1]{\left\\{#1\right\\}}
+\newcommand{\set}[1]{\left\{#1\right\}}
 \newcommand*\diff{\mathop{}\!\mathrm{d}}
 \newcommand{\T}{\!\top\!}
 
@@ -107,6 +121,11 @@ line width=0.6pt}
 \DeclareMathOperator*{\minimize}{minimize}
 \DeclareMathOperator*{\maximize}{maximize}
 \newcommand{\indep}{\perp \!\!\! \perp}
+\DeclarePairedDelimiterX{\infdivx}[2]{(}{)}{%
+      #1\;\delimsize\|\;#2%
+}
+\newcommand{\Dkl}{D_{\rm kl}\infdivx}
+\newcommand{\dkl}{d_{\rm kl}\infdivx}
 
 % --------------------------------------------------------- 
 % CUSTOM ENVIRONMENTS

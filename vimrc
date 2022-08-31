@@ -93,6 +93,8 @@ set number
 set encoding=utf-8
 set tabstop=4 shiftwidth=4 expandtab
 set background=dark
+hi clear SpellBad
+hi SpellBad cterm=underline
 set conceallevel=1
 set autoindent
 let g:tex_flavor = "latex" 
@@ -130,6 +132,16 @@ au BufRead * normal zR
 hi Normal guibg=NONE ctermbg=NONE
 autocmd FileType tex set spell spelllang=en_us
 autocmd FileType text set spell spelllang=en_us
+hi Folded ctermfg=102 guifg=#ccb878 guibg=NONE ctermbg=NONE
+" #878787
+set foldtext=MyFoldText()
+function MyFoldText()
+  let line = getline(v:foldstart)
+  let sub = substitute(line, '/\*\|\*/\|{{{\d\=', '', 'g')
+  let trim_sub = trim(sub)
+  let ind = len(sub) - len(trim_sub)
+  return sub[:ind-1] . '+-- ' . sub[ind:]
+endfunction
 " }}}
 
 

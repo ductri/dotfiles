@@ -93,3 +93,7 @@ echo "Install i3-lock service; require sudo"
 cp -r i3-lock.service /etc/systemd/system/
 echo
 
+echo "Install rmview"
+cp -r rmview.json ~/.config/
+echo 
+

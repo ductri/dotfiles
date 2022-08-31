@@ -1,0 +1,14 @@
+.*
+*.swp
+*.mat
+*.png
+*.eps
+*.gz
+*.tar
+*.zip
+my_rsync/
+*.shp
+*.mexa64
+tags
+result/
+results/

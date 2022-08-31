@@ -113,3 +113,13 @@ echo
 echo "Save mpd"
 cp -r ~/.config/mpd .
 echo 
+
+echo "Save rmview"
+cp -r ~/.config/rmview.json .
+echo 
+
+echo "Save local bin directory"
+mkdir -p local_bin
+cp -r ~/.local/bin local_bin
+echo
+
