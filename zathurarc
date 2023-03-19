@@ -1,9 +1,10 @@
-set font "monospace normal 15"
-map <C-n> feedkeys ":exec zathura %"<Return>
+set font "monospace normal 20"
+map <C-n> feedkeys ":exec zathura $FILE"<Return>
 
 map <F2> focus_inputbar ':set guioptions "hv"<Return>'
-map <C-F2> focus_inputbar ':set guioptions "shv"<Return>'
+map <F3> focus_inputbar ':set guioptions "shv"<Return>'
 
+set guioptions "hv"
 
 set notification-error-bg       "#1d2021" # bg
 set notification-error-fg       "#fb4934" # bright:red

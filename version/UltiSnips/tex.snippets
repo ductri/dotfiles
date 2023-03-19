@@ -1,0 +1,504 @@
+priority 1
+
+snippet def "triangleq" i
+\triangleq
+endsnippet
+
+snippet set "set" i
+\set{$1}$0
+endsnippet
+
+snippet ff "forall" i
+\; \forall 
+endsnippet
+
+snippet ex "exists" i
+\exists 
+endsnippet
+
+snippet cd "cd" i
+\cdot 
+endsnippet
+
+snippet star "star" i
+\star 
+endsnippet
+
+snippet empt "emptyset" i
+\emptyset 
+endsnippet
+
+snippet plotfromdat "using pgfplots to plot"
+\begin{figure}[!t]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            /pgf/number format/.cd,
+            1000 sep={},
+            xlabel=$N$,
+            ylabel=Memory cost in RSS (GB),
+            legend pos=north west,
+            legend cell align={left},
+            ]
+        \addplot[orange,mark=o] table [x=N, y=FG]{figs/community_detection/mem.dat};
+        \addplot[blue,mark=square] table [x=N, y=FW]{figs/community_detection/mem.dat};
+        \legend{\texttt{FastGradient}, \texttt{MERIT}}
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Memory consumption of \texttt{FastGradient} and \texttt{MERIT}}
+    \label{fig:comm_mem}
+\end{figure}
+endsnippet
+
+snippet "ll" "\ell" ri
+\ell 
+endsnippet
+
+snippet cov "covariance"
+\text{cov}($1)$0
+endsnippet
+
+snippet var "variance"
+\text{var}($1)$0
+endsnippet
+
+snippet 3subfigure "3 subfigures" i
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{$1}
+        \caption{$2}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{$3}
+        \caption{$4}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{$4}
+        \caption{$5}
+    \end{subfigure}
+\end{figure}
+$0
+endsnippet
+
+snippet 2subfigure "2 subfigures" i
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{$1}
+        \caption{$2}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{$3}
+        \caption{$4}
+    \end{subfigure}
+\end{figure}
+$0
+endsnippet
+
+snippet int "integral" i
+\int_{0}^{} 
+endsnippet
+
+snippet left "leftarrow" i
+\leftarrow
+endsnippet
+
+snippet right "rightarrow" i
+\rightarrow
+endsnippet
+
+snippet lan "lelf angle" i
+\langle
+endsnippet
+
+snippet ran "right angle" i
+\rangle
+endsnippet
+
+snippet For "For in algorithm" i
+\For{ $${1:i} \leftarrow 1$ \KwTo $${2:N}$} {
+$3
+}
+$0
+endsnippet
+
+snippet fro "frobenius norm" i
+_{\rm F}
+endsnippet
+
+# From this genius guy: https://castel.dev/post/lecture-notes-1/
+# snippet mk "Math" whA
+# \$$1`!p
+# if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
+#     snip.rv = ' '
+# else:
+#     snip.rv = '' `$$0
+# endsnippet
+# snippet mk "Math" whA
+# \$$1\$${0}
+# endsnippet
+
+snippet mk "Math" iAs
+$$1$ $0
+endsnippet
+
+snippet dm "Math" wA
+\[
+$1
+\] $0
+endsnippet
+
+# snippet '([A-Za-z])(\d)' "auto subscript" wrA
+# `!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
+# endsnippet
+# snippet '([A-Za-z][A-Za-z])(\d)' "auto subscript" wrA
+# `!p snip.rv = match.group(1)+'_'+match.group(2) if match.group(1)!='bm' and match.group(1)!='bb' else match.group(1)+match.group(2)`
+# endsnippet
+
+snippet cb "^3" iA
+^3
+endsnippet
+
+snippet // "Fraction" iA
+\\dfrac{$1}{$2}$0
+endsnippet
+
+snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "Fraction" wr
+\\dfrac{`!p snip.rv = match.group(1)`}{$1}$0
+endsnippet
+
+
+# --------------------------------------
+# My creation
+# --------------------------------------
+
+snippet '(tb)(\w+)' "textbf" ir
+\textbf{`!p snip.rv = match.group(2)`}
+endsnippet
+
+# snippet '(tt)(\w+)' "" ir
+# \text{`!p snip.rv = match.group(2)`}
+# endsnippet
+
+snippet '(bb)(\w+)' "mathbf" ir
+\mathbf{`!p snip.rv = match.group(2)`}
+endsnippet
+
+snippet '(hat)(\w+)' "hat" ir
+\hat{`!p snip.rv = match.group(2)`}
+endsnippet
+
+# Consider to remove
+snippet '(tb)\\(\w+)' "textbf for greek letters (amsmath is required)" ir
+\boldsymbol\\`!p snip.rv = match.group(2)`
+endsnippet
+
+snippet '(tm)(\w+)' "mathcal" ir
+\mathcal{`!p snip.rv = match.group(2)`}
+endsnippet
+
+snippet '(~)' "\tilde" ir
+\widetilde{$1}$0
+endsnippet
+
+# snippet '(~)(\w+)' "textbf" ir
+# \widetilde{`!p snip.rv = match.group(2)`}
+# endsnippet
+
+snippet 'bar' "\bar" ir
+\overline{$1}$0
+endsnippet
+
+snippet mr "\mathbb{R}" i
+\mathbb{R}
+endsnippet
+
+snippet mq "\mathbb{Q}" i
+\mathbb{Q}
+endsnippet
+
+snippet mf "\mathbb{F}" i
+\mathbb{F}
+endsnippet
+
+snippet mn "\mathbb{N}" i
+\mathbb{N}
+endsnippet
+
+snippet mc "\mathbb{C}" w
+\mathbb{C}
+endsnippet
+
+snippet me "expectation"  
+\mathop{\mathbb{E}}
+endsnippet
+
+snippet mp "\mathbb{P}"  
+\mathbb{P}
+endsnippet
+
+
+snippet mz "\mathbb{Z}"  
+\mathbb{Z}
+endsnippet
+
+snippet '(->)' "\Rightarrow" rA
+\Rightarrow
+endsnippet
+
+snippet '(<>)' "\Rightarrow" rA
+\Leftrightarrow
+endsnippet
+
+# snippet ' "transpose" i
+# ^{\!\top\!}
+# endsnippet
+snippet ' "transpose" i
+^{\T}
+endsnippet
+
+snippet eps "epsilon" i
+\epsilon
+endsnippet
+
+snippet alp "alpha" i
+\alpha
+endsnippet
+
+snippet bet "beta" i
+\beta
+endsnippet
+
+snippet ome "omega" i
+\omega
+endsnippet
+
+snippet Ome "Omega" i
+\Omega
+endsnippet
+
+snippet zet "zetaj" i
+\zeta
+endsnippet
+
+snippet lam "lambda" i
+\lambda
+endsnippet
+
+snippet the "theta" i
+\theta
+endsnippet
+
+snippet The "Theta" i
+\Theta
+endsnippet
+
+snippet Lam "Lambda" i
+\Lambda
+endsnippet
+
+snippet del "delta" i
+\delta
+endsnippet
+
+snippet Del "Delta" i
+\Delta
+endsnippet
+
+snippet "([^h]|^)(eta)" "eta" ir
+`!p snip.rv = match.group(0)[:-3]`\eta
+endsnippet
+
+snippet sig "sigma" i
+\sigma
+endsnippet
+
+snippet Sig "Sigma" i
+\Sigma
+endsnippet
+
+snippet nab "nabla" i
+\nabla
+endsnippet
+
+snippet gam "gamma" i
+\gamma
+endsnippet
+
+snippet Gam "Gamma" i
+\Gamma
+endsnippet
+
+snippet par "partial" i
+\partial\, 
+endsnippet
+
+snippet tau "tau" i
+\tau 
+endsnippet
+
+snippet psi "psi" i
+\psi 
+endsnippet
+
+snippet Phi "Phi" i
+\Phi
+endsnippet
+
+snippet nat "Natural" i
+\natural
+endsnippet
+
+snippet \bs "boldsymbol" i
+\boldsymbol
+endsnippet
+
+snippet \left( "open left parathesis" i
+\left( $1 \right)$0
+endsnippet
+
+snippet l( "open left parathesis" i
+\left( $1 \right)$0
+endsnippet
+
+snippet l[ "open left bracket parathesis" i
+\left[ $1 \right]$0
+endsnippet
+
+snippet \left[ "open left bracket parathesis" i
+\left[ $1 \right]$0
+endsnippet
+
+snippet angle "left angle right angle" i
+\langle $1 \rangle$0
+endsnippet
+
+
+snippet mat "bmatrix environment"
+\begin{bmatrix}
+$1
+\end{bmatrix} $0
+endsnippet
+
+snippet ... "..."
+\ldots 
+endsnippet
+
+snippet hat "widehat" i
+\widehat{$1}$0
+endsnippet
+
+snippet tx "text" i
+\text{$1}$0
+endsnippet
+
+snippet ss "quad" i
+\quad 
+endsnippet
+
+snippet ... "ldots" iA
+\ldots 
+endsnippet
+
+snippet algorithm "algorithm" i
+\begin{algorithm}
+    \DontPrintSemicolon
+    \caption{$1}
+    \SetAlgoLined
+    \KwIn{$2}
+    \KwOut{$3}
+    $4
+    \BlankLine
+    \BlankLine
+\end{algorithm}
+endsnippet
+
+snippet lst "lstinline" i 
+\lstinline{$1}$0
+endsnippet
+
+snippet amp "ampersand &" i
+&
+endsnippet
+
+snippet grad "nabla" i
+\nabla 
+endsnippet
+
+snippet sr "^2" iA
+^2
+endsnippet
+
+snippet cb "^3" iA
+^3
+endsnippet
+
+snippet compl "complement" iA
+^{c}
+endsnippet
+
+snippet td "superscript" i
+^{$1}$0
+endsnippet
+
+snippet '(ten)(\w+)' "tensor" ir
+\underline{\mathbf{`!p snip.rv = match.group(2)`}}
+endsnippet
+
+snippet para "paragraph" i
+\paragraph{$1} $0
+endsnippet
+
+snippet ali "align" i
+\begin{align}
+$1
+\end{align}
+$0
+endsnippet
+
+snippet ali* "align*" i
+\begin{align*}
+$1
+\end{align*}
+$0
+endsnippet
+
+snippet inf "infty" i
+\infty
+endsnippet
+
+snippet optimization "optimization problem" i
+\begin{alignat*}{2}
+    & \minimize_{$1} \quad && $2 \\\\
+    & \text{subject to} && $3
+\end{alignat*}
+$0
+endsnippet
+
+snippet '(bm)(\w+)' "textbf version 2 " ir
+\bm{`!p snip.rv = match.group(2)`}
+endsnippet
+
+priority 2
+snippet bm0 "vector 0" i
+\bm{0}
+endsnippet
+
+snippet bm1 "vector 1" i
+\bm{1}
+endsnippet
+
+snippet inter "interior" i
+\text{int}($1)$0
+endsnippet
+
+
+# snippet "ell" "\ell" ri
+# ell 
+# endsnippet

@@ -7,14 +7,15 @@
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
 # Default wallpaper
-output * bg /home/tringuyen/code/dotfiles/bg/bg_text.jpg fill
+output * bg /home/tringuyen/code/dotfiles/bg/bg3.jpg fill
 
-# output eDP-1 resolution 1920x1080 position 0,0 scale 1
-# output DP-2 resolution 3840x2160 position 1920,0 scale 1
-
+# OPTION 1
 output HDMI-A-1 resolution 1920x1080 position 0,0 scale 1
 output eDP-1 resolution 1920x1080 position 0,1080 scale 1
-# output eDP-1 resolution 1920x1080 position 1920,0 scale 1
+
+# OPTION 2
+# output HDMI-A-1 resolution 1920x1080 position 0,0 scale 1
+# output eDP-1 dpms off
 
 exec_always ./../clamshell_mode.sh
 bindswitch --reload --locked lid:on output $laptop disable

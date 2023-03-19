@@ -123,3 +123,7 @@ mkdir -p local_bin
 cp -r ~/.local/bin local_bin
 echo
 
+echo "Save ncmpcpp"
+cp -r ~/.ncmpcpp ncmpcpp
+echo
+

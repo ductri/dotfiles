@@ -1,5 +1,33 @@
 priority 1
 
+snippet def "triangleq" i
+\triangleq
+endsnippet
+
+snippet set "set" i
+\set{$1}$0
+endsnippet
+
+snippet ff "forall" i
+\; \forall 
+endsnippet
+
+snippet ex "exists" i
+\exists 
+endsnippet
+
+snippet cd "cd" i
+\cdot 
+endsnippet
+
+snippet star "star" i
+\star 
+endsnippet
+
+snippet empt "emptyset" i
+\emptyset 
+endsnippet
+
 snippet plotfromdat "using pgfplots to plot"
 \begin{figure}[!t]
     \centering
@@ -105,13 +133,19 @@ _{\rm F}
 endsnippet
 
 # From this genius guy: https://castel.dev/post/lecture-notes-1/
-snippet mk "Math" whA
-$${1}$`!p
-if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
-    snip.rv = ' '
-else:
-    snip.rv = ''
-`$2
+# snippet mk "Math" whA
+# \$$1`!p
+# if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
+#     snip.rv = ' '
+# else:
+#     snip.rv = '' `$$0
+# endsnippet
+# snippet mk "Math" whA
+# \$$1\$${0}
+# endsnippet
+
+snippet mk "Math" iAs
+$$1$ $0
 endsnippet
 
 snippet dm "Math" wA
@@ -148,9 +182,9 @@ snippet '(tb)(\w+)' "textbf" ir
 \textbf{`!p snip.rv = match.group(2)`}
 endsnippet
 
-snippet '(tt)(\w+)' "" ir
-\text{`!p snip.rv = match.group(2)`}
-endsnippet
+# snippet '(tt)(\w+)' "" ir
+# \text{`!p snip.rv = match.group(2)`}
+# endsnippet
 
 snippet '(bb)(\w+)' "mathbf" ir
 \mathbf{`!p snip.rv = match.group(2)`}
@@ -189,21 +223,30 @@ snippet mr "\mathbb{R}" i
 \mathbb{R}
 endsnippet
 
+snippet mq "\mathbb{Q}" i
+\mathbb{Q}
+endsnippet
+
+snippet mf "\mathbb{F}" i
+\mathbb{F}
+endsnippet
+
+snippet mn "\mathbb{N}" i
+\mathbb{N}
+endsnippet
+
 snippet mc "\mathbb{C}" w
 \mathbb{C}
 endsnippet
 
-snippet me "\mathbb{E}"  
-\mathbb{E}
+snippet me "expectation"  
+\mathop{\mathbb{E}}
 endsnippet
 
 snippet mp "\mathbb{P}"  
 \mathbb{P}
 endsnippet
 
-snippet mn "\mathbb{N}"  
-\mathbb{N}
-endsnippet
 
 snippet mz "\mathbb{Z}"  
 \mathbb{Z}
@@ -273,7 +316,7 @@ snippet Del "Delta" i
 endsnippet
 
 snippet "([^h]|^)(eta)" "eta" ir
-`!p snip.rv = match.group(0)[:-3]`\eta 
+`!p snip.rv = match.group(0)[:-3]`\eta
 endsnippet
 
 snippet sig "sigma" i
@@ -400,7 +443,7 @@ snippet compl "complement" iA
 ^{c}
 endsnippet
 
-snippet td "superscript" iA
+snippet td "superscript" i
 ^{$1}$0
 endsnippet
 
@@ -445,5 +488,9 @@ endsnippet
 
 snippet bm1 "vector 1" i
 \bm{1}
+endsnippet
+
+snippet inter "interior" i
+\text{int}($1)$0
 endsnippet
 
