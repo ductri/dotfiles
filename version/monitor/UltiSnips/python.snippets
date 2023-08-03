@@ -1,0 +1,9 @@
+snippet pltconfig "font size for plt"
+params = {'text.usetex' : True, 'font.size' : 11, 'font.family' : 'lmodern'}
+plt.rcParams.update(params)
+endsnippet
+
+snippet pltsave "save it as pdf"
+plt.savefig('filename.pdf', dpi=1000)
+endsnippet
+
