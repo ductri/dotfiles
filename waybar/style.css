@@ -54,7 +54,7 @@
 #waybar {
     background: @theme_bg_color;
     color: @wm_icon_bg;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 /* Each module */

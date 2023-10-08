@@ -50,8 +50,8 @@ snippet plotfromdat "using pgfplots to plot"
 \end{figure}
 endsnippet
 
-snippet ll "\ell" i
-\ell
+snippet "ll" "\ell" ri
+\ell 
 endsnippet
 
 snippet cov "covariance"
@@ -190,10 +190,6 @@ snippet '(bb)(\w+)' "mathbf" ir
 \mathbf{`!p snip.rv = match.group(2)`}
 endsnippet
 
-snippet '(bm)(\w+)' "textbf version 2 " ir
-\bm{`!p snip.rv = match.group(2)`}
-endsnippet
-
 snippet '(hat)(\w+)' "hat" ir
 \hat{`!p snip.rv = match.group(2)`}
 endsnippet
@@ -227,9 +223,9 @@ snippet mq "\mathbb{Q}" i
 \mathbb{Q}
 endsnippet
 
-snippet mf "\mathbb{F}" i
-\mathbb{F}
-endsnippet
+# snippet mf "\mathbb{F}" i
+# \mathbb{F}
+# endsnippet
 
 snippet mn "\mathbb{N}" i
 \mathbb{N}
@@ -340,7 +336,7 @@ snippet Gam "Gamma" i
 endsnippet
 
 snippet par "partial" i
-\partial\; 
+\partial 
 endsnippet
 
 snippet tau "tau" i
@@ -353,6 +349,10 @@ endsnippet
 
 snippet Phi "Phi" i
 \Phi
+endsnippet
+
+snippet nat "Natural" i
+\natural
 endsnippet
 
 snippet \bs "boldsymbol" i
@@ -398,6 +398,10 @@ snippet tx "text" i
 \text{$1}$0
 endsnippet
 
+snippet pr "text" i
+\textsf{Pr}($1)$0
+endsnippet
+
 snippet ss "quad" i
 \quad 
 endsnippet
@@ -439,9 +443,9 @@ snippet cb "^3" iA
 ^3
 endsnippet
 
-snippet compl "complement" iA
-^{c}
-endsnippet
+# snippet compl "complement" iA
+# ^{c}
+# endsnippet
 
 snippet td "superscript" i
 ^{$1}$0
@@ -473,13 +477,18 @@ snippet inf "infty" i
 \infty
 endsnippet
 
-snippet optimisation "optimisation problem" i
+snippet optimization "optimization problem" i
 \begin{alignat*}{2}
     & \minimize_{$1} \quad && $2 \\\\
     & \text{subject to} && $3
 \end{alignat*}
 $0
 endsnippet
+
+snippet '(bm)(\w+)' "textbf version 2 " ir
+\bm{`!p snip.rv = match.group(2)`}
+endsnippet
+
 
 priority 2
 snippet bm0 "vector 0" i
@@ -494,3 +503,7 @@ snippet inter "interior" i
 \text{int}($1)$0
 endsnippet
 
+
+# snippet "ell" "\ell" ri
+# ell 
+# endsnippet

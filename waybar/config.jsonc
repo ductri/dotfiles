@@ -14,7 +14,7 @@
     "layer": "top",
 
     // If height property would be not present, it'd be calculated dynamically
-    "height": 40,
+    "height": 35,
     "position": "top",
 
     "modules-left": ["custom/menu", "sway/workspaces", "custom/scratchpad"],
@@ -32,7 +32,7 @@
 
         // connecting
         "network",
-        //"bluetooth",
+        "bluetooth",
 
         // media
         "custom/playerctl",

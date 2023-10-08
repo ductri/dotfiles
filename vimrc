@@ -29,7 +29,7 @@ Plug 'honza/vim-snippets'
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
-    let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
 
 Plug 'raingo/vim-matlab'
 
@@ -59,10 +59,10 @@ Plug 'tpope/vim-obsession'
 Plug 'gcmt/taboo.vim' 
 Plug 'chrisbra/Colorizer'
 
-Plug 'Valloric/YouCompleteMe'
-let g:ycm_key_list_select_completion = ['<Down>']
+" Plug 'Valloric/YouCompleteMe'
+" let g:ycm_key_list_select_completion = ['<Down>']
 " inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "ᐅ"
-set completeopt-=preview
+" set completeopt-=preview
 " Plug 'vim-syntastic/syntastic'
 " Plug 'nvie/vim-flake8'
 
@@ -79,6 +79,19 @@ xnoremap "+y y:call system("wl-copy", @")<cr>
 nnoremap "+p :let @"=substitute(system("wl-paste --no-newline"), '<C-v><C-m>', '', 'g')<cr>p
 nnoremap "*p :let @"=substitute(system("wl-paste --no-newline --primary"), '<C-v><C-m>', '', 'g')<cr>p
 
+Plug 'img-paste-devs/img-paste.vim'
+autocmd FileType markdown nmap <buffer><silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
+" there are some defaults for image directory and image name, you can change them
+let g:mdip_imgdir = 'images'
+let g:mdip_imgname = 'tmp_img'
+autocmd FileType markdown let g:PasteImageFunction = 'g:MyMarkdownPasteImage'
+
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+let g:mkdp_theme = 'light'
+" Plug 'preservim/vim-markdown'
+
+Plug 'godlygeek/tabular'
+
 " Initialize plugin system
 call plug#end()
 " }}}
@@ -93,13 +106,12 @@ set number
 set encoding=utf-8
 set tabstop=4 shiftwidth=4 expandtab
 set background=dark
-hi clear SpellBad
-hi SpellBad cterm=underline
 set conceallevel=1
 set autoindent
 let g:tex_flavor = "latex" 
 let DIARY='/home/tringuyen/research/notes/diary.md'
 let VOCAB='/home/tringuyen/research/notes/math_vocab.md'
+let TODOLIST='/home/tringuyen/research/notes/todo.md'
 colorscheme gruvbox
 let g:tex_conceal='abdmg'
 let g:vimtex_quickfix_ignore_filters = [
@@ -109,6 +121,7 @@ let g:vimtex_quickfix_ignore_filters = [
 let mapleader = "-" 
 let maplocalleader="\\"
 set tags=tags
+autocmd FileType matlab set tags+=/home/tringuyen/code/matlab/common/tags
 set hlsearch
 nohls
 set pastetoggle=<F2>
@@ -127,11 +140,13 @@ autocmd FileType snippets setlocal foldmethod=marker
 autocmd FileType python setlocal foldmethod=indent
 autocmd FileType tex :normal! /begin{document}<cr>mB
 au BufRead * normal zR
+nnoremap * :keepjumps normal! mi*`i<CR>
 
 " For background transparent
 hi Normal guibg=NONE ctermbg=NONE
 autocmd FileType tex set spell spelllang=en_us
 autocmd FileType text set spell spelllang=en_us
+autocmd FileType markdown set spell spelllang=en_us
 hi Folded ctermfg=102 guifg=#ccb878 guibg=NONE ctermbg=NONE
 " #878787
 set foldtext=MyFoldText()
@@ -142,6 +157,9 @@ function MyFoldText()
   let ind = len(sub) - len(trim_sub)
   return sub[:ind-1] . '+-- ' . sub[ind:]
 endfunction
+
+hi clear SpellBad
+hi SpellBad cterm=underline
 " }}}
 
 
@@ -211,6 +229,10 @@ function! ListEPSFiles()
     execute ':normal! O' . output
 "    $put=output
 endfunction
+
+function! g:MyMarkdownPasteImage(relpath)
+    execute 'normal! i<img src="' . a:relpath . '" width="800px">'
+endfunction
 " }}}
 
 
@@ -218,14 +240,16 @@ endfunction
 nnoremap <f3> :NERDTreeToggle<cr>
 inoremap jk <esc>
 
-nnoremap <leader>ev :vsplit ~/.vimrc<cr>
+nnoremap <leader>ev :tabnew ~/.vimrc<cr>
 nnoremap <leader>et :vsplit ~/.tmux.conf<cr>
 nnoremap <leader>sv :source ~/.vimrc<cr>
 nnoremap <leader>es :UltiSnipsEdit<cr> 
 nnoremap <leader>eS :vsplit ~/.vim/UltiSnips/all.snippets<cr> 
-nnoremap <leader>ed :edit /home/tringuyen/research/notes/diary.md<cr>
-nnoremap <leader>emv :edit /home/tringuyen/research/notes/math_vocab.md<cr>
-nnoremap <leader>ne G3o<esc>i# New entry: <esc>"=strftime('%c')<C-M>p2o<esc>i
+nnoremap <leader>ed :tabnew /home/tringuyen/research/notes/diary.md<cr>
+nnoremap <leader>el :tabnew /home/tringuyen/research/notes/todo.md<cr>
+nnoremap <leader>emv :tabnew /home/tringuyen/research/notes/math_vocab.md<cr>
+" Comment nnoremap <leader>ne G3o<esc>i# New entry: <esc>"=strftime('%c')<C-M>p2o<esc>i
+nnoremap <leader>ne ggO# New entry: <esc>"=strftime('%c')<C-M>p2o<esc>i
 " Comment
 nnoremap <leader>j i<cr><esc>
 " Thanks to https://www.reddit.com/r/vim/comments/8asgjj/topnotch_vim_markdown_live_previews_with_no/

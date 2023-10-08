@@ -1,0 +1,4 @@
+#!/bin/bash
+
+source ~/pyvenv/basic/bin/activate
+bibman

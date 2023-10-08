@@ -101,10 +101,11 @@ line width=0.6pt}
 \def\red{\color{red}}
 \def\blue{\color{blue}}
 \newcommand{\rank}[1]{\text{rank}(#1)}
-\newcommand{\pr}[1]{\text{Pr}\left(#1\right)}
+\newcommand{\pr}[1]{\textsf{Pr}\left(#1\right)}
 \newcommand{\st}{\text{subject to}\quad }
 \newcommand{\trace}[1]{\text{tr}\left(#1\right)}
-\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+% \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
 \newcommand{\abs}[1]{\left\lvert#1\right\rvert}
 \newcommand{\vect}[1]{\text{vec}\left(#1\right)}
 \newcommand{\diag}[1]{\text{diag}\left(#1\right)}

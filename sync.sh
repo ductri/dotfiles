@@ -127,6 +127,11 @@ if [[ $yn=="yes" ]] ; then
     echo "Save ncmpcpp"
     cp -r ~/.ncmpcpp ncmpcpp
     echo
+
+    echo "Save firefox"
+    mkdir -p firefox
+    cp ~/.local/share/applications/firefox.* firefox/
+    echo 
 else
     echo "Script has not been run.";
 fi

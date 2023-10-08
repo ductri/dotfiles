@@ -1,0 +1,4 @@
+#!/bin/bash
+
+source ~/pyvenv/vimenv/bin/activate
+/usr/bin/vim "$@"
