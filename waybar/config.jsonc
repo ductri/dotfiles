@@ -21,7 +21,7 @@
     "modules-center": ["custom/wf-recorder", "sway/mode", "custom/weather"],
     "modules-right": [
         // informational
-        "sway/language",
+        // "sway/language",
         //"custom/github",
         //"custom/clipboard",
         //"custom/zeit",
@@ -179,12 +179,12 @@
         "tooltip-format": "{}"
     },
 
-    "sway/language": {
-        "format": " {}",
-        "min-length": 5,
-        "tooltip": false,
-        "on-click": "swaymsg input $(swaymsg -t get_inputs --raw | jq '[.[] | select(.type == \"keyboard\")][0] | .identifier') xkb_switch_layout next"
-    },
+    // "sway/language": {
+    //     "format": " {}",
+    //     "min-length": 5,
+    //     "tooltip": false,
+    //     "on-click": "swaymsg input $(swaymsg -t get_inputs --raw | jq '[.[] | select(.type == \"keyboard\")][0] | .identifier') xkb_switch_layout next"
+    // },
 
     "custom/scratchpad": {
         "interval": "once",
@@ -308,5 +308,13 @@
         "on-click": "/bin/sh /usr/share/sway/scripts/zeit.sh click; pkill -RTMIN+10 waybar",
         "exec-if": "[ -x \"$(command -v zeit)\" ]",
         "signal": 10
+    },
+
+    "idle_inhibitor": {
+      "format": "{icon}",
+      "format-icons": {
+        "activated": "",
+        "deactivated": ""
+      }
     }
 }

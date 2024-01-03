@@ -11,10 +11,10 @@ Plug 'lervag/vimtex'
     let g:vimtex_quickfix_ignore_filters = [
           \ 'Overfull',
           \]
-    let g:vimtex_quickfix_enabled = 1
-    let g:vimtex_quickfix_mode = 2
+    let g:vimtex_quickfix_enabled = 0
+    let g:vimtex_quickfix_mode = 0
     let g:vimtex_quickfix_open_on_warning = 0
-
+    let g:tex_flavor = 'latex'
 " Track the engine.
 Plug 'sirver/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
@@ -80,11 +80,12 @@ nnoremap "+p :let @"=substitute(system("wl-paste --no-newline"), '<C-v><C-m>', '
 nnoremap "*p :let @"=substitute(system("wl-paste --no-newline --primary"), '<C-v><C-m>', '', 'g')<cr>p
 
 Plug 'img-paste-devs/img-paste.vim'
-autocmd FileType markdown nmap <buffer><silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
+autocmd FileType tex let g:PasteImageFunction = 'g:LatexPasteImage'
+autocmd FileType markdown let g:PasteImageFunction = 'g:MyMarkdownPasteImage'
+autocmd FileType markdown,tex nmap <buffer><silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
 " there are some defaults for image directory and image name, you can change them
 let g:mdip_imgdir = 'images'
 let g:mdip_imgname = 'tmp_img'
-autocmd FileType markdown let g:PasteImageFunction = 'g:MyMarkdownPasteImage'
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 let g:mkdp_theme = 'light'
@@ -142,6 +143,18 @@ autocmd FileType tex :normal! /begin{document}<cr>mB
 au BufRead * normal zR
 nnoremap * :keepjumps normal! mi*`i<CR>
 
+" Go to tab by number
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
+
 " For background transparent
 hi Normal guibg=NONE ctermbg=NONE
 autocmd FileType tex set spell spelllang=en_us
@@ -164,6 +177,15 @@ hi SpellBad cterm=underline
 
 
 " Functions ---------------------- {{{
+
+function! g:LatexPasteImage(relpath)
+    execute "normal! i\\includegraphics{" . a:relpath . "}\r\\caption{I"
+    let ipos = getcurpos()
+    execute "normal! a" . "mage}"
+    call setpos('.', ipos)
+    execute "normal! ve\<C-g>"
+endfunction
+
 function! OpenMarkdownPreview() abort
   if exists('s:markdown_job') 
      call job_stop(s:markdown_job)

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+source ~/pyvenv/vimenv/bin/activate
+/home/tringuyen/pyvenv/basic/bin/gcalcli "$@"
+

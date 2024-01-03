@@ -8,7 +8,7 @@
 
 # Default wallpaper
 # output * bg /home/tringuyen/code/dotfiles/bg/naruto1.jpg "stretch", "fill", "fit", "center", "tile"
-output * bg /home/tringuyen/code/dotfiles/bg/bg4.jpg fit
+output * bg /home/tringuyen/code/dotfiles/bg/bg.jpg fill
 
 # OPTION 1
 # output eDP-1 resolution 1920x1080 position 3840,0 scale 1
