@@ -93,9 +93,31 @@ let g:mkdp_theme = 'light'
 
 Plug 'godlygeek/tabular'
 
+Plug 'dense-analysis/ale'
+let g:ale_linters = {
+\   'python': ['pyright'],
+\}
+
+Plug 'Yggdroot/indentLine'
+
 " Initialize plugin system
 call plug#end()
+
+
 " }}}
+
+function ALELSPMappings()
+	let l:lsp_found=0
+	for l:linter in ale#linter#Get(&filetype) | if !empty(l:linter.lsp) | let l:lsp_found=1 | endif | endfor
+	if (l:lsp_found)
+		nnoremap <buffer> <C-]> :ALEGoToDefinition<CR>
+		nnoremap <buffer> <C-^> :ALEFindReferences<CR>
+	else
+		silent! unmap <buffer> <C-]>
+		silent! unmap <buffer> <C-^>
+	endif
+endfunction
+autocmd BufRead,FileType * call ALELSPMappings()
 
 " This is new style
 call deoplete#custom#var('omni', 'input_patterns', {
@@ -103,6 +125,27 @@ call deoplete#custom#var('omni', 'input_patterns', {
       \})
 
 " Basic settings ---------------------------- {{{
+"
+function! LinterStatus() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+
+  return l:counts.total == 0 ? '✨ all good ✨' : printf(
+        \   '😞 %dW %dE',
+        \   all_non_errors,
+        \   all_errors
+        \)
+endfunction
+
+set statusline=
+set statusline+=%m
+set statusline+=\ %f
+set statusline+=%=
+set statusline+=\ %{LinterStatus()}
+
+
 set number
 set encoding=utf-8
 set tabstop=4 shiftwidth=4 expandtab
@@ -357,7 +400,7 @@ noremap gk 5k
 nnoremap <leader>rs :call UltiSnips#RefreshSnippets()<cr>
 
 " Centering the hitting search
-nnoremap n nzz
+" nnoremap n nzz
 
 " Count search
 nnoremap <f4> :%s///gn<cr>
