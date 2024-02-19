@@ -28,8 +28,8 @@ Plug 'honza/vim-snippets'
 
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
-let g:deoplete#enable_at_startup = 1
+" Plug 'roxma/vim-hug-neovim-rpc'
+" let g:deoplete#enable_at_startup = 1
 
 Plug 'raingo/vim-matlab'
 
@@ -39,7 +39,7 @@ Plug 'morhetz/gruvbox'
     let g:gruvbox_invert_selection=0
 " Plug 'dracula/vim', { 'as': 'dracula' }
 "
-Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'} 
+" Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'} 
 Plug 'tpope/vim-surround'
 Plug 'benmills/vimux'
     let g:VimuxUseNearest = 1
@@ -54,6 +54,10 @@ Plug 'junegunn/fzf.vim'
     let g:fzf_preview_window = 'right:60%'
     " [Buffers] Jump to the existing window if possible
     let g:fzf_buffers_jump = 1
+    nnoremap <leader>fo :Files<cr>
+    nnoremap <leader>fb :Buffers<cr>
+    nnoremap <leader>ff :Rg<cr>
+    command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
 Plug 'tpope/vim-obsession'
 Plug 'gcmt/taboo.vim' 
@@ -97,11 +101,16 @@ Plug 'dense-analysis/ale'
 let g:ale_linters = {
 \   'python': ['pyright'],
 \}
+let g:ale_echo_msg_format = '%linter% says %s'
 
-Plug 'Yggdroot/indentLine'
-
+" Plug 'Yggdroot/indentLine'
+" let g:indentLine_fileTypeExclude = ['text', 'sh', 'tex', 'latex', '']
+" let g:indentLine_concealcursor = ''
 " Initialize plugin system
 call plug#end()
+
+set concealcursor=""
+
 
 
 " }}}
@@ -150,14 +159,14 @@ set number
 set encoding=utf-8
 set tabstop=4 shiftwidth=4 expandtab
 set background=dark
-set conceallevel=1
+set conceallevel=2
+let g:tex_conceal='abdgm'
 set autoindent
 let g:tex_flavor = "latex" 
 let DIARY='/home/tringuyen/research/notes/diary.md'
 let VOCAB='/home/tringuyen/research/notes/math_vocab.md'
 let TODOLIST='/home/tringuyen/research/notes/todo.md'
 colorscheme gruvbox
-let g:tex_conceal='abdmg'
 let g:vimtex_quickfix_ignore_filters = [
       \ "Font shape `U/stmry/b/n' undefined",
       \  "icml2019"
@@ -405,10 +414,6 @@ nnoremap <leader>rs :call UltiSnips#RefreshSnippets()<cr>
 " Count search
 nnoremap <f4> :%s///gn<cr>
 
-nnoremap <leader>fo :Files<cr>
-nnoremap <leader>fb :Buffers<cr>
-nnoremap <leader>ff :Rg<cr>
-command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 noremap <leader>a <C-a>
 noremap <leader>x <C-x>
@@ -443,6 +448,8 @@ if exists('+termguicolors')
    set termguicolors
 endif
 set incsearch
+
+
 " }}}
 
 
