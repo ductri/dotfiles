@@ -132,6 +132,11 @@ if [[ $yn=="yes" ]] ; then
     mkdir -p firefox
     cp ~/.local/share/applications/firefox.* firefox/
     echo 
+
+
+    echo "Save zshrc"
+    cp ~/.zshrc zshrc
+    echo 
 else
     echo "Script has not been run.";
 fi
