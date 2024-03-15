@@ -10,10 +10,12 @@ if [[ -e /usr/share/zsh/manjaro-zsh-prompt ]]; then
 fi
 
 alias sshl="autossh -M 20000 -f -N -L 9999:localhost:9999"
+alias sshl2="autossh -M 20010 -f -N -L 6666:localhost:6666"
 alias gits="git status ."
 alias pybasic="source ~/pyvenv/basic/bin/activate"
 alias clc="clear"
 alias neww="vim /home/tringuyen/research/notes/every-vocab.md"
+alias llt="ls -lht"
 
 export GEM_HOME=$HOME/gems
 
@@ -22,3 +24,4 @@ path+=('$HOME/gems/bin')
 export PATH
 
 unsetopt correct
+

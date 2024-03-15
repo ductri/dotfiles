@@ -7,3 +7,84 @@ snippet pltsave "save it as pdf"
 plt.savefig('filename.pdf', dpi=1000)
 endsnippet
 
+
+snippet lightning_template "a skeleton of training ML using lightning"
+import os
+import torch
+from torch import optim, nn, utils, Tensor
+from torchvision.transforms import ToTensor
+from torchvision.datasets import ImageFolder
+from torch.utils import data
+import lightning as L
+from lightning.pytorch.loggers import WandbLogger
+from lightning.pytorch.callbacks import ModelCheckpoint
+from torchmetrics.clustering import CompletenessScore
+import wandb
+
+
+
+
+class LitMyModel(L.LightningModule):
+    def __init__(self, K, lr):
+        super().__init__()
+        self.K = K
+        self.lr = lr
+
+        self.clf = MyClassifier(self.K)
+        self.loss = nn.BCELoss()
+        self.completeness_metric = CompletenessScore()
+
+        self.save_hyperparameters()
+
+    def training_step(self, batch, batch_idx):
+        X1, X2, O = batch
+        y1_pred = self.clf(X1)
+        y2_pred = self.clf(X2)
+        o_pred = (y1_pred * y2_pred).sum(-1)
+        loss = self.loss(o_pred, O)
+
+        self.log("train_loss", loss)
+        self.log("global_step", self.global_step)
+        return loss
+
+    def validation_step(self, batch, batch_idx):
+        X1, X2, O = batch
+        y1_pred = torch.argmax(self.clf(X1), -1)
+        y2_pred = torch.argmax(self.clf(X2), -1)
+        o_pred = (y1_pred == y2_pred)*1.0
+        bin_acc = ((o_pred == O)*1.0).mean()
+
+        self.log("val_bin_acc", bin_acc)
+        return bin_acc
+
+    def configure_optimizers(self):
+        optimizer = optim.Adam(self.parameters(), lr=self.lr)
+        return optimizer
+
+
+if __name__ == "__main__":
+    model = LitMyModel(K=10, lr=1e-3)
+
+    # setup data
+    pair_train_set, pair_val_set, test_set = my_dataset.load_pair_imagenet10()
+
+    train_loader = data.DataLoader(pair_train_set, batch_size=512, num_workers=4, pin_memory=True)
+    valid_loader = data.DataLoader(pair_val_set, batch_size=512, num_workers=4, pin_memory=True)
+    test_loader = data.DataLoader(test_set, batch_size=512, num_workers=4, pin_memory=True)
+
+    project_name = ''
+    run = wandb.init(project=project_name, tags=['debug'])
+    wandb_logger = WandbLogger(log_model=False, project=project_name, save_dir='.')
+
+    checkpoint_callback = ModelCheckpoint(dirpath=f'{constants.ROOT}/lightning_checkpoints/',
+            save_last=True, save_top_k=10, monitor='global_step', mode='max',
+            filename=f'imagenet10-{run.name}'+'-{epoch:02d}-{global_step}')
+
+    trainer = L.Trainer(limit_train_batches=10000, max_epochs=200,
+            logger=wandb_logger, check_val_every_n_epoch=1, devices=1,
+            callbacks=[checkpoint_callback])
+
+    trainer.fit(model=model, train_dataloaders=train_loader, val_dataloaders=[valid_loader, test_loader])
+    print(f'Checkpoint is saved at {checkpoint_callback.best_model_path}')
+
+endsnippet
