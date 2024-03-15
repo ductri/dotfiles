@@ -1,0 +1,17 @@
+{
+    "include": ["./src/"],
+    "venvPath": "/scratch/tri/venvs/",
+    "venv": "pytorch12",
+    "exclude": [
+        "models/",
+        "outputs/",
+        "wandb/"
+      ],
+    "executionEnvironments": [
+        {
+          "root": "src"
+        }
+      ]
+}
+}
+
