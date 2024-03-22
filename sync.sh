@@ -80,7 +80,8 @@ if [[ $yn=="yes" ]] ; then
     echo
 
     echo "Save alacritty config"
-    cp  ~/.config/alacritty/alacritty.yml alacritty.yml 
+    mkdir -p alacritty
+    cp  ~/.config/alacritty/* alacritty/ 
     echo
 
     echo "Save Xresources"
