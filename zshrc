@@ -16,6 +16,9 @@ alias pybasic="source ~/pyvenv/basic/bin/activate"
 alias clc="clear"
 alias neww="vim /home/tringuyen/research/notes/every-vocab.md"
 alias llt="ls -lht"
+duh() {
+    "du -lh -d 1 | tee disk_stat_"$(date)".txt"
+}
 
 export GEM_HOME=$HOME/gems
 
