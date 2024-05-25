@@ -6,11 +6,6 @@
         "models/",
         "outputs/",
         "wandb/"
-      ],
-    "executionEnvironments": [
-        {
-          "root": "src"
-        }
       ]
 }
 

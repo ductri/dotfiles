@@ -16,6 +16,7 @@ alias pybasic="source ~/pyvenv/basic/bin/activate"
 alias clc="clear"
 alias neww="vim /home/tringuyen/research/notes/every-vocab.md"
 alias llt="ls -lht"
+alias mpv4="mpv -ytdl-format 'bestvideo[height<=480]+bestaudio/best[height<=480]'"
 duh() {
     "du -lh -d 1 | tee disk_stat_"$(date)".txt"
 }

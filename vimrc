@@ -97,15 +97,59 @@ let g:mkdp_theme = 'light'
 
 Plug 'godlygeek/tabular'
 
-Plug 'dense-analysis/ale'
-let g:ale_linters = {
-\   'python': ['pyright'],
-\}
-let g:ale_echo_msg_format = '%linter% says %s'
-
+" Plug 'dense-analysis/ale'
+" let g:ale_linters = {
+" \   'python': ['pyright'],
+" \}
+" let g:ale_echo_msg_format = '%linter% says %s'
+" function ALELSPMappings()
+" 	let l:lsp_found=0
+" 	for l:linter in ale#linter#Get(&filetype) | if !empty(l:linter.lsp) | let l:lsp_found=1 | endif | endfor
+" 	if (l:lsp_found)
+" 		nnoremap <buffer> <C-]> :ALEGoToDefinition<CR>
+" 		nnoremap <buffer> <C-^> :ALEFindReferences<CR>
+" 	else
+" 		silent! unmap <buffer> <C-]>
+" 		silent! unmap <buffer> <C-^>
+" 	endif
+" endfunction
+" autocmd BufRead,FileType * call ALELSPMappings()
+"
 " Plug 'Yggdroot/indentLine'
 " let g:indentLine_fileTypeExclude = ['text', 'sh', 'tex', 'latex', '']
 " let g:indentLine_concealcursor = ''
+" function! LinterStatus() abort
+"   let l:counts = ale#statusline#Count(bufnr(''))
+"
+"   let l:all_errors = l:counts.error + l:counts.style_error
+"   let l:all_non_errors = l:counts.total - l:all_errors
+"
+"   return l:counts.total == 0 ? '✨ all good ✨' : printf(
+"         \   '😞 %dW %dE',
+"         \   all_non_errors,
+"         \   all_errors
+"         \)
+" endfunction
+" set statusline=
+" set statusline+=%m
+" set statusline+=\ %f
+" set statusline+=%=
+" set statusline+=\ %{LinterStatus()}
+"
+"
+" LSP server
+packadd lsp
+call LspAddServer([#{name: 'pyright',
+                 \   filetype: 'python',
+                 \   path: '/home/tringuyen/pyvenv/pytorch/bin/pyright-langserver',
+                 \   args: ['--stdio'],
+                 \   workspaceConfig: #{
+                 \     python: #{
+                 \       pythonPath: '/usr/bin/python'
+                 \   }}
+                 \ }])
+
+"
 " Initialize plugin system
 call plug#end()
 
@@ -115,18 +159,6 @@ set concealcursor=""
 
 " }}}
 
-function ALELSPMappings()
-	let l:lsp_found=0
-	for l:linter in ale#linter#Get(&filetype) | if !empty(l:linter.lsp) | let l:lsp_found=1 | endif | endfor
-	if (l:lsp_found)
-		nnoremap <buffer> <C-]> :ALEGoToDefinition<CR>
-		nnoremap <buffer> <C-^> :ALEFindReferences<CR>
-	else
-		silent! unmap <buffer> <C-]>
-		silent! unmap <buffer> <C-^>
-	endif
-endfunction
-autocmd BufRead,FileType * call ALELSPMappings()
 
 " This is new style
 call deoplete#custom#var('omni', 'input_patterns', {
@@ -135,24 +167,7 @@ call deoplete#custom#var('omni', 'input_patterns', {
 
 " Basic settings ---------------------------- {{{
 "
-function! LinterStatus() abort
-  let l:counts = ale#statusline#Count(bufnr(''))
 
-  let l:all_errors = l:counts.error + l:counts.style_error
-  let l:all_non_errors = l:counts.total - l:all_errors
-
-  return l:counts.total == 0 ? '✨ all good ✨' : printf(
-        \   '😞 %dW %dE',
-        \   all_non_errors,
-        \   all_errors
-        \)
-endfunction
-
-set statusline=
-set statusline+=%m
-set statusline+=\ %f
-set statusline+=%=
-set statusline+=\ %{LinterStatus()}
 
 
 set number

@@ -103,6 +103,7 @@ set $screenshot_screen_file grim -o "$(swaymsg -t get_outputs | jq -r '.[] | .na
 # set $screenshot_screen_upload $screenshot_screen_file | xargs $image_upload
 set $screenshot_selection_clipboard grim -g "$(slurp)" - | wl-copy && notify-send "selection screenshot is copied to clipboard"
 set $screenshot_selection_file grim -g "$(slurp)" "$HOME/Pictures/$(date +%F_%T)_grim.png" && notify-send "selection screenshot is saved"
+set $screenshot_selection_edit grim -g "$(slurp)" - | swappy -f -
 # set $screenshot_selection_upload grim -g "$(slurp)" - | wl-copy 
 
 set $laptop "eDP-1"

@@ -1,4 +1,4 @@
-set font "monospace normal 15"
+set font "monospace normal 20"
 map <C-n> feedkeys ":exec zathura $FILE"<Return>
 
 map <F2> focus_inputbar ':set guioptions "hv"<Return>'

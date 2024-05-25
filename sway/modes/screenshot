@@ -13,7 +13,7 @@ mode --pango_markup $mode_screenshot {
     # pick the region to screenshot
     $bindsym p mode "default", exec $screenshot_selection_clipboard
     $bindsym Shift+p mode "default", exec $screenshot_selection_file
-    $bindsym Shift+Ctrl+p mode "default", exec $screenshot_selection_upload
+    $bindsym Shift+Ctrl+p mode "default", exec $screenshot_selection_edit
 
     # Return to default mode.
     $bindsym Escape mode "default"
