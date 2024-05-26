@@ -97,59 +97,63 @@ let g:mkdp_theme = 'light'
 
 Plug 'godlygeek/tabular'
 
-" Plug 'dense-analysis/ale'
-" let g:ale_linters = {
-" \   'python': ['pyright'],
-" \}
-" let g:ale_echo_msg_format = '%linter% says %s'
-" function ALELSPMappings()
-" 	let l:lsp_found=0
-" 	for l:linter in ale#linter#Get(&filetype) | if !empty(l:linter.lsp) | let l:lsp_found=1 | endif | endfor
-" 	if (l:lsp_found)
-" 		nnoremap <buffer> <C-]> :ALEGoToDefinition<CR>
-" 		nnoremap <buffer> <C-^> :ALEFindReferences<CR>
-" 	else
-" 		silent! unmap <buffer> <C-]>
-" 		silent! unmap <buffer> <C-^>
-" 	endif
-" endfunction
-" autocmd BufRead,FileType * call ALELSPMappings()
-"
-" Plug 'Yggdroot/indentLine'
-" let g:indentLine_fileTypeExclude = ['text', 'sh', 'tex', 'latex', '']
-" let g:indentLine_concealcursor = ''
-" function! LinterStatus() abort
-"   let l:counts = ale#statusline#Count(bufnr(''))
-"
-"   let l:all_errors = l:counts.error + l:counts.style_error
-"   let l:all_non_errors = l:counts.total - l:all_errors
-"
-"   return l:counts.total == 0 ? '✨ all good ✨' : printf(
-"         \   '😞 %dW %dE',
-"         \   all_non_errors,
-"         \   all_errors
-"         \)
-" endfunction
-" set statusline=
-" set statusline+=%m
-" set statusline+=\ %f
-" set statusline+=%=
-" set statusline+=\ %{LinterStatus()}
-"
-"
-" LSP server
-packadd lsp
-call LspAddServer([#{name: 'pyright',
-                 \   filetype: 'python',
-                 \   path: '/home/tringuyen/pyvenv/pytorch/bin/pyright-langserver',
-                 \   args: ['--stdio'],
-                 \   workspaceConfig: #{
-                 \     python: #{
-                 \       pythonPath: '/usr/bin/python'
-                 \   }}
-                 \ }])
 
-"
+" " LSP server
+" packadd lsp
+" call LspAddServer([#{name: 'pyright',
+"                  \   filetype: 'python',
+"                  \   path: '/home/tringuyen/pyvenv/pytorch/bin/pyright-langserver',
+"                  \   args: ['--stdio'],
+"                  \   workspaceConfig: #{
+"                  \     python: #{
+"                  \       pythonPath: '/usr/bin/python'
+"                  \   }}
+"                  \ }])
+
+Plug 'prabirshrestha/vim-lsp'
+let g:lsp_diagnostics_echo_cursor = 1
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+if executable('pylsp')
+    " pip install python-lsp-server
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pylsp',
+        \ 'cmd': {server_info->['pylsp']},
+        \ 'allowlist': ['python'],
+        \ })
+endif
+
+function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+    setlocal signcolumn=yes
+    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+    nmap <buffer> gd <plug>(lsp-definition)
+    nmap <buffer> gs <plug>(lsp-document-symbol-search)
+    nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+    nmap <buffer> gr <plug>(lsp-references)
+    nmap <buffer> gi <plug>(lsp-implementation)
+    " nmap <buffer> gt <plug>(lsp-type-definition)
+    nmap <buffer> <leader>rn <plug>(lsp-rename)
+    nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+    nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+    nmap <buffer> K <plug>(lsp-hover)
+    " nnoremap <buffer> <expr><c-f> lsp#scroll(+4)
+    " nnoremap <buffer> <expr><c-d> lsp#scroll(-4)
+
+    let g:lsp_format_sync_timeout = 1000
+    autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
+    
+    " refer to doc to add more commands
+endfunction
+
+augroup lsp_install
+    au!
+    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+
+
+augroup END
 " Initialize plugin system
 call plug#end()
 

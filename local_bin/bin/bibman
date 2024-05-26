@@ -1,4 +1,1 @@
-#!/bin/bash
-
-source ~/pyvenv/basic/bin/activate
-bibman
+/home/tringuyen/pyvenv/pytorch/bin/bibman
