@@ -1,0 +1,19 @@
+# Use powerline
+USE_POWERLINE="true"
+# Source manjaro-zsh-configuration
+source $HOME/.zsh-home/manjaro-zsh-config
+# Use manjaro zsh prompt
+source $HOME/.zsh-home/manjaro-zsh-prompt
+
+alias gits="git status ."
+alias clc="clear"
+alias llt="ls -lht"
+duh() {
+    "du -lh -d 1 | tee disk_stat_"$(date)".txt"
+}
+
+export GEM_HOME=$HOME/gems
+export PATH
+
+unsetopt correct
+
