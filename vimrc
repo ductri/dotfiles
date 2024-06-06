@@ -16,7 +16,7 @@ Plug 'lervag/vimtex'
     let g:vimtex_quickfix_open_on_warning = 0
     let g:tex_flavor = 'latex'
 " Track the engine.
-Plug 'sirver/ultisnips'
+" Plug 'sirver/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
   " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -98,31 +98,22 @@ let g:mkdp_theme = 'light'
 Plug 'godlygeek/tabular'
 
 
-" " LSP server
-" packadd lsp
-" call LspAddServer([#{name: 'pyright',
-"                  \   filetype: 'python',
-"                  \   path: '/home/tringuyen/pyvenv/pytorch/bin/pyright-langserver',
-"                  \   args: ['--stdio'],
-"                  \   workspaceConfig: #{
-"                  \     python: #{
-"                  \       pythonPath: '/usr/bin/python'
-"                  \   }}
-"                  \ }])
-
 Plug 'prabirshrestha/vim-lsp'
 let g:lsp_diagnostics_echo_cursor = 1
-Plug 'mattn/vim-lsp-settings'
+let g:lsp_diagnostics_virtual_text_enabled = 0
+" Plug 'mattn/vim-lsp-settings'
+
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
-if executable('pylsp')
-    " pip install python-lsp-server
+if executable('pyright')
     au User lsp_setup call lsp#register_server({
-        \ 'name': 'pylsp',
-        \ 'cmd': {server_info->['pylsp']},
+        \ 'name': 'pyright-manual-setup',
+        \ 'cmd': ['/scratch/tri/venvs/llm/bin/pyright-langserver', '--stdio'],
         \ 'allowlist': ['python'],
         \ })
 endif
+let g:lsp_log_verbose = 1
+let g:lsp_log_file = expand('~/vim-lsp.log')
 
 function! s:on_lsp_buffer_enabled() abort
     setlocal omnifunc=lsp#complete
