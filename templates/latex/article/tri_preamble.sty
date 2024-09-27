@@ -80,6 +80,10 @@ maxcitenames=2]{biblatex}
 %     {\Large\bfseries\filcenter}
 \usepackage{cases}
 \usepackage{todonotes}
+\usepackage{framed}
+\usepackage{diagbox}
+\colorlet{shadecolor}{orange!15}
+
 
 % --------------------------------------------------------- 
 % SETTINGS
@@ -149,3 +153,12 @@ line width=0.6pt}
 \theoremstyle{remark}
 \newtheorem{remark}{Remark}[section]
 
+\newtheorem{blockx}{Block}
+\newenvironment{block}
+{
+    % \definecolor{shadecolor}{named}{SkyBlue}
+    \begin{shaded}
+    \begin{blockx}
+}
+  {\end{blockx}
+\end{shaded}}
