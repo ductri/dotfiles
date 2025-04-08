@@ -83,6 +83,7 @@ maxcitenames=2]{biblatex}
 \usepackage{framed}
 \usepackage{diagbox}
 \colorlet{shadecolor}{orange!15}
+\usepackage{svg}
 
 
 % --------------------------------------------------------- 
@@ -130,8 +131,8 @@ line width=0.6pt}
 
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
-\DeclareMathOperator*{\minimize}{minimize}
-\DeclareMathOperator*{\maximize}{maximize}
+\DeclareMathOperator*{\minimize}{\text{minimize}}
+\DeclareMathOperator*{\maximize}{\text{maximize}}
 \newcommand{\indep}{\perp \!\!\! \perp}
 \DeclarePairedDelimiterX{\infdivx}[2]{(}{)}{%
       #1\;\delimsize\|\;#2%

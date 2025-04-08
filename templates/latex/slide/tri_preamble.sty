@@ -73,6 +73,7 @@
 \usepackage{bibentry}
 \usepackage{appendixnumberbeamer}
 \usepackage{cases}
+\usepackage{svg}
 
 % --------------------------------------------------------- 
 % SETTINGS
@@ -81,7 +82,7 @@
 \newcommand\mycommfont[1]{\footnotesize\ttfamily\textcolor{blue}{#1}}
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \beamertemplatenavigationsymbolsempty
-\setbeamertemplate{footline}[page number]{}
+\setbeamertemplate{footline}[frame number]{}
 \captionsetup{justification=centering,font=scriptsize}
 
 \newrobustcmd*{\parentexttrack}[1]{%
@@ -111,6 +112,7 @@
 \definecolor{orange}{RGB}{255, 95, 31}
 \def\orange{\color{orange}}
 
+\newcommand{\range}[1]{{\sf range}(#1)}
 \newcommand{\rank}[1]{\text{rank}(#1)}
 \newcommand{\pr}[1]{\text{Pr}\left(#1\right)}
 \newcommand{\st}{\text{subject to}\quad }
@@ -131,9 +133,9 @@
 
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
-\DeclareMathOperator*{\minimize}{minimize}
-\DeclareMathOperator*{\maximize}{maximize}
-\newcommand{\indep}{\perp \!\!\! \perp}
+\DeclareMathOperator*{\minimize}{\text{minimize}}
+\DeclareMathOperator*{\maximize}{\text{maximize}}
+% \newcommand{\indep}{\perp \!\!\! \perp}
 \DeclarePairedDelimiterX{\infdivx}[2]{(}{)}{%
       #1\;\delimsize\|\;#2%
 }
@@ -171,7 +173,7 @@
 \newcommand{\higreen}[1]{%
   \colorbox{green!40}{$\displaystyle#1$}}
 
-\newcommand{\citep}[1]{{\blue \scriptsize \parencite{#1}}}
+\newcommand{\citep}[2][\scriptsize]{{\blue #1 \parencite{#2}}}
 \newcommand{\citepb}[1]{{\scriptsize \parencite{#1}}}
 
 % For matrix decoration
