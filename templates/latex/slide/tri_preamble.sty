@@ -74,6 +74,7 @@
 \usepackage{appendixnumberbeamer}
 \usepackage{cases}
 \usepackage{svg}
+\usepackage{multimedia}
 
 % --------------------------------------------------------- 
 % SETTINGS
@@ -205,6 +206,14 @@
 \newcommand{\Highlight}[1][submatrix]{%
     \tikz[overlay,remember picture]{
     \node[highlight,fit=(left.north west) (right.south east)] (#1) {};}
+}
+
+\newcommand{\makeatitle}[1]{%
+\begin{center}
+\makebox[\linewidth]{\rule{0.8\textwidth}{0.4pt}}
+\Huge #1
+\makebox[\linewidth]{\rule{0.8\textwidth}{0.4pt}}
+\end{center}
 }
 
 % FOR MATRIX NOTATION 

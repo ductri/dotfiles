@@ -11,12 +11,12 @@ Plug 'lervag/vimtex'
     let g:vimtex_quickfix_ignore_filters = [
           \ 'Overfull',
           \]
-    let g:vimtex_quickfix_enabled = 0
+    let g:vimtex_quickfix_enabled = 1
     let g:vimtex_quickfix_mode = 0
-    let g:vimtex_quickfix_open_on_warning = 0
+    " let g:vimtex_quickfix_open_on_warning = 0
     let g:tex_flavor = 'latex'
 " Track the engine.
-" Plug 'sirver/ultisnips'
+Plug 'sirver/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
   " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -101,18 +101,15 @@ Plug 'godlygeek/tabular'
 Plug 'prabirshrestha/vim-lsp'
 let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_diagnostics_virtual_text_enabled = 0
-" Plug 'mattn/vim-lsp-settings'
-
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
-if executable('pyright')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyright-manual-setup',
-        \ 'cmd': ['/scratch/tri/venvs/llm/bin/pyright-langserver', '--stdio'],
-        \ 'allowlist': ['python'],
-        \ })
-endif
-let g:lsp_log_verbose = 1
+" pip install python-lsp-server
+au User lsp_setup call lsp#register_server({
+    \ 'name': 'pyright-manual-setup',
+    \ 'cmd': ['/home/tringuyen/pyvenv/pytorch/bin/pyright-langserver',  '--stdio'],
+    \ 'allowlist': ['python'],
+    \ })
+let g:lsp_log_verbose=1
 let g:lsp_log_file = expand('~/vim-lsp.log')
 
 function! s:on_lsp_buffer_enabled() abort
@@ -322,6 +319,7 @@ endfunction
 
 " Mappings ---------------------------------- {{{
 nnoremap <f3> :NERDTreeToggle<cr>
+nnoremap <leader>t :NERDTreeToggle<cr>
 inoremap jk <esc>
 
 nnoremap <leader>ev :tabnew ~/.vimrc<cr>

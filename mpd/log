@@ -3561,3 +3561,721 @@ May 06 10:49 : ffmpeg/opus: Could not update timestamps for skipped samples.
 WARNING: Unhandled message: interface=org.freedesktop.DBus, path=/org/freedesktop/DBus, member=ActivatableServicesChanged
 WARNING: Unhandled message: interface=org.freedesktop.DBus, path=/org/freedesktop/DBus, member=ActivatableServicesChanged
 May 12 09:14 : player: played "chinese/阿冗 - 你的答案『也許我只能沉默，眼淚濕潤眼眶可又不甘懦弱。』【動態歌詞Lyrics】.webm"
+Jun 20 12:23 : ffmpeg/matroska,webm: File is broken, keyframes not correctly marked!
+Jun 20 12:23 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Jun 20 12:28 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Jun 20 12:28 : player: played "阿涵 - 過客我只是個陪伴者陪著你傷心難過動態歌詞Lyrics.mp3"
+Jun 20 12:31 : player: played "chinese/任然 - 飛鳥和蟬【動態歌詞】「你驕傲的飛遠 我棲息的夏天」♪.webm"
+Jun 20 12:31 : exception: Bad song index
+Jun 20 12:33 : player: played "Bờm Ơi - Thế Phương VBK.mp3"
+Jun 20 12:34 : exception: Bad playlist name
+Jun 20 12:38 : player: played "Chạy Xa Em - TAT.mp3"
+Jun 20 12:44 : player: played "Dung Roi Xa - Anh Quan Yen Le.mp3"
+Jun 20 12:48 : player: played "Con Dien.mp3"
+Jun 20 12:52 : player: played "Bước Qua Nhau - Đức Kaishi ft Gjn.mp3"
+Jun 20 13:11 : player: played "Đừng Chỉ Là Mơ [Vô Sắc OST] - Thế Bảo.mp3"
+Jun 20 13:18 : player: played "CHIEU VANG - Trung Quan OST Thang 5 de danh.mp3"
+Jun 20 13:22 : player: played "Buồn - Vũ Duy Khánh  Acoustic Cover - Hoàng Dũng.mp3"
+Jun 20 13:26 : player: played "Đau.mp3"
+Jun 20 13:30 : player: played "Mình Xa Mình Yêu.mp3"
+Jun 20 13:31 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Jun 20 13:34 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Jun 20 13:34 : player: played "Cant Take My Eyes Off You - Frankie Valli and The 4 Seasons + lyrics.webm"
+Jun 20 13:49 : player: played "Đừng Chỉ Là Mơ [Vô Sắc OST] - Thế Bảo.mp3"
+Jun 20 13:52 : player: played "Đau.mp3"
+Jun 20 13:57 : player: played "Mình Xa Mình Yêu.mp3"
+Jun 20 14:02 : player: played "Bờm Ơi - Thế Phương VBK.mp3"
+Jun 20 14:06 : player: played "CHIEU VANG - Trung Quan OST Thang 5 de danh.mp3"
+Jun 20 14:11 : player: played "Tuyết Rơi Mùa Hè.mp3"
+Jun 20 14:16 : player: played "Buồn - Vũ Duy Khánh  Acoustic Cover - Hoàng Dũng.mp3"
+Jun 20 14:21 : player: played "Bờm Ơi - Thế Phương VBK.mp3"
+Jun 20 14:23 : player: played "Tuyết Rơi Mùa Hè.mp3"
+Jun 20 14:28 : player: played "Dung Roi Xa - Anh Quan Yen Le.mp3"
+Jun 20 14:34 : player: played "Đừng Chỉ Là Mơ [Vô Sắc OST] - Thế Bảo.mp3"
+Jun 20 14:39 : player: played "Chạy Xa Em - TAT.mp3"
+Jun 20 14:43 : player: played "CHIEU VANG - Trung Quan OST Thang 5 de danh.mp3"
+Jun 20 14:46 : player: played "Đau.mp3"
+Jun 20 14:50 : player: played "Bước Qua Nhau - Đức Kaishi ft Gjn.mp3"
+Jun 20 14:54 : player: played "Đi Về Phía Thinh Lặng - Bùi Anh Tuấn Ft. Orange.mp3"
+Jun 20 14:59 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Jun 20 14:59 : player: played "Con Dien.mp3"
+Jun 20 15:02 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Jun 20 15:03 : player: played "Cant Take My Eyes Off You - Frankie Valli and The 4 Seasons + lyrics.webm"
+Jun 20 15:06 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Jun 20 15:07 : player: played "Mình Xa Mình Yêu.mp3"
+Jun 20 15:10 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Jun 20 15:10 : player: played "Cant Take My Eyes Off You - Frankie Valli and The 4 Seasons + lyrics.webm"
+Jun 20 15:16 : player: played "Dung Roi Xa - Anh Quan Yen Le.mp3"
+Jun 20 15:18 : player: played "Tuyết Rơi Mùa Hè.mp3"
+Jun 20 15:21 : player: played "Đau.mp3"
+Jun 20 15:25 : player: played "Bước Qua Nhau - Đức Kaishi ft Gjn.mp3"
+Jun 20 15:30 : player: played "Bờm Ơi - Thế Phương VBK.mp3"
+Jun 20 15:36 : player: played "Đừng Chỉ Là Mơ [Vô Sắc OST] - Thế Bảo.mp3"
+Jun 20 15:40 : player: played "CHIEU VANG - Trung Quan OST Thang 5 de danh.mp3"
+Jun 20 15:45 : player: played "Chạy Xa Em - TAT.mp3"
+Jun 20 15:49 : player: played "Mình Xa Mình Yêu.mp3"
+Jun 20 15:53 : player: played "Con Dien.mp3"
+Jun 20 15:57 : player: played "Đi Về Phía Thinh Lặng - Bùi Anh Tuấn Ft. Orange.mp3"
+Jun 20 16:02 : player: played "Buồn - Vũ Duy Khánh  Acoustic Cover - Hoàng Dũng.mp3"
+Jun 20 16:06 : player: played "Bước Qua Nhau - Đức Kaishi ft Gjn.mp3"
+Jun 20 16:09 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Jun 20 16:10 : player: played "Đau.mp3"
+Jun 20 16:13 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Jun 20 16:13 : player: played "Cant Take My Eyes Off You - Frankie Valli and The 4 Seasons + lyrics.webm"
+Jun 20 16:18 : player: played "Bờm Ơi - Thế Phương VBK.mp3"
+Jun 20 16:20 : player: played "Tuyết Rơi Mùa Hè.mp3"
+Jun 20 16:24 : player: played "Mình Xa Mình Yêu.mp3"
+Jun 20 16:30 : player: played "Đừng Chỉ Là Mơ [Vô Sắc OST] - Thế Bảo.mp3"
+Jun 20 16:35 : player: played "Buồn - Vũ Duy Khánh  Acoustic Cover - Hoàng Dũng.mp3"
+Jun 20 16:39 : player: played "Đi Về Phía Thinh Lặng - Bùi Anh Tuấn Ft. Orange.mp3"
+Jun 20 16:44 : player: played "Chạy Xa Em - TAT.mp3"
+Jun 20 16:49 : player: played "Dung Roi Xa - Anh Quan Yen Le.mp3"
+Jun 20 16:54 : player: played "Con Dien.mp3"
+Jun 20 16:58 : player: played "CHIEU VANG - Trung Quan OST Thang 5 de danh.mp3"
+Jun 20 17:02 : player: played "Bước Qua Nhau - Đức Kaishi ft Gjn.mp3"
+Jun 20 17:07 : player: played "Chạy Xa Em - TAT.mp3"
+Jun 20 17:11 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Jun 20 17:11 : player: played "Buồn - Vũ Duy Khánh  Acoustic Cover - Hoàng Dũng.mp3"
+Jun 20 17:15 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Jun 20 17:15 : player: played "Cant Take My Eyes Off You - Frankie Valli and The 4 Seasons + lyrics.webm"
+Jun 20 17:21 : player: played "Dung Roi Xa - Anh Quan Yen Le.mp3"
+Jun 20 17:26 : player: played "Đừng Chỉ Là Mơ [Vô Sắc OST] - Thế Bảo.mp3"
+Jun 20 17:31 : player: played "Con Dien.mp3"
+Jun 21 07:54 : player: played "Bờm Ơi - Thế Phương VBK.mp3"
+Jun 21 07:56 : player: played "Tuyết Rơi Mùa Hè.mp3"
+Jun 21 08:00 : player: played "Đi Về Phía Thinh Lặng - Bùi Anh Tuấn Ft. Orange.mp3"
+Jun 21 08:04 : player: played "Đau.mp3"
+Jun 21 08:08 : player: played "CHIEU VANG - Trung Quan OST Thang 5 de danh.mp3"
+Jun 21 08:12 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Jun 21 08:12 : player: played "Mình Xa Mình Yêu.mp3"
+Jun 21 08:15 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Jun 21 08:15 : player: played "Cant Take My Eyes Off You - Frankie Valli and The 4 Seasons + lyrics.webm"
+Jun 21 08:20 : player: played "Bờm Ơi - Thế Phương VBK.mp3"
+Jun 21 08:24 : player: played "Mình Xa Mình Yêu.mp3"
+Jun 21 08:28 : player: played "CHIEU VANG - Trung Quan OST Thang 5 de danh.mp3"
+Jun 21 08:34 : player: played "Dung Roi Xa - Anh Quan Yen Le.mp3"
+Jun 21 08:38 : player: played "Đi Về Phía Thinh Lặng - Bùi Anh Tuấn Ft. Orange.mp3"
+Jun 21 08:43 : player: played "Đừng Chỉ Là Mơ [Vô Sắc OST] - Thế Bảo.mp3"
+Jun 21 08:45 : player: played "Tuyết Rơi Mùa Hè.mp3"
+Jun 21 08:50 : player: played "Con Dien.mp3"
+Jun 21 08:55 : player: played "Buồn - Vũ Duy Khánh  Acoustic Cover - Hoàng Dũng.mp3"
+Jun 21 09:00 : player: played "Đau.mp3"
+Jun 21 09:05 : player: played "Chạy Xa Em - TAT.mp3"
+Jun 21 09:09 : player: played "Bước Qua Nhau - Đức Kaishi ft Gjn.mp3"
+Jun 21 09:15 : player: played "Chạy Xa Em - TAT.mp3"
+Jun 21 09:18 : player: played "Đau.mp3"
+Jun 21 09:24 : player: played "Đừng Chỉ Là Mơ [Vô Sắc OST] - Thế Bảo.mp3"
+Jun 21 09:28 : player: played "CHIEU VANG - Trung Quan OST Thang 5 de danh.mp3"
+Jun 21 09:32 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Jun 21 09:32 : player: played "Bờm Ơi - Thế Phương VBK.mp3"
+Jun 21 09:36 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Jun 21 09:36 : player: played "Cant Take My Eyes Off You - Frankie Valli and The 4 Seasons + lyrics.webm"
+Jun 21 09:40 : player: played "Bước Qua Nhau - Đức Kaishi ft Gjn.mp3"
+Jun 21 09:42 : player: played "Tuyết Rơi Mùa Hè.mp3"
+Jun 21 09:47 : player: played "Buồn - Vũ Duy Khánh  Acoustic Cover - Hoàng Dũng.mp3"
+Jun 21 09:51 : player: played "Mình Xa Mình Yêu.mp3"
+Jun 21 09:55 : player: played "Đi Về Phía Thinh Lặng - Bùi Anh Tuấn Ft. Orange.mp3"
+Jun 21 10:00 : player: played "Con Dien.mp3"
+Jun 21 10:05 : player: played "Dung Roi Xa - Anh Quan Yen Le.mp3"
+Jun 21 10:10 : player: played "Con Dien.mp3"
+Jun 21 10:15 : player: played "Đừng Chỉ Là Mơ [Vô Sắc OST] - Thế Bảo.mp3"
+Jun 21 10:19 : player: played "Đi Về Phía Thinh Lặng - Bùi Anh Tuấn Ft. Orange.mp3"
+Jun 21 10:23 : player: played "Bước Qua Nhau - Đức Kaishi ft Gjn.mp3"
+Jun 21 10:28 : player: played "Mình Xa Mình Yêu.mp3"
+Jun 21 10:33 : player: played "Dung Roi Xa - Anh Quan Yen Le.mp3"
+Jun 21 10:38 : player: played "Bờm Ơi - Thế Phương VBK.mp3"
+Jun 21 10:41 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Jun 21 10:41 : player: played "Đau.mp3"
+Jun 21 10:45 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Jun 21 10:45 : player: played "Cant Take My Eyes Off You - Frankie Valli and The 4 Seasons + lyrics.webm"
+Jun 21 10:50 : player: played "Chạy Xa Em - TAT.mp3"
+Jun 21 10:54 : player: played "CHIEU VANG - Trung Quan OST Thang 5 de danh.mp3"
+Jun 21 10:58 : player: played "Buồn - Vũ Duy Khánh  Acoustic Cover - Hoàng Dũng.mp3"
+Jun 21 11:00 : player: played "Tuyết Rơi Mùa Hè.mp3"
+Jun 21 11:06 : player: played "Dung Roi Xa - Anh Quan Yen Le.mp3"
+Jun 21 11:08 : player: played "Tuyết Rơi Mùa Hè.mp3"
+Jun 21 11:12 : player: played "Bước Qua Nhau - Đức Kaishi ft Gjn.mp3"
+Jun 21 11:16 : player: played "Mình Xa Mình Yêu.mp3"
+Jun 21 11:19 : player: played "Đau.mp3"
+Jun 21 11:23 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Jun 21 11:23 : player: played "Đi Về Phía Thinh Lặng - Bùi Anh Tuấn Ft. Orange.mp3"
+Jun 21 11:27 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Jun 21 11:27 : player: played "Cant Take My Eyes Off You - Frankie Valli and The 4 Seasons + lyrics.webm"
+Jun 21 11:32 : player: played "Buồn - Vũ Duy Khánh  Acoustic Cover - Hoàng Dũng.mp3"
+Jun 21 11:36 : player: played "CHIEU VANG - Trung Quan OST Thang 5 de danh.mp3"
+Jun 21 11:40 : player: played "Con Dien.mp3"
+Jun 21 11:46 : player: played "Đừng Chỉ Là Mơ [Vô Sắc OST] - Thế Bảo.mp3"
+Jun 21 11:51 : player: played "Bờm Ơi - Thế Phương VBK.mp3"
+Jun 21 11:56 : player: played "Chạy Xa Em - TAT.mp3"
+Jun 23 16:16 : player: played "Đừng Chỉ Là Mơ [Vô Sắc OST] - Thế Bảo.mp3"
+Jun 23 16:20 : player: played "CHIEU VANG - Trung Quan OST Thang 5 de danh.mp3"
+Jun 23 16:23 : player: played "Đau.mp3"
+Jun 23 16:27 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Jun 23 16:27 : player: played "Con Dien.mp3"
+Jun 23 16:31 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Jun 23 16:31 : player: played "Cant Take My Eyes Off You - Frankie Valli and The 4 Seasons + lyrics.webm"
+Jun 23 16:35 : player: played "Mình Xa Mình Yêu.mp3"
+Jun 23 16:39 : player: played "Đi Về Phía Thinh Lặng - Bùi Anh Tuấn Ft. Orange.mp3"
+Jun 23 16:41 : player: played "Tuyết Rơi Mùa Hè.mp3"
+Jun 23 16:46 : player: played "Chạy Xa Em - TAT.mp3"
+Jun 23 16:52 : player: played "Dung Roi Xa - Anh Quan Yen Le.mp3"
+Jun 23 16:56 : player: played "Buồn - Vũ Duy Khánh  Acoustic Cover - Hoàng Dũng.mp3"
+Jun 23 17:00 : player: played "Bước Qua Nhau - Đức Kaishi ft Gjn.mp3"
+Jun 23 17:05 : player: played "Bờm Ơi - Thế Phương VBK.mp3"
+Jun 23 17:07 : player: played "Tuyết Rơi Mùa Hè.mp3"
+Jun 23 17:12 : player: played "Buồn - Vũ Duy Khánh  Acoustic Cover - Hoàng Dũng.mp3"
+Jun 23 17:17 : player: played "Bờm Ơi - Thế Phương VBK.mp3"
+Jun 23 17:22 : player: played "Dung Roi Xa - Anh Quan Yen Le.mp3"
+Jun 23 17:27 : player: played "Con Dien.mp3"
+Jun 23 17:30 : player: played "Đau.mp3"
+Jul 01 19:13 : player: played "Chạy Xa Em - TAT.mp3"
+Jul 01 19:17 : player: played "Đi Về Phía Thinh Lặng - Bùi Anh Tuấn Ft. Orange.mp3"
+Jul 01 19:21 : player: played "Bước Qua Nhau - Đức Kaishi ft Gjn.mp3"
+Jul 01 19:26 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Jul 01 19:26 : player: played "Đừng Chỉ Là Mơ [Vô Sắc OST] - Thế Bảo.mp3"
+Jul 01 19:30 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Jul 01 19:30 : player: played "Cant Take My Eyes Off You - Frankie Valli and The 4 Seasons + lyrics.webm"
+Jul 01 19:34 : player: played "Mình Xa Mình Yêu.mp3"
+Jul 01 19:38 : player: played "CHIEU VANG - Trung Quan OST Thang 5 de danh.mp3"
+Jul 01 19:42 : player: played "Bước Qua Nhau - Đức Kaishi ft Gjn.mp3"
+Jul 25 12:47 : player: played "CHIEU VANG - Trung Quan OST Thang 5 de danh.mp3"
+Sep 16 14:25 : player: played "阿涵 - 過客我只是個陪伴者陪著你傷心難過動態歌詞Lyrics.mp3"
+Sep 16 14:30 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 16 14:30 : player: played "阿涵 - 過客我只是個陪伴者陪著你傷心難過動態歌詞Lyrics.mp3"
+Sep 16 14:36 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 16 14:36 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 16 14:36 : player: played "chinese/解语花. - 天空之外 【動態歌詞_Lyrics Video】.webm"
+Sep 16 14:41 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 16 14:41 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 16 14:41 : player: played "chinese/Lizm Ladyhao - 紙短情長『我的故事都是關於你呀。』【動態歌詞Lyrics】.webm"
+Sep 16 14:45 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 16 14:45 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 16 14:45 : player: played "chinese/丁芙妮 - 只是太愛你『因為我不知道下一輩子還是否能遇見你....』【動態歌詞Lyrics】.webm"
+Sep 16 14:50 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 16 14:50 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 16 14:50 : player: played "chinese/王貳浪 - 像魚「我要記住你的樣子，像魚記住水的擁抱」動態歌詞MV ♪M.C.M.C♪.webm"
+Sep 16 14:54 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 16 14:54 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 16 14:54 : player: played "chinese/阿涵 - 過客『我只是個陪伴者，陪著你傷心難過。』【動態歌詞Lyrics】.mkv"
+Sep 16 14:58 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 16 14:58 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 16 14:58 : player: played "chinese/阿冗 - 你的答案『也許我只能沉默，眼淚濕潤眼眶可又不甘懦弱。』【動態歌詞Lyrics】.webm"
+Sep 16 15:03 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 16 15:03 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 16 15:03 : player: played "chinese/任然 - 飛鳥和蟬【動態歌詞】「你驕傲的飛遠 我棲息的夏天」♪.webm"
+Sep 16 15:07 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 16 15:07 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 16 15:07 : player: played "chinese/牛奶咖啡 - 明天你好『长大以后 我只能奔跑』【動態歌詞Lyrics】.webm"
+Sep 16 15:12 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 16 15:12 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 16 15:12 : player: played "chinese/隔壁老樊 - 多想在平庸的生活擁抱你『無力，是我們最後難免的結局。』【動態歌詞Lyrics】.webm"
+Sep 16 15:16 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 16 15:16 : player: played "chinese/司南 - 冬眠【動態歌詞_Lyrics Video】.webm"
+Sep 16 15:21 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 16 15:21 : player: played "陳雪凝 - 綠色說不痛苦那是假的畢竟我的心也是肉做的動態歌詞Lyrics.mp3"
+Sep 16 15:26 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 16 15:26 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 16 15:26 : player: played "chinese/季彥霖 - 你一定要幸福（原唱：何潔） 『在夜深人靜的時候想起他....』【動態歌詞Lyrics】.webm"
+Sep 16 15:30 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 16 15:30 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 16 15:31 : player: played "chinese/牛奶咖啡 - 明天你好『长大以后 我只能奔跑』【動態歌詞Lyrics】.webm"
+Sep 16 15:35 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 16 15:36 : player: played "chinese/任然 - 飛鳥和蟬【動態歌詞】「你驕傲的飛遠 我棲息的夏天」♪.webm"
+Sep 16 15:40 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 16 15:40 : player: played "阿涵 - 過客我只是個陪伴者陪著你傷心難過動態歌詞Lyrics.mp3"
+Sep 16 15:44 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 16 15:44 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 16 15:44 : player: played "chinese/阿冗 - 你的答案『也許我只能沉默，眼淚濕潤眼眶可又不甘懦弱。』【動態歌詞Lyrics】.webm"
+Sep 16 15:48 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 16 15:48 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 16 15:48 : player: played "chinese/王貳浪 - 像魚「我要記住你的樣子，像魚記住水的擁抱」動態歌詞MV ♪M.C.M.C♪.webm"
+Sep 16 15:52 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 16 15:52 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 16 15:53 : player: played "chinese/丁芙妮 - 只是太愛你『因為我不知道下一輩子還是否能遇見你....』【動態歌詞Lyrics】.webm"
+Sep 16 15:57 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 16 15:57 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 16 15:57 : player: played "chinese/司南 - 冬眠【動態歌詞_Lyrics Video】.webm"
+Sep 25 11:35 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 11:35 : player: played "chinese/阿涵 - 過客『我只是個陪伴者，陪著你傷心難過。』【動態歌詞Lyrics】.mkv"
+Sep 25 11:40 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 11:40 : player: played "陳雪凝 - 綠色說不痛苦那是假的畢竟我的心也是肉做的動態歌詞Lyrics.mp3"
+Sep 25 11:46 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 11:46 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 11:46 : player: played "chinese/解语花. - 天空之外 【動態歌詞_Lyrics Video】.webm"
+Sep 25 11:51 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 11:51 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 11:51 : player: played "chinese/季彥霖 - 你一定要幸福（原唱：何潔） 『在夜深人靜的時候想起他....』【動態歌詞Lyrics】.webm"
+Sep 25 11:56 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 11:56 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 11:56 : player: played "chinese/Lizm Ladyhao - 紙短情長『我的故事都是關於你呀。』【動態歌詞Lyrics】.webm"
+Sep 25 12:00 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 12:00 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 12:01 : player: played "chinese/隔壁老樊 - 多想在平庸的生活擁抱你『無力，是我們最後難免的結局。』【動態歌詞Lyrics】.webm"
+Sep 25 12:05 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 12:05 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 12:05 : player: played "chinese/牛奶咖啡 - 明天你好『长大以后 我只能奔跑』【動態歌詞Lyrics】.webm"
+Sep 25 12:10 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 12:10 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 12:10 : player: played "chinese/Lizm Ladyhao - 紙短情長『我的故事都是關於你呀。』【動態歌詞Lyrics】.webm"
+Sep 25 12:16 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 12:16 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 12:16 : player: played "chinese/解语花. - 天空之外 【動態歌詞_Lyrics Video】.webm"
+Sep 25 12:20 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 12:20 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 12:21 : player: played "chinese/司南 - 冬眠【動態歌詞_Lyrics Video】.webm"
+Sep 25 12:25 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 12:25 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 12:25 : player: played "chinese/王貳浪 - 像魚「我要記住你的樣子，像魚記住水的擁抱」動態歌詞MV ♪M.C.M.C♪.webm"
+Sep 25 12:30 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 12:30 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 12:30 : player: played "chinese/任然 - 飛鳥和蟬【動態歌詞】「你驕傲的飛遠 我棲息的夏天」♪.webm"
+Sep 25 12:34 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 12:34 : player: played "chinese/阿冗 - 你的答案『也許我只能沉默，眼淚濕潤眼眶可又不甘懦弱。』【動態歌詞Lyrics】.webm"
+Sep 25 12:38 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 12:39 : player: played "阿涵 - 過客我只是個陪伴者陪著你傷心難過動態歌詞Lyrics.mp3"
+Sep 25 12:43 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 12:43 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 12:43 : player: played "chinese/隔壁老樊 - 多想在平庸的生活擁抱你『無力，是我們最後難免的結局。』【動態歌詞Lyrics】.webm"
+Sep 25 12:47 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 12:47 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 12:47 : player: played "chinese/丁芙妮 - 只是太愛你『因為我不知道下一輩子還是否能遇見你....』【動態歌詞Lyrics】.webm"
+Sep 25 12:52 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 12:52 : player: played "chinese/阿涵 - 過客『我只是個陪伴者，陪著你傷心難過。』【動態歌詞Lyrics】.mkv"
+Sep 25 12:56 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 12:56 : player: played "陳雪凝 - 綠色說不痛苦那是假的畢竟我的心也是肉做的動態歌詞Lyrics.mp3"
+Sep 25 13:01 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 13:01 : player: played "chinese/季彥霖 - 你一定要幸福（原唱：何潔） 『在夜深人靜的時候想起他....』【動態歌詞Lyrics】.webm"
+Sep 25 13:06 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 13:06 : player: played "陳雪凝 - 綠色說不痛苦那是假的畢竟我的心也是肉做的動態歌詞Lyrics.mp3"
+Sep 25 13:10 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 13:10 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 13:10 : player: played "chinese/司南 - 冬眠【動態歌詞_Lyrics Video】.webm"
+Sep 25 13:15 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 13:15 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 13:15 : player: played "chinese/牛奶咖啡 - 明天你好『长大以后 我只能奔跑』【動態歌詞Lyrics】.webm"
+Sep 25 13:18 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 13:18 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 13:19 : player: played "chinese/阿冗 - 你的答案『也許我只能沉默，眼淚濕潤眼眶可又不甘懦弱。』【動態歌詞Lyrics】.webm"
+Sep 25 13:23 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 13:23 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 13:23 : player: played "chinese/丁芙妮 - 只是太愛你『因為我不知道下一輩子還是否能遇見你....』【動態歌詞Lyrics】.webm"
+Sep 25 13:27 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 13:27 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 13:27 : player: played "chinese/阿涵 - 過客『我只是個陪伴者，陪著你傷心難過。』【動態歌詞Lyrics】.mkv"
+Sep 25 13:33 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 13:33 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 13:33 : player: played "chinese/解语花. - 天空之外 【動態歌詞_Lyrics Video】.webm"
+Sep 25 13:38 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 13:38 : player: played "chinese/隔壁老樊 - 多想在平庸的生活擁抱你『無力，是我們最後難免的結局。』【動態歌詞Lyrics】.webm"
+Sep 25 13:42 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 13:42 : player: played "阿涵 - 過客我只是個陪伴者陪著你傷心難過動態歌詞Lyrics.mp3"
+Sep 25 13:47 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 13:47 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 13:47 : player: played "chinese/任然 - 飛鳥和蟬【動態歌詞】「你驕傲的飛遠 我棲息的夏天」♪.webm"
+Sep 25 13:52 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 13:52 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 13:52 : player: played "chinese/Lizm Ladyhao - 紙短情長『我的故事都是關於你呀。』【動態歌詞Lyrics】.webm"
+Sep 25 13:57 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 13:57 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 13:57 : player: played "chinese/王貳浪 - 像魚「我要記住你的樣子，像魚記住水的擁抱」動態歌詞MV ♪M.C.M.C♪.webm"
+Sep 25 14:02 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 14:02 : player: played "chinese/季彥霖 - 你一定要幸福（原唱：何潔） 『在夜深人靜的時候想起他....』【動態歌詞Lyrics】.webm"
+Sep 25 14:07 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 14:07 : player: played "陳雪凝 - 綠色說不痛苦那是假的畢竟我的心也是肉做的動態歌詞Lyrics.mp3"
+Sep 25 14:11 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 14:11 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 14:11 : player: played "chinese/丁芙妮 - 只是太愛你『因為我不知道下一輩子還是否能遇見你....』【動態歌詞Lyrics】.webm"
+Sep 25 14:15 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 14:15 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 14:15 : player: played "chinese/牛奶咖啡 - 明天你好『长大以后 我只能奔跑』【動態歌詞Lyrics】.webm"
+Sep 25 14:20 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 14:20 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 14:20 : player: played "chinese/司南 - 冬眠【動態歌詞_Lyrics Video】.webm"
+Sep 25 14:25 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 14:25 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 14:25 : player: played "chinese/Lizm Ladyhao - 紙短情長『我的故事都是關於你呀。』【動態歌詞Lyrics】.webm"
+Sep 25 14:30 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 14:30 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 14:30 : player: played "chinese/任然 - 飛鳥和蟬【動態歌詞】「你驕傲的飛遠 我棲息的夏天」♪.webm"
+Sep 25 14:33 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 14:33 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 14:34 : player: played "chinese/阿冗 - 你的答案『也許我只能沉默，眼淚濕潤眼眶可又不甘懦弱。』【動態歌詞Lyrics】.webm"
+Sep 25 14:38 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 14:38 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 14:38 : player: played "chinese/王貳浪 - 像魚「我要記住你的樣子，像魚記住水的擁抱」動態歌詞MV ♪M.C.M.C♪.webm"
+Sep 25 14:43 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 14:43 : player: played "chinese/阿涵 - 過客『我只是個陪伴者，陪著你傷心難過。』【動態歌詞Lyrics】.mkv"
+Sep 25 14:47 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 14:47 : player: played "阿涵 - 過客我只是個陪伴者陪著你傷心難過動態歌詞Lyrics.mp3"
+Sep 25 14:52 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 14:52 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 14:52 : player: played "chinese/隔壁老樊 - 多想在平庸的生活擁抱你『無力，是我們最後難免的結局。』【動態歌詞Lyrics】.webm"
+Sep 25 14:57 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 14:57 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 14:57 : player: played "chinese/季彥霖 - 你一定要幸福（原唱：何潔） 『在夜深人靜的時候想起他....』【動態歌詞Lyrics】.webm"
+Sep 25 15:03 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 15:03 : player: played "chinese/解语花. - 天空之外 【動態歌詞_Lyrics Video】.webm"
+Sep 25 15:07 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 15:08 : player: played "阿涵 - 過客我只是個陪伴者陪著你傷心難過動態歌詞Lyrics.mp3"
+Sep 25 15:13 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 15:13 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 15:13 : player: played "chinese/季彥霖 - 你一定要幸福（原唱：何潔） 『在夜深人靜的時候想起他....』【動態歌詞Lyrics】.webm"
+Sep 25 15:17 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 15:17 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 15:17 : player: played "chinese/牛奶咖啡 - 明天你好『长大以后 我只能奔跑』【動態歌詞Lyrics】.webm"
+Sep 25 15:22 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 15:22 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 15:22 : player: played "chinese/司南 - 冬眠【動態歌詞_Lyrics Video】.webm"
+Sep 25 15:26 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 15:26 : player: played "chinese/隔壁老樊 - 多想在平庸的生活擁抱你『無力，是我們最後難免的結局。』【動態歌詞Lyrics】.webm"
+Sep 25 15:31 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 15:31 : player: played "陳雪凝 - 綠色說不痛苦那是假的畢竟我的心也是肉做的動態歌詞Lyrics.mp3"
+Sep 25 15:35 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 15:35 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 15:35 : player: played "chinese/阿涵 - 過客『我只是個陪伴者，陪著你傷心難過。』【動態歌詞Lyrics】.mkv"
+Sep 25 15:40 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 15:40 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 15:40 : player: played "chinese/王貳浪 - 像魚「我要記住你的樣子，像魚記住水的擁抱」動態歌詞MV ♪M.C.M.C♪.webm"
+Sep 25 15:44 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 15:44 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 15:44 : player: played "chinese/阿冗 - 你的答案『也許我只能沉默，眼淚濕潤眼眶可又不甘懦弱。』【動態歌詞Lyrics】.webm"
+Sep 25 15:48 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 15:48 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 15:48 : player: played "chinese/丁芙妮 - 只是太愛你『因為我不知道下一輩子還是否能遇見你....』【動態歌詞Lyrics】.webm"
+Sep 25 15:53 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 15:53 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 15:53 : player: played "chinese/任然 - 飛鳥和蟬【動態歌詞】「你驕傲的飛遠 我棲息的夏天」♪.webm"
+Sep 25 15:59 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 15:59 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 15:59 : player: played "chinese/解语花. - 天空之外 【動態歌詞_Lyrics Video】.webm"
+Sep 25 16:04 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 16:04 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 16:04 : player: played "chinese/Lizm Ladyhao - 紙短情長『我的故事都是關於你呀。』【動態歌詞Lyrics】.webm"
+Sep 25 16:08 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 16:08 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 16:08 : player: played "chinese/丁芙妮 - 只是太愛你『因為我不知道下一輩子還是否能遇見你....』【動態歌詞Lyrics】.webm"
+Sep 25 16:12 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 16:12 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 16:13 : player: played "chinese/司南 - 冬眠【動態歌詞_Lyrics Video】.webm"
+Sep 25 16:17 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 16:17 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 16:17 : player: played "chinese/阿涵 - 過客『我只是個陪伴者，陪著你傷心難過。』【動態歌詞Lyrics】.mkv"
+Sep 25 16:22 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 16:22 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 16:22 : player: played "chinese/王貳浪 - 像魚「我要記住你的樣子，像魚記住水的擁抱」動態歌詞MV ♪M.C.M.C♪.webm"
+Sep 25 16:27 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 16:27 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 16:27 : player: played "chinese/Lizm Ladyhao - 紙短情長『我的故事都是關於你呀。』【動態歌詞Lyrics】.webm"
+Sep 25 16:30 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 16:31 : player: played "chinese/阿冗 - 你的答案『也許我只能沉默，眼淚濕潤眼眶可又不甘懦弱。』【動態歌詞Lyrics】.webm"
+Sep 25 16:35 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 16:35 : player: played "阿涵 - 過客我只是個陪伴者陪著你傷心難過動態歌詞Lyrics.mp3"
+Sep 25 16:40 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 16:40 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 16:40 : player: played "chinese/任然 - 飛鳥和蟬【動態歌詞】「你驕傲的飛遠 我棲息的夏天」♪.webm"
+Sep 25 16:46 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 16:46 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 16:46 : player: played "chinese/解语花. - 天空之外 【動態歌詞_Lyrics Video】.webm"
+Sep 25 16:50 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 16:51 : player: played "chinese/牛奶咖啡 - 明天你好『长大以后 我只能奔跑』【動態歌詞Lyrics】.webm"
+Sep 25 16:55 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 16:55 : player: played "陳雪凝 - 綠色說不痛苦那是假的畢竟我的心也是肉做的動態歌詞Lyrics.mp3"
+Sep 25 17:00 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 17:00 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 17:00 : player: played "chinese/季彥霖 - 你一定要幸福（原唱：何潔） 『在夜深人靜的時候想起他....』【動態歌詞Lyrics】.webm"
+Sep 25 17:05 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 17:05 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 17:05 : player: played "chinese/隔壁老樊 - 多想在平庸的生活擁抱你『無力，是我們最後難免的結局。』【動態歌詞Lyrics】.webm"
+Sep 25 17:11 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 17:11 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 17:11 : player: played "chinese/解语花. - 天空之外 【動態歌詞_Lyrics Video】.webm"
+Sep 25 17:16 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 17:16 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 17:16 : player: played "chinese/王貳浪 - 像魚「我要記住你的樣子，像魚記住水的擁抱」動態歌詞MV ♪M.C.M.C♪.webm"
+Sep 25 17:20 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 17:20 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 17:20 : player: played "chinese/司南 - 冬眠【動態歌詞_Lyrics Video】.webm"
+Sep 25 17:25 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 17:25 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 17:25 : player: played "chinese/Lizm Ladyhao - 紙短情長『我的故事都是關於你呀。』【動態歌詞Lyrics】.webm"
+Sep 25 17:30 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 17:30 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 17:30 : player: played "chinese/牛奶咖啡 - 明天你好『长大以后 我只能奔跑』【動態歌詞Lyrics】.webm"
+Sep 25 17:35 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 17:35 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 17:35 : player: played "chinese/季彥霖 - 你一定要幸福（原唱：何潔） 『在夜深人靜的時候想起他....』【動態歌詞Lyrics】.webm"
+Sep 25 17:39 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 17:39 : player: played "chinese/隔壁老樊 - 多想在平庸的生活擁抱你『無力，是我們最後難免的結局。』【動態歌詞Lyrics】.webm"
+Sep 25 17:44 : player: played "阿涵 - 過客我只是個陪伴者陪著你傷心難過動態歌詞Lyrics.mp3"
+Sep 25 17:48 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 17:48 : player: played "陳雪凝 - 綠色說不痛苦那是假的畢竟我的心也是肉做的動態歌詞Lyrics.mp3"
+Sep 25 17:53 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 17:53 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 17:53 : player: played "chinese/任然 - 飛鳥和蟬【動態歌詞】「你驕傲的飛遠 我棲息的夏天」♪.webm"
+Sep 25 17:57 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 17:57 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 17:57 : player: played "chinese/阿冗 - 你的答案『也許我只能沉默，眼淚濕潤眼眶可又不甘懦弱。』【動態歌詞Lyrics】.webm"
+Sep 25 18:01 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 18:01 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 18:01 : player: played "chinese/丁芙妮 - 只是太愛你『因為我不知道下一輩子還是否能遇見你....』【動態歌詞Lyrics】.webm"
+Sep 25 18:06 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 18:06 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 18:06 : player: played "chinese/阿涵 - 過客『我只是個陪伴者，陪著你傷心難過。』【動態歌詞Lyrics】.mkv"
+Sep 25 18:09 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 18:09 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 18:09 : player: played "chinese/阿冗 - 你的答案『也許我只能沉默，眼淚濕潤眼眶可又不甘懦弱。』【動態歌詞Lyrics】.webm"
+Sep 25 18:14 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 18:14 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 18:15 : player: played "chinese/季彥霖 - 你一定要幸福（原唱：何潔） 『在夜深人靜的時候想起他....』【動態歌詞Lyrics】.webm"
+Sep 25 18:19 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 18:20 : player: played "chinese/Lizm Ladyhao - 紙短情長『我的故事都是關於你呀。』【動態歌詞Lyrics】.webm"
+Sep 25 18:24 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 18:24 : player: played "阿涵 - 過客我只是個陪伴者陪著你傷心難過動態歌詞Lyrics.mp3"
+Sep 25 18:30 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 18:30 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 18:30 : player: played "chinese/解语花. - 天空之外 【動態歌詞_Lyrics Video】.webm"
+Sep 25 18:35 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 18:35 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 18:35 : player: played "chinese/阿涵 - 過客『我只是個陪伴者，陪著你傷心難過。』【動態歌詞Lyrics】.mkv"
+Sep 25 18:39 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 18:39 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 18:39 : player: played "chinese/丁芙妮 - 只是太愛你『因為我不知道下一輩子還是否能遇見你....』【動態歌詞Lyrics】.webm"
+Sep 25 18:44 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 18:44 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 18:44 : player: played "chinese/任然 - 飛鳥和蟬【動態歌詞】「你驕傲的飛遠 我棲息的夏天」♪.webm"
+Sep 25 18:48 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 18:48 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 18:49 : player: played "chinese/王貳浪 - 像魚「我要記住你的樣子，像魚記住水的擁抱」動態歌詞MV ♪M.C.M.C♪.webm"
+Sep 25 18:53 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 18:53 : player: played "chinese/隔壁老樊 - 多想在平庸的生活擁抱你『無力，是我們最後難免的結局。』【動態歌詞Lyrics】.webm"
+Sep 25 18:57 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 18:58 : player: played "陳雪凝 - 綠色說不痛苦那是假的畢竟我的心也是肉做的動態歌詞Lyrics.mp3"
+Sep 25 19:02 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 19:02 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 19:02 : player: played "chinese/司南 - 冬眠【動態歌詞_Lyrics Video】.webm"
+Sep 25 19:06 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 19:06 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 19:07 : player: played "chinese/牛奶咖啡 - 明天你好『长大以后 我只能奔跑』【動態歌詞Lyrics】.webm"
+Sep 25 19:11 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 19:11 : player: played "chinese/司南 - 冬眠【動態歌詞_Lyrics Video】.webm"
+Sep 25 19:15 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 19:16 : player: played "阿涵 - 過客我只是個陪伴者陪著你傷心難過動態歌詞Lyrics.mp3"
+Sep 25 19:21 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 19:21 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 19:21 : player: played "chinese/季彥霖 - 你一定要幸福（原唱：何潔） 『在夜深人靜的時候想起他....』【動態歌詞Lyrics】.webm"
+Sep 25 19:25 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 19:25 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 19:26 : player: played "chinese/王貳浪 - 像魚「我要記住你的樣子，像魚記住水的擁抱」動態歌詞MV ♪M.C.M.C♪.webm"
+Sep 25 19:30 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 19:30 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 19:31 : player: played "chinese/Lizm Ladyhao - 紙短情長『我的故事都是關於你呀。』【動態歌詞Lyrics】.webm"
+Sep 25 19:34 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 19:34 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 19:34 : player: played "chinese/阿冗 - 你的答案『也許我只能沉默，眼淚濕潤眼眶可又不甘懦弱。』【動態歌詞Lyrics】.webm"
+Sep 25 19:39 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 19:39 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 19:39 : player: played "chinese/牛奶咖啡 - 明天你好『长大以后 我只能奔跑』【動態歌詞Lyrics】.webm"
+Sep 25 19:43 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 19:43 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 19:43 : player: played "chinese/阿涵 - 過客『我只是個陪伴者，陪著你傷心難過。』【動態歌詞Lyrics】.mkv"
+Sep 25 19:48 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 19:48 : player: played "chinese/任然 - 飛鳥和蟬【動態歌詞】「你驕傲的飛遠 我棲息的夏天」♪.webm"
+Sep 25 19:53 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 19:53 : player: played "陳雪凝 - 綠色說不痛苦那是假的畢竟我的心也是肉做的動態歌詞Lyrics.mp3"
+Sep 25 19:57 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 19:57 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 19:57 : player: played "chinese/丁芙妮 - 只是太愛你『因為我不知道下一輩子還是否能遇見你....』【動態歌詞Lyrics】.webm"
+Sep 25 20:01 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 20:01 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 20:01 : player: played "chinese/隔壁老樊 - 多想在平庸的生活擁抱你『無力，是我們最後難免的結局。』【動態歌詞Lyrics】.webm"
+Sep 25 20:07 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 20:07 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 20:08 : player: played "chinese/解语花. - 天空之外 【動態歌詞_Lyrics Video】.webm"
+Sep 25 20:11 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 20:11 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 20:11 : player: played "chinese/阿冗 - 你的答案『也許我只能沉默，眼淚濕潤眼眶可又不甘懦弱。』【動態歌詞Lyrics】.webm"
+Sep 25 20:16 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 20:16 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 20:16 : player: played "chinese/牛奶咖啡 - 明天你好『长大以后 我只能奔跑』【動態歌詞Lyrics】.webm"
+Sep 25 20:21 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 20:21 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 20:21 : player: played "chinese/Lizm Ladyhao - 紙短情長『我的故事都是關於你呀。』【動態歌詞Lyrics】.webm"
+Sep 25 20:25 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 20:26 : player: played "chinese/任然 - 飛鳥和蟬【動態歌詞】「你驕傲的飛遠 我棲息的夏天」♪.webm"
+Sep 25 20:30 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 20:30 : player: played "阿涵 - 過客我只是個陪伴者陪著你傷心難過動態歌詞Lyrics.mp3"
+Sep 25 20:34 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 20:34 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 20:34 : player: played "chinese/丁芙妮 - 只是太愛你『因為我不知道下一輩子還是否能遇見你....』【動態歌詞Lyrics】.webm"
+Sep 25 20:39 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 20:39 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 20:39 : player: played "chinese/隔壁老樊 - 多想在平庸的生活擁抱你『無力，是我們最後難免的結局。』【動態歌詞Lyrics】.webm"
+Sep 25 20:43 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 20:43 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 20:43 : player: played "chinese/阿涵 - 過客『我只是個陪伴者，陪著你傷心難過。』【動態歌詞Lyrics】.mkv"
+Sep 25 20:49 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 20:49 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 20:49 : player: played "chinese/解语花. - 天空之外 【動態歌詞_Lyrics Video】.webm"
+Sep 25 20:54 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 20:54 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 20:54 : player: played "chinese/王貳浪 - 像魚「我要記住你的樣子，像魚記住水的擁抱」動態歌詞MV ♪M.C.M.C♪.webm"
+Sep 25 20:59 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 20:59 : player: played "chinese/司南 - 冬眠【動態歌詞_Lyrics Video】.webm"
+Sep 25 21:03 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 21:03 : player: played "陳雪凝 - 綠色說不痛苦那是假的畢竟我的心也是肉做的動態歌詞Lyrics.mp3"
+Sep 25 21:08 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 21:08 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 21:08 : player: played "chinese/季彥霖 - 你一定要幸福（原唱：何潔） 『在夜深人靜的時候想起他....』【動態歌詞Lyrics】.webm"
+Sep 25 21:13 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 21:13 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 21:13 : player: played "chinese/Lizm Ladyhao - 紙短情長『我的故事都是關於你呀。』【動態歌詞Lyrics】.webm"
+Sep 25 21:18 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 21:18 : player: played "chinese/司南 - 冬眠【動態歌詞_Lyrics Video】.webm"
+Sep 25 21:22 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 21:22 : player: played "陳雪凝 - 綠色說不痛苦那是假的畢竟我的心也是肉做的動態歌詞Lyrics.mp3"
+Sep 25 21:27 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 21:27 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 21:27 : player: played "chinese/任然 - 飛鳥和蟬【動態歌詞】「你驕傲的飛遠 我棲息的夏天」♪.webm"
+Sep 25 21:32 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 21:32 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 21:32 : player: played "chinese/阿涵 - 過客『我只是個陪伴者，陪著你傷心難過。』【動態歌詞Lyrics】.mkv"
+Sep 25 21:38 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 21:38 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 21:38 : player: played "chinese/解语花. - 天空之外 【動態歌詞_Lyrics Video】.webm"
+Sep 25 21:42 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 21:42 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 21:42 : player: played "chinese/隔壁老樊 - 多想在平庸的生活擁抱你『無力，是我們最後難免的結局。』【動態歌詞Lyrics】.webm"
+Sep 25 21:47 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 21:47 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 21:47 : player: played "chinese/牛奶咖啡 - 明天你好『长大以后 我只能奔跑』【動態歌詞Lyrics】.webm"
+Sep 25 21:52 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 21:52 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 21:52 : player: played "chinese/王貳浪 - 像魚「我要記住你的樣子，像魚記住水的擁抱」動態歌詞MV ♪M.C.M.C♪.webm"
+Sep 25 21:56 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 21:56 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 25 21:56 : player: played "chinese/丁芙妮 - 只是太愛你『因為我不知道下一輩子還是否能遇見你....』【動態歌詞Lyrics】.webm"
+Sep 25 21:59 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 25 22:00 : player: played "chinese/阿冗 - 你的答案『也許我只能沉默，眼淚濕潤眼眶可又不甘懦弱。』【動態歌詞Lyrics】.webm"
+Sep 26 15:13 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 26 15:13 : player: played "阿涵 - 過客我只是個陪伴者陪著你傷心難過動態歌詞Lyrics.mp3"
+Sep 26 15:18 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 26 15:18 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 26 15:18 : player: played "chinese/季彥霖 - 你一定要幸福（原唱：何潔） 『在夜深人靜的時候想起他....』【動態歌詞Lyrics】.webm"
+Sep 26 15:20 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 26 15:24 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 26 15:24 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 26 15:24 : player: played "chinese/丁芙妮 - 只是太愛你『因為我不知道下一輩子還是否能遇見你....』【動態歌詞Lyrics】.webm"
+Sep 26 15:28 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 26 15:28 : player: played "chinese/阿冗 - 你的答案『也許我只能沉默，眼淚濕潤眼眶可又不甘懦弱。』【動態歌詞Lyrics】.webm"
+Sep 26 15:32 : player: played "陳雪凝 - 綠色說不痛苦那是假的畢竟我的心也是肉做的動態歌詞Lyrics.mp3"
+Sep 26 15:37 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 26 15:37 : player: played "阿涵 - 過客我只是個陪伴者陪著你傷心難過動態歌詞Lyrics.mp3"
+Sep 26 15:43 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 26 15:43 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 26 15:43 : player: played "chinese/解语花. - 天空之外 【動態歌詞_Lyrics Video】.webm"
+Sep 26 15:47 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 26 15:47 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 26 15:48 : player: played "chinese/阿涵 - 過客『我只是個陪伴者，陪著你傷心難過。』【動態歌詞Lyrics】.mkv"
+Sep 26 15:53 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 26 15:53 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 26 15:53 : player: played "chinese/季彥霖 - 你一定要幸福（原唱：何潔） 『在夜深人靜的時候想起他....』【動態歌詞Lyrics】.webm"
+Sep 26 15:57 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 26 15:57 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 26 15:57 : player: played "chinese/王貳浪 - 像魚「我要記住你的樣子，像魚記住水的擁抱」動態歌詞MV ♪M.C.M.C♪.webm"
+Sep 26 16:02 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 26 16:02 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 26 16:02 : player: played "chinese/牛奶咖啡 - 明天你好『长大以后 我只能奔跑』【動態歌詞Lyrics】.webm"
+Sep 26 16:06 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 26 16:06 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 26 16:07 : player: played "chinese/隔壁老樊 - 多想在平庸的生活擁抱你『無力，是我們最後難免的結局。』【動態歌詞Lyrics】.webm"
+Sep 26 16:11 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 26 16:11 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 26 16:12 : player: played "chinese/Lizm Ladyhao - 紙短情長『我的故事都是關於你呀。』【動態歌詞Lyrics】.webm"
+Sep 26 16:16 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 26 16:16 : player: played "chinese/司南 - 冬眠【動態歌詞_Lyrics Video】.webm"
+Sep 26 16:20 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 26 16:21 : player: played "阿涵 - 過客我只是個陪伴者陪著你傷心難過動態歌詞Lyrics.mp3"
+Sep 26 16:24 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 26 16:24 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 26 16:24 : player: played "chinese/阿冗 - 你的答案『也許我只能沉默，眼淚濕潤眼眶可又不甘懦弱。』【動態歌詞Lyrics】.webm"
+Sep 26 16:29 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 26 16:29 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 26 16:29 : player: played "chinese/阿涵 - 過客『我只是個陪伴者，陪著你傷心難過。』【動態歌詞Lyrics】.mkv"
+Sep 26 16:33 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 26 16:33 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 26 16:33 : player: played "chinese/丁芙妮 - 只是太愛你『因為我不知道下一輩子還是否能遇見你....』【動態歌詞Lyrics】.webm"
+Sep 26 16:37 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Sep 26 16:37 : player: played "chinese/隔壁老樊 - 多想在平庸的生活擁抱你『無力，是我們最後難免的結局。』【動態歌詞Lyrics】.webm"
+Sep 26 16:42 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Sep 26 16:42 : player: played "陳雪凝 - 綠色說不痛苦那是假的畢竟我的心也是肉做的動態歌詞Lyrics.mp3"
+Nov 24 13:55 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Nov 24 13:56 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Nov 24 13:56 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Nov 24 13:57 : player: played "chinese/任然 - 飛鳥和蟬【動態歌詞】「你驕傲的飛遠 我棲息的夏天」♪.webm"
+Nov 24 13:57 : update: added youtube/I Like You So Much, You’ll Know It (我多喜欢你，你会知道)- A Love So Beautiful OST -Wang Junqi [English Cover].mp3
+Nov 24 13:57 : player: played "chinese/阿冗 - 你的答案『也許我只能沉默，眼淚濕潤眼眶可又不甘懦弱。』【動態歌詞Lyrics】.webm"
+Nov 24 14:01 : player: played "youtube/I Like You So Much, You’ll Know It (我多喜欢你，你会知道)- A Love So Beautiful OST -Wang Junqi [English Cover].mp3"
+Nov 24 14:04 : player: played "youtube/I Like You So Much, You’ll Know It (我多喜欢你，你会知道)- A Love So Beautiful OST -Wang Junqi [English Cover].mp3"
+Nov 24 14:07 : player: played "youtube/I Like You So Much, You’ll Know It (我多喜欢你，你会知道)- A Love So Beautiful OST -Wang Junqi [English Cover].mp3"
+Nov 24 14:08 : update: added youtube/if 'I like you so much, you'll know it' was a breakup song.mp3
+Nov 24 14:12 : player: played "youtube/if 'I like you so much, you'll know it' was a breakup song.mp3"
+Nov 24 14:17 : player: played "youtube/Moon River wider than a mile.mp3"
+Nov 24 14:21 : player: played "youtube/if 'I like you so much, you'll know it' was a breakup song.mp3"
+Nov 24 14:24 : player: played "youtube/I Like You So Much, You’ll Know It (我多喜欢你，你会知道)- A Love So Beautiful OST -Wang Junqi [English Cover].mp3"
+Nov 24 14:29 : player: played "youtube/YOASOBI - Racing Into The Night Lyrics (JPN_ROM_ENG).mp3"
+Nov 24 14:33 : player: played "youtube/I Like You So Much, You’ll Know It (我多喜欢你，你会知道)- A Love So Beautiful OST -Wang Junqi [English Cover].mp3"
+Nov 24 15:57 : player: played "youtube/learn english through story ★ The Hobbit Audiobook (2020) - J. R. R. Tolkien.mp3"
+Nov 24 16:00 : player: played "youtube/Moon River wider than a mile.mp3"
+Nov 24 16:04 : player: played "youtube/if 'I like you so much, you'll know it' was a breakup song.mp3"
+Nov 24 22:47 : player: played "youtube/Autumn Leaves - Yenne Lee plays 2004 Pepe Romero Jr..mp3"
+Nov 24 23:32 : player: played "youtube/learn english through story ★ The Hobbit Audiobook (2020) - J. R. R. Tolkien.mp3"
+Nov 24 23:36 : player: played "youtube/YOASOBI - Racing Into The Night Lyrics (JPN_ROM_ENG).mp3"
+Nov 24 23:39 : player: played "youtube/I Like You So Much, You’ll Know It (我多喜欢你，你会知道)- A Love So Beautiful OST -Wang Junqi [English Cover].mp3"
+Nov 29 15:26 : player: played "youtube/if 'I like you so much, you'll know it' was a breakup song.mp3"
+Jan 26 08:13 : player: played "youtube/if 'I like you so much, you'll know it' was a breakup song.mp3"
+Jan 26 08:13 : update: removing chinese/Eric周興哲《你，好不好？ How Have You Been》Official Music Video《遺憾拼圖》片尾曲.webm
+Jan 26 08:13 : update: added /Free Audiobook： Atomic Habits： An Easy & Proven Way to Build Good Habits & Break Bad Ones＂： Summary [hh_rNTdx9t0].opus
+Jan 26 08:14 : player: played "youtube/Moon River wider than a mile.mp3"
+Mar 17 22:08 : client: [1] malformed command "GET /wdgts/plu/latest/dynamic_ttlbo/en_us/static/shapedivider.075880f5125563aeafc7.svg HTTP/1.1"
+Jun 01 13:21 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Jun 01 13:21 : player: played "阿涵 - 過客我只是個陪伴者陪著你傷心難過動態歌詞Lyrics.mp3"
+Jun 01 13:26 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Jun 01 13:26 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Jun 01 13:26 : player: played "chinese/任然 - 飛鳥和蟬【動態歌詞】「你驕傲的飛遠 我棲息的夏天」♪.webm"
+Jun 01 13:31 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Jun 01 13:31 : player: played "chinese/王貳浪 - 像魚「我要記住你的樣子，像魚記住水的擁抱」動態歌詞MV ♪M.C.M.C♪.webm"
+Jun 01 13:35 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Jun 01 13:35 : player: played "陳雪凝 - 綠色說不痛苦那是假的畢竟我的心也是肉做的動態歌詞Lyrics.mp3"
+Jun 01 13:39 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Jun 01 13:39 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Jun 01 13:39 : player: played "chinese/阿冗 - 你的答案『也許我只能沉默，眼淚濕潤眼眶可又不甘懦弱。』【動態歌詞Lyrics】.webm"
+Jun 01 13:43 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Jun 01 13:43 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Jun 01 13:43 : player: played "chinese/牛奶咖啡 - 明天你好『长大以后 我只能奔跑』【動態歌詞Lyrics】.webm"
+Jun 01 13:49 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Jun 01 13:49 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Jun 01 13:50 : player: played "chinese/解语花. - 天空之外 【動態歌詞_Lyrics Video】.webm"
+Jun 01 13:54 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Jun 01 13:54 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Jun 01 13:54 : player: played "chinese/丁芙妮 - 只是太愛你『因為我不知道下一輩子還是否能遇見你....』【動態歌詞Lyrics】.webm"
+Jun 01 13:58 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Jun 01 13:58 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Jun 01 13:58 : player: played "chinese/司南 - 冬眠【動態歌詞_Lyrics Video】.webm"
+Jun 01 14:03 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Jun 01 14:03 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Jun 01 14:03 : player: played "chinese/隔壁老樊 - 多想在平庸的生活擁抱你『無力，是我們最後難免的結局。』【動態歌詞Lyrics】.webm"
+Jun 01 14:08 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Jun 01 14:08 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Jun 01 14:08 : player: played "chinese/Lizm Ladyhao - 紙短情長『我的故事都是關於你呀。』【動態歌詞Lyrics】.webm"
+Jun 01 14:12 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Jun 01 14:12 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Jun 01 14:12 : player: played "chinese/阿涵 - 過客『我只是個陪伴者，陪著你傷心難過。』【動態歌詞Lyrics】.mkv"
+Jun 01 14:17 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Jun 01 14:17 : player: played "chinese/季彥霖 - 你一定要幸福（原唱：何潔） 『在夜深人靜的時候想起他....』【動態歌詞Lyrics】.webm"
+Jun 01 14:24 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Jun 01 14:24 : player: played "Đừng Chỉ Là Mơ [Vô Sắc OST] - Thế Bảo.mp3"
+Jun 01 14:28 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Jun 01 14:28 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Jun 01 14:28 : player: played "chinese/丁芙妮 - 只是太愛你『因為我不知道下一輩子還是否能遇見你....』【動態歌詞Lyrics】.webm"
+Jun 01 14:42 : ffmpeg/opus: Could not update timestamps for discarded samples.
+Jun 01 14:42 : player: played "chinese/牛奶咖啡 - 明天你好『长大以后 我只能奔跑』【動態歌詞Lyrics】.webm"

@@ -1014,7 +1014,8 @@ c.downloads.remove_finished = 3000
 ## Same as `{column}`, but starting from index 0.
 ## Type: ShellCommand
 # c.editor.command = ['gvim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
-c.editor.command = ["alacritty", "-e", "vim", "{}", "+call cursor({line}, {column})"]
+# c.editor.command = ["alacritty", "-e", "vim", "{}", "+call cursor({line}, {column})"]
+c.editor.command = ["foot", "-T", "title_mark_floating", "-e", "vim", "-c", "startinsert", "{}", "+call cursor({line}, {column})"]
 
 ## Encoding to use for the editor.
 ## Type: Encoding
@@ -1235,7 +1236,8 @@ c.fonts.web.size.default = 20
 
 ## Enter insert mode if an editable element is clicked.
 ## Type: Bool
-c.input.insert_mode.auto_enter = False
+# The behavior is not consistent
+c.input.insert_mode.auto_enter = True
 
 ## Leave insert mode if a non-editable element is clicked.
 ## Type: Bool
@@ -1244,7 +1246,7 @@ c.input.insert_mode.auto_leave = True
 ## Automatically enter insert mode if an editable element is focused
 ## after loading the page.
 ## Type: Bool
-c.input.insert_mode.auto_load = False
+c.input.insert_mode.auto_load = True
 
 ## Leave insert mode when starting a new page load. Patterns may be
 ## unreliable on this setting, and they may match the url you are
@@ -1427,7 +1429,7 @@ c.qt.force_software_rendering = 'none'
 ##   - never: Never show the scrollbar.
 ##   - when-searching: Show the scrollbar when searching for text in the webpage. With the QtWebKit backend, this is equal to `never`.
 ##   - overlay: Show an overlay scrollbar. With Qt < 5.11 or on macOS, this is unavailable and equal to `when-searching`; with the QtWebKit backend, this is equal to `never`. Enabling/disabling overlay scrollbars requires a restart.
-# c.scrolling.bar = 'overlay'
+c.scrolling.bar = 'overlay'
 
 ## Enable smooth scrolling for web pages. Note smooth scrolling does not
 ## work with the `:scroll-px` command.
@@ -1520,7 +1522,7 @@ c.qt.force_software_rendering = 'none'
 ## Valid values:
 ##   - top
 ##   - bottom
-# c.statusbar.position = 'bottom'
+c.statusbar.position = 'bottom'
 
 ## When to show the statusbar.
 ## Type: String
@@ -1582,7 +1584,7 @@ c.tabs.background = True
 
 ## Padding (in pixels) for tab indicators.
 ## Type: Padding
-# c.tabs.indicator.padding = {'top': 2, 'bottom': 2, 'left': 0, 'right': 4}
+c.tabs.indicator.padding = {'top': 2, 'bottom': 2, 'left': 0, 'right': 4}
 
 ## Width (in pixels) of the progress indicator (0 to disable).
 ## Type: Int
@@ -1619,11 +1621,11 @@ c.tabs.max_width = 300
 ##   - persist: Retain the current mode.
 ##   - restore: Restore previously saved mode.
 ##   - normal: Always revert to normal mode.
-# c.tabs.mode_on_change = 'normal'
+c.tabs.mode_on_change = 'restore'
 
 ## Switch between tabs using the mouse wheel.
 ## Type: Bool
-# c.tabs.mousewheel_switching = True
+c.tabs.mousewheel_switching = False
 
 ## Position of new tabs opened from another tab. See
 ## `tabs.new_position.stacking` for controlling stacking behavior.
@@ -1670,7 +1672,7 @@ c.tabs.max_width = 300
 ##   - bottom
 ##   - left
 ##   - right
-# c.tabs.position = 'top'
+c.tabs.position = 'top'
 
 ## Which tab to select when the focused tab is removed.
 ## Type: SelectOnRemove
@@ -1850,15 +1852,25 @@ c.zoom.levels = ['25%', '33%', '50%', '67%', '75%', '90%', '100%', '110%', '125%
 # config.bind(';r', 'hint --rapid links tab-bg')
 # config.bind(';t', 'hint inputs')
 # config.bind(';y', 'hint links yank')
-# config.bind('<Alt-1>', 'tab-focus 1')
-# config.bind('<Alt-2>', 'tab-focus 2')
-# config.bind('<Alt-3>', 'tab-focus 3')
-# config.bind('<Alt-4>', 'tab-focus 4')
-# config.bind('<Alt-5>', 'tab-focus 5')
-# config.bind('<Alt-6>', 'tab-focus 6')
-# config.bind('<Alt-7>', 'tab-focus 7')
-# config.bind('<Alt-8>', 'tab-focus 8')
-# config.bind('<Alt-9>', 'tab-focus -1')
+config.bind('<Alt-1>', 'tab-focus 1')
+config.bind('<Alt-2>', 'tab-focus 2')
+config.bind('<Alt-3>', 'tab-focus 3')
+config.bind('<Alt-4>', 'tab-focus 4')
+config.bind('<Alt-5>', 'tab-focus 5')
+config.bind('<Alt-6>', 'tab-focus 6')
+config.bind('<Alt-7>', 'tab-focus 7')
+config.bind('<Alt-8>', 'tab-focus 8')
+config.bind('<Alt-9>', 'tab-focus -1')
+
+config.bind('<Alt-1>', 'tab-focus 1', mode='passthrough')
+config.bind('<Alt-2>', 'tab-focus 2', mode='passthrough')
+config.bind('<Alt-3>', 'tab-focus 3', mode='passthrough')
+config.bind('<Alt-4>', 'tab-focus 4', mode='passthrough')
+config.bind('<Alt-5>', 'tab-focus 5', mode='passthrough')
+config.bind('<Alt-6>', 'tab-focus 6', mode='passthrough')
+config.bind('<Alt-7>', 'tab-focus 7', mode='passthrough')
+config.bind('<Alt-8>', 'tab-focus 8', mode='passthrough')
+config.bind('<Alt-9>', 'tab-focus -1', mode='passthrough')
 # config.bind('<Alt-m>', 'tab-mute')
 # config.bind('<Ctrl-A>', 'navigate increment')
 # config.bind('<Ctrl-Alt-p>', 'print')
@@ -1870,8 +1882,10 @@ c.zoom.levels = ['25%', '33%', '50%', '67%', '75%', '90%', '100%', '110%', '125%
 # config.bind('<Ctrl-PgDown>', 'tab-next')
 # config.bind('<Ctrl-PgUp>', 'tab-prev')
 
-config.bind('<Shift-K>', 'tab-next')
-config.bind('<Shift-J>', 'tab-prev')
+config.bind('<Shift-K>', 'tab-next', mode='normal')
+config.bind('<Shift-J>', 'tab-prev', mode='normal')
+config.bind('<Shift-K>', 'tab-next', mode='passthrough')
+config.bind('<Shift-J>', 'tab-prev', mode='passthrough')
 # config.bind('<Ctrl-Q>', 'quit')
 # config.bind('<Ctrl-Return>', 'follow-selected -t')
 # config.bind('<Ctrl-Shift-N>', 'open -p')
@@ -2093,6 +2107,7 @@ config.bind('<Shift-J>', 'tab-prev')
 
 ## Bindings for insert mode
 config.bind('<Ctrl-I>', 'edit-text', mode='insert')
+config.bind('<Ctrl-I>', 'mode-enter insert;; edit-text', mode='normal')
 # config.bind('<Escape>', 'leave-mode', mode='insert')
 # config.bind('<Shift-Ins>', 'insert-text -- {primary}', mode='insert')
 
@@ -2137,9 +2152,23 @@ config.bind('<Ctrl-I>', 'edit-text', mode='insert')
 # config.bind('Y', 'prompt-accept --save yes', mode='yesno')
 # config.bind('n', 'prompt-accept no', mode='yesno')
 # config.bind('y', 'prompt-accept yes', mode='yesno')
-config.bind('M', 'hint links spawn mpv {hint-url}')
+config.bind('M', 'hint links spawn --detach mpv {hint-url} d')
 config.bind('Z', 'hint links spawn alacritty --class floating_shell_not_stick -e yt-dlp --max-downloads 100 -P "/home/tringuyen/Videos/" -o "%(title)s.%(ext)s" "{hint-url}" ')
+config.bind('<Ctrl-O>', 'spawn --userscript qute-bitwarden')
 
 config.set('content.notifications.enabled', False, '*://reddit.com')
 config.set('content.notifications.enabled', False, '*://calendar.google.com')
 config.load_autoconfig(False)
+
+import dracula.draw
+
+# Load existing settings made via :set
+config.load_autoconfig()
+
+dracula.draw.blood(c, {
+    'spacing': {
+        'vertical': 6,
+        'horizontal': 8
+    }
+})
+

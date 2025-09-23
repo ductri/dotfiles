@@ -1,5 +1,5 @@
 #!/bin/sh
-read -p "Do you want to proceed? (yes/no)" yn
+read -p "Do you want to proceed? This will cope your current configurations to this directory (yes/no)" yn
 if [[ $yn=="yes" ]] ; then
     echo "Save vimrc"
     cp ~/.vimrc vimrc

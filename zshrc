@@ -17,15 +17,12 @@ alias clc="clear"
 alias neww="vim /home/tringuyen/research/notes/every-vocab.md"
 alias llt="ls -lht"
 alias mpv4="mpv -ytdl-format 'bestvideo[height<=480]+bestaudio/best[height<=480]'"
+alias mpv7="mpv -ytdl-format 'bestvideo[height<=720]+bestaudio/best[height<=720]'"
 duh() {
-    "du -lh -d 1 | tee disk_stat_"$(date)".txt"
+    du -lh -d 1 | tee disk_stat_$(date +%F-%T).txt
 }
 
-export GEM_HOME=$HOME/gems
-
-path+=('/home/tringuyen/.local/share/gem/ruby/3.0.0/bin')
-path+=('$HOME/gems/bin')
-export PATH
+# path+=('/home/tringuyen/.local/share/gem/ruby/3.3.0/bin')
 
 unsetopt correct
 

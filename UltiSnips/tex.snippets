@@ -62,7 +62,7 @@ snippet var "variance"
 \text{var}($1)$0
 endsnippet
 
-snippet 3subfigure "3 subfigures" i
+snippet 3subfigures "3 subfigures" i
 \begin{figure}[H]
     \centering
     \begin{subfigure}[t]{0.32\textwidth}
@@ -84,7 +84,7 @@ snippet 3subfigure "3 subfigures" i
 $0
 endsnippet
 
-snippet 2subfigure "2 subfigures" i
+snippet 2subfigures "2 subfigures" i
 \begin{figure}[H]
     \centering
     \begin{subfigure}[t]{0.45\textwidth}
@@ -503,7 +503,12 @@ snippet inter "interior" i
 \text{int}($1)$0
 endsnippet
 
+snippet multicolumn "latex multicolumn" i
+\multicolumn{${1:num_cols}}{|c|}{${2:text}}
+endsnippet
 
-# snippet "ell" "\ell" ri
-# ell 
-# endsnippet
+
+snippet multirow "latex multirow" i
+\multirow{${1:num_rows}}{*}{${2:text}}
+endsnippet
+

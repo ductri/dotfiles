@@ -1,11 +1,14 @@
 def blood(c, options = {}):
     palette = {
-        'background': '#282a36',
-        'background-alt': '#282a36', 
-        'background-attention': '#181920',
+        # 'background': '#282a36',
+        'background': '#1d1f2b',
+        'background-alt': '#282a36',
+        # 'background-attention': '#181920',
+        'background-attention': '#4287f5',
         'border': '#282a36',
         'current-line': '#44475a',
         'selection': '#44475a',
+        # 'selection': '#1d1f2b',
         'foreground': '#f8f8f2',
         'foreground-alt': '#e0e0e0',
         'foreground-attention': '#ffffff',
@@ -16,12 +19,7 @@ def blood(c, options = {}):
         'pink': '#ff79c6',
         'purple': '#bd93f9',
         'red': '#ff5555',
-        'yellow': '#f1fa8c',
-        
-        'active-tab-bg': '#285577',
-        'active-tab-fg': '#ffffff',
-        'unselected-tab-bg': '#222222',
-        'unselected-tab-fg': '#888888',
+        'yellow': '#f1fa8c'
     }   
 
     spacing = options.get('spacing', {
@@ -197,7 +195,8 @@ def blood(c, options = {}):
     c.colors.statusbar.normal.fg = palette['foreground']
 
     ## Background color of the statusbar in passthrough mode.
-    c.colors.statusbar.passthrough.bg = palette['background']
+    # c.colors.statusbar.passthrough.bg = palette['background']
+    c.colors.statusbar.passthrough.bg = palette['background-attention']
 
     ## Foreground color of the statusbar in passthrough mode.
     c.colors.statusbar.passthrough.fg = palette['orange']
@@ -238,13 +237,11 @@ def blood(c, options = {}):
 
     ## Background color of unselected even tabs.
     ## Type: QtColor
-    #c.colors.tabs.even.bg = palette['selection']
-    c.colors.tabs.even.bg = palette['unselected-tab-bg']
+    c.colors.tabs.even.bg = palette['selection']
 
     ## Foreground color of unselected even tabs.
     ## Type: QtColor
-    #c.colors.tabs.even.fg = palette['foreground']
-    c.colors.tabs.even.fg = palette['unselected-tab-fg']
+    c.colors.tabs.even.fg = palette['foreground']
 
     ## Color for the tab indicator on errors.
     ## Type: QtColor
@@ -269,33 +266,27 @@ def blood(c, options = {}):
 
     ## Background color of unselected odd tabs.
     ## Type: QtColor
-    #c.colors.tabs.odd.bg = palette['selection']
-    c.colors.tabs.odd.bg = c.colors.tabs.even.bg
+    c.colors.tabs.odd.bg = palette['selection']
 
     ## Foreground color of unselected odd tabs.
     ## Type: QtColor
-    #c.colors.tabs.odd.fg = palette['foreground']
-    c.colors.tabs.odd.fg = c.colors.tabs.even.fg
+    c.colors.tabs.odd.fg = palette['foreground']
 
     # ## Background color of selected even tabs.
     # ## Type: QtColor
-    #c.colors.tabs.selected.even.bg = palette['active-tab']
-    c.colors.tabs.selected.even.bg = palette['active-tab-bg']
+    c.colors.tabs.selected.even.bg = palette['background']
 
     # ## Foreground color of selected even tabs.
     # ## Type: QtColor
-    #c.colors.tabs.selected.even.fg = palette['foreground']
-    c.colors.tabs.selected.even.fg = palette['active-tab-fg']
+    c.colors.tabs.selected.even.fg = palette['foreground']
 
     # ## Background color of selected odd tabs.
     # ## Type: QtColor
-    #c.colors.tabs.selected.odd.bg = palette['background']
-    c.colors.tabs.selected.odd.bg = c.colors.tabs.selected.even.bg
+    c.colors.tabs.selected.odd.bg = palette['background']
 
     # ## Foreground color of selected odd tabs.
     # ## Type: QtColor
-    #c.colors.tabs.selected.odd.fg = palette['foreground']
-    c.colors.tabs.selected.odd.fg = c.colors.tabs.selected.even.fg
+    c.colors.tabs.selected.odd.fg = palette['foreground']
 
     ## Tab padding
     c.tabs.padding = padding

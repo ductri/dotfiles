@@ -1,3 +1,4 @@
+[general]
 live_config_reload = true
 
 [cursor.style]
@@ -32,7 +33,7 @@ key = "Return"
 mods = "Super|Shift"
 
 [window]
-opacity = 0.8
+opacity = 0.7
 
 [window.padding]
 x = 10
